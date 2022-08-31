@@ -1,0 +1,943 @@
+@import "breakpoints.scss";
+
+//predkosc animacji
+$toggle-control-speed: 1s;
+$predkosc-sekundy: 10s;
+$primary: #dc5656;
+$primary-ultralight: mix(white, $primary, 80%);
+$primary-light: mix(white, $primary, 25%);
+$primary-dark: mix(black, $primary, 25%);
+$primary-ultradark: mix(black, $primary, 80%);
+$black: #333333;
+$white: #eeeeee;
+html {
+  scroll-behavior: smooth;
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+      "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
+      "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    margin: 0;
+    a {
+      cursor: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3174/cursor.png),
+        auto;
+    }
+
+    .naglowek {
+      z-index: 1;
+      position: fixed;
+      display: flex;
+      top: 0;
+      width: 100%;
+      height: 70px;
+      box-shadow: 0px 15px 20px -5px rgba(0, 0, 0, 0.08);
+
+      .n_lewy.show {
+        transition: 0s;
+      }
+      .n_prawy.show {
+        transition: 0s;
+      }
+
+      .n_lewy {
+        width: 100%;
+        height: 100%;
+        left: 0%;
+        background-color: #ffffff;
+        transition: $toggle-control-speed;
+      }
+      .n_prawy {
+        width: 0%;
+        height: 100%;
+        right: 0%;
+        background-color: #3c3b3a;
+        transition: $toggle-control-speed;
+      }
+      .sekcje {
+        top: 0;
+        bottom: 0;
+        position: absolute;
+        margin-left: 20px;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+        color: #202020;
+
+        .logo {
+          padding-top: 5px;
+          margin-top: auto;
+          margin-bottom: auto;
+          transition: $toggle-control-speed;
+          left: 0px;
+          .logo_czarne {
+            display: none;
+            transition: $toggle-control-speed;
+          }
+          .logo_biale {
+            display: block;
+            transition: $toggle-control-speed;
+          }
+          a {
+            cursor: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3174/cursor.png),
+              auto;
+          }
+        }
+        .s {
+          transition: $toggle-control-speed;
+          font-family: "Be Vietnam";
+          font-style: normal;
+          font-weight: normal;
+          font-size: 15px;
+          text-align: center;
+          margin-top: auto;
+          margin-bottom: auto;
+          padding-bottom: 4px;
+          a {
+            margin-left: 30px;
+            transition: $toggle-control-speed;
+            text-decoration: none;
+            color: #0065ff;
+            cursor: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3174/cursor.png), auto;
+
+            @include media("<=tablet") {
+              margin-left: 20px;
+            }
+          }
+        }
+      }
+
+      .navbaricon {
+        transition: $toggle-control-speed;
+        position: absolute;
+        right: 0;
+        display: none;
+        width: 70px;
+        height: 70px;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+
+        //border: 1px solid grey;
+        span{
+            position: absolute;
+            width: 30px;
+            height: 2px;
+            background: #0065ff;
+            border-radius: 4px;
+            transition: 0.5s;
+            left: 15px;
+        }
+        span:nth-child(1){
+            transform: translateY(-10px);
+            width: 20px;
+            left: 15px;
+        }
+        span:nth-child(2){
+            transform: translateY(10px);
+            width: 15px;
+            left: 15px;
+        }
+        @include media("<=tablet") {
+          display: flex;
+        }
+      }
+      .navbaricon.active{
+        span:nth-child(1){
+            width: 30px;
+            transform: translateY(0) rotate(45deg);
+            transition-delay: 0.125s;
+        }
+        span:nth-child(2){
+            width: 30px;
+            transform: translateY(0) rotate(315deg);
+            transition-delay: 0.25s;
+        }
+        span:nth-child(3){
+            transform: translateX(60px);
+        }
+      }
+      .sekcje2 {
+        position: absolute;
+        right: 0;
+        margin-right: 25px;
+        top: 28.25%;
+        height: 43.5%;
+        display: flex;
+        flex-direction: row;
+        .ikony {
+          display: flex;
+          height: 100%;
+          .icon {
+            font-size: 16px;
+            margin-top: auto;
+            margin-bottom: auto;
+            text-decoration: none;
+            margin-right: 30px;
+            i {
+              color: #0065ff;
+              transition: $toggle-control-speed;
+              cursor: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3174/cursor.png),
+                auto;
+            }
+          }
+        }
+        .p_zone {
+          margin-top: auto;
+          margin-bottom: auto;
+          position: relative;
+          display: flex;
+          color: #212529;
+          font-size: 16px;
+          transition: $toggle-control-speed;
+
+          .darkmode {
+            transition: $toggle-control-speed;
+            margin-bottom: 3px;
+            font-size: 15px;
+          }
+          .przycisk {
+            margin-top: auto;
+            margin-bottom: auto;
+            margin-left: 5px;
+            cursor: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3174/cursor.png),
+              auto;
+            .p_tlo {
+              position: relative;
+              width: 50px;
+              height: 25px;
+              border-radius: 160px;
+              display: flex;
+              align-items: center;
+
+              background-color: #ffffff;
+              box-shadow: inset 0 2px 60px rgba(0, 0, 0, 0.1),
+                inset 0 2px 8px rgba(0, 0, 0, 0.1),
+                inset 0 -4px 8px rgba(0, 0, 0, 0.05);
+
+              .p_kropka {
+                position: absolute;
+                border-radius: 50%;
+                width: 25px;
+                height: 25px;
+                left: 0px;
+                transition: 0.3s;
+                transform: scale(0.9);
+
+                background: linear-gradient(to bottom, #eaeaea, #f9f9f9);
+                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1),
+                  inset 0 0.5px 0.5px rgba(225, 225, 225, 1),
+                  inset 0 -0.5px 0.5px rgba(225, 225, 225, 1);
+              }
+            }
+          }
+          .przycisk.active {
+            .p_tlo {
+              background-color: #3c3b3a;
+              box-shadow: inset 0 8px 60px rgba(0, 0, 0, 0.1),
+                inset 0 8px 8px rgba(0, 0, 0, 0.1),
+                inset 0 -4px 4px rgba(0, 0, 0, 0.1);
+              .p_kropka {
+                left: 25px;
+                background: linear-gradient(to bottom, #444, #222);
+                box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5),
+                  inset 0 1px 1px rgba(225, 225, 225, 0.2),
+                  inset 0 -1px 1px rgba(225, 225, 225, 0.2);
+              }
+            }
+          }
+        }
+        @include media("<=tablet") {
+          display: none;
+          width: 100%;
+        }
+      }
+      .show {
+        box-shadow: 0px 70px 65px 10px rgba(0, 0, 0, 0.15);
+        padding: 20px;
+        left: 0;
+        right: 0;
+        width: 100%;
+        margin-top: 43px;
+        height: 100px;
+        display: flex;
+        .ikony {
+          margin-top: 5px;
+          width: 20px;
+          height: 20px;
+          .link {
+            margin-right: 20px;
+          }
+          .icon-facebook {
+            height: 20px;
+          }
+        }
+        .p_zone {
+          margin-top: 70px;
+          position: absolute;
+          margin-left: 0;
+        }
+      }
+    }
+    .cont {
+      height: 150vh;
+      position: relative;
+      .lewy {
+        top: 0;
+        bottom: 0;
+        position: fixed;
+        width: 100%;
+        //height: 100%;
+        background-color: #ffffff;
+        left: 0;
+        transition: $toggle-control-speed;
+      }
+      .prawy {
+        top: 0;
+        right: 0%;
+        bottom: 0;
+        position: fixed;
+        width: 0%;
+        //height: 100%;
+        background-color: #222222;
+        transition: $toggle-control-speed;
+      }
+      .glowne {
+        margin-top: 120px;
+        width: 960px;
+        left: 0;
+        right: 0;
+        margin-left: auto;
+        margin-right: auto;
+
+        @include media("<=992px") {
+          width: 790px;
+        }
+        @include media("<=830px") {
+          width: 660px;
+        }
+        @include media("<=tablet") {
+          width: 615px;
+          margin-top: 100px;
+        }
+        @include media("<=645px") {
+          width: 515px;
+        }
+        @include media("<=540px") {
+          width: 430px;
+        }
+        @include media("<=450px") {
+          width: 360px;
+        }
+        @include media("<=370px") {
+          //top: 2%;
+          width: 295px;
+        }
+        @include media("<=phone") {
+          width: 285px;
+        }
+
+        .awatar {
+          position: relative;
+          background-color: #ffffff;
+          width: 100px;
+          height: 100px;
+          left: 0;
+          top: 0;
+          background-image: url(/resources/img/moje_foto.png);
+          background-size: cover;
+          background-position: center;
+          box-shadow: 0px 15px 20px -5px rgba(0, 0, 0, 0.1);
+          border-radius: 100px;
+          transition: $toggle-control-speed;
+
+          animation-delay: 0.1s;
+
+          @include media("<=992px") {
+            width: 70px;
+            height: 70px;
+          }
+        }
+        .wstep{
+          width: 80%;
+          position: relative;
+          left: 0;
+          display: flex;
+          align-items: center;
+          color: #0065ff;
+          transition: $toggle-control-speed;
+          h1{
+            margin-top: 0.5em;
+            margin-bottom: 0;
+            font-size: 4.1em;
+            line-height: 100%;
+            letter-spacing: -0.02em;
+            font-style: normal;
+            font-weight: 800;
+            font-family: EB Garamond;
+
+            @include media("<=tablet") {
+                font-size: 3em;
+              }
+          }
+
+          animation-delay: 0.2s;
+
+          
+          // @include media('<=450px'){
+          //     top: 5%;
+          // }
+          @include media("<=600px") {
+            width: 100%;
+          }
+        }
+        .linia {
+          margin-top: 80px;
+          margin-bottom: 80px;
+          border: 1px solid #0065ff;
+          position: relative;
+          left: 0;
+          //top:32%;
+          width: 15%;
+          transition: $toggle-control-speed;
+
+          animation-delay: 0.3s;
+          @include media("<=tablet") {
+            margin: 50px 0 50px 0;
+          }
+        }
+        .tekst {
+          margin-top: 10px;
+          margin-bottom: 1rem;
+          position: relative;
+          left: 0;
+          //top:37%;
+          font-family: "Be Vietnam", sans-serif;
+          font-weight: 400;
+          font-size: 17.5px;
+          line-height: 160%;
+          color: #3c3b3a;
+          letter-spacing: -0.01em;
+          transition: $toggle-control-speed;
+
+          // animation-delay: 0.4s;
+          .comment {
+            color: rgba(128, 128, 128, 0.512);
+            font-family: "Fira Code", monospace;
+            font-size: 17px;
+          }
+          .b {
+            font-family: "Fira Code", monospace;
+            color: #09e160;
+            font-size: 17px;
+          }
+
+          .tekst_link {
+            transition: $toggle-control-speed;
+            text-decoration: none;
+            color: #0065ff;
+          }
+          .tekst_link:hover {
+            text-decoration: underline;
+            cursor: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3174/cursor.png),
+              auto;
+          }
+        }
+        .label {
+          width: fit-content;
+          margin-top: 5rem;
+          margin-bottom: 0.5rem;
+          display: flex;
+          position: relative;
+          background-color: #f8f9fa;
+          border-radius: 10px;
+          padding: 1.5rem;
+          line-height: 140%;
+          transition: $toggle-control-speed;
+          font-size: 0.9em;
+
+          @include media("<=tablet") {
+            display: inline-block;
+            margin-top: 50px;
+          }
+          .label_link {
+            transition: $toggle-control-speed;
+            text-decoration: none;
+            color: #0065ff;
+          }
+          .label_link:hover {
+            text-decoration: underline;
+            cursor: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3174/cursor.png),
+              auto;
+          }
+        }
+        .linia2 {
+          position: relative;
+          margin-top: 80px;
+          margin-bottom: 80px;
+          border: 1px solid #0065ff;
+          left: 0;
+          width: 100%;
+          transition: $toggle-control-speed;
+        }
+        .mywork {
+          margin-left: 0;
+          margin-right: 0;
+          margin-top: 0.5em;
+          margin-bottom: 0.3em;
+          width: 80%;
+          position: relative;
+          left: 0;
+          font-family: EB Garamond;
+          font-style: normal;
+          font-weight: 800;
+          font-size: 4.1em;
+          line-height: 100%;
+          display: flex;
+          align-items: center;
+          letter-spacing: -0.02em;
+          color: #0065ff;
+          transition: $toggle-control-speed;
+
+          @include media("<=tablet") {
+            font-size: 2.2em;
+          }
+          @include media("<=370px") {
+            width: 100%;
+          }
+        }
+
+        .mywork_tekst {
+          margin-top: 70px;
+          transition: $toggle-control-speed;
+          position: relative;
+          left: 0;
+          font-family: "Be Vietnam", sans-serif;
+          font-weight: 400;
+          font-size: 17.5px;
+          line-height: 160%;
+          color: #3c3b3a;
+          letter-spacing: -0.01em;
+        }
+      }
+      .projekty {
+        margin-left: 50px;
+        margin-right: 50px;
+        margin-top: 60px;
+
+        .b {
+          font-family: "Fira Code", monospace;
+          color: #09e160;
+          font-size: 17px;
+        }
+
+        .projekt_1 {
+          margin-bottom: 90px;
+          display: flex;
+          .czesc_lewa {
+            position: relative;
+            width: 65%;
+            .saleswizard_white {
+              display: block;
+            }
+            .saleswizard_black {
+              display: none;
+            }
+            img {
+              float: right;
+              margin-right: 2%;
+              width: 100%;
+              height: auto;
+            }
+            @include media("<=990px") {
+              width: 100%;
+            }
+          }
+          .czesc_prawa {
+            position: ;
+            width: 35%;
+            position: relative;
+            margin-top: auto;
+            margin-bottom: auto;
+            .opis_1 {
+              a {
+                transition: $toggle-control-speed;
+                text-decoration: none;
+                color: #0065ff;
+                cursor: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3174/cursor.png),
+                  auto;
+              }
+              a:hover {
+                text-decoration: underline;
+              }
+              transition: $toggle-control-speed;
+              font-family: "Be Vietnam", sans-serif;
+              font-weight: 400;
+              font-size: 1.1em;
+              line-height: 160%;
+              color: #3c3b3a;
+              letter-spacing: -0.01em;
+              padding-right: 5%;
+              .technologie {
+                width: 85%;
+                height: 20%;
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                margin-top: 30px;
+                font-size: 13px;
+                .technologia {
+                  transition: $toggle-control-speed;
+                  padding: 4px 8px 4px 8px;
+                  margin: 0px 8px 8px 0px;
+                  background-color: #f8f9fa;
+                  border-radius: 20px;
+                  height: 20px !important;
+                  line-height: 140%;
+                }
+              }
+            }
+            @include media("<=990px") {
+              width: 80%;
+              margin-left: auto;
+              margin-right: auto;
+            }
+            @include media("<=769px") {
+              width: 95%;
+              margin-left: auto;
+              margin-right: auto;
+            }
+          }
+          @include media("<=990px") {
+            flex-direction: column;
+          }
+        }
+        .projekt_2 {
+          margin-top: 35px;
+          margin-bottom: 100px;
+          display: flex;
+          .czesc_lewa {
+            position: relative;
+            width: 65%;
+            display: flex;
+            .bookable_white {
+              display: block;
+            }
+            .bookable_black {
+              display: none;
+            }
+            img {
+              float: right;
+              margin-right: 2%;
+              width: 100%;
+              height: auto;
+            }
+
+            @include media("<=990px") {
+              width: 100%;
+            }
+          }
+          .czesc_prawa {
+            width: 35%;
+            position: relative;
+            margin-bottom: auto;
+            margin-top: auto;
+
+            .opis_1 {
+              a {
+                transition: $toggle-control-speed;
+                text-decoration: none;
+                color: #0065ff;
+                cursor: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3174/cursor.png),
+                  auto;
+              }
+              a:hover {
+                text-decoration: underline;
+              }
+              transition: $toggle-control-speed;
+              font-family: "Be Vietnam", sans-serif;
+              font-weight: 400;
+              font-size: 1.1em;
+              line-height: 160%;
+              color: #3c3b3a;
+              letter-spacing: -0.01em;
+              padding-right: 5%;
+              .technologie {
+                width: 85%;
+                height: 20%;
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                margin-top: 30px;
+                font-size: 13px;
+                .technologia {
+                  transition: $toggle-control-speed;
+                  padding: 4px 8px 4px 8px;
+                  margin: 0px 8px 8px 0px;
+                  background-color: #f8f9fa;
+                  border-radius: 20px;
+                  height: 20px;
+                  line-height: 140%;
+                }
+              }
+            }
+            @include media("<=990px") {
+              width: 80%;
+              margin-left: auto;
+              margin-right: auto;
+            }
+            @include media("<=769px") {
+              width: 95%;
+              margin-left: auto;
+              margin-right: auto;
+            }
+          }
+          @include media("<=990px") {
+            flex-direction: column;
+          }
+        }
+        .projekt_3 {
+          margin-top: 35px;
+          margin-bottom: 100px;
+          display: flex;
+
+          .czesc_lewa {
+            position: relative;
+            width: 65%;
+            display: flex;
+            .freedeal_white {
+              display: block;
+            }
+            .freedeal_black {
+              display: none;
+            }
+            img {
+              float: right;
+              margin-right: 2%;
+              width: 100%;
+              height: auto;
+            }
+
+            @include media("<=990px") {
+              width: 100%;
+            }
+          }
+          .czesc_prawa {
+            width: 35%;
+            position: relative;
+            margin-bottom: auto;
+            margin-top: auto;
+
+            .opis_1 {
+              a {
+                transition: $toggle-control-speed;
+                text-decoration: none;
+                color: #0065ff;
+                cursor: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3174/cursor.png),
+                  auto;
+              }
+              a:hover {
+                text-decoration: underline;
+              }
+              transition: $toggle-control-speed;
+              font-family: "Be Vietnam", sans-serif;
+              font-weight: 400;
+              font-size: 1.1em;
+              line-height: 160%;
+              color: #3c3b3a;
+              letter-spacing: -0.01em;
+              padding-right: 5%;
+
+              .technologie {
+                width: 85%;
+                height: 20%;
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                margin-top: 30px;
+                font-size: 13px;
+
+                .technologia {
+                  transition: $toggle-control-speed;
+                  padding: 4px 8px 4px 8px;
+                  margin: 0px 8px 8px 0px;
+                  background-color: #f8f9fa;
+                  border-radius: 20px;
+                  height: 20px;
+                  line-height: 140%;
+                }
+              }
+            }
+
+            @include media("<=990px") {
+              width: 80%;
+              margin-left: auto;
+              margin-right: auto;
+            }
+            @include media("<=769px") {
+              width: 95%;
+              margin-left: auto;
+              margin-right: auto;
+            }
+          }
+          @include media("<=990px") {
+            flex-direction: column;
+          }
+          @include media("<=tablet") {
+            margin-bottom: 80px;
+          }
+        }
+      }
+      .glowne_2 {
+        max-width: 960px;
+        left: 0;
+        right: 0;
+        margin-left: auto;
+        margin-right: auto;
+        @include media("<=992px") {
+          width: 790px;
+        }
+        @include media("<=830px") {
+          width: 660px;
+        }
+        @include media("<=tablet") {
+          width: 615px;
+        }
+        @include media("<=645px") {
+          width: 515px;
+        }
+        @include media("<=540px") {
+          width: 430px;
+        }
+        @include media("<=450px") {
+          width: 360px;
+        }
+        @include media("<=370px") {
+          //top: 2%;
+          width: 295px;
+        }
+        @include media("<=phone") {
+          width: 285px;
+        }
+        .label_2 {
+          position: relative;
+          font-family: "Be Vietnam", sans-serif;
+          margin-bottom: 140px;
+          background-color: #c5e3f6;
+          border-radius: 15px;
+          box-shadow: 0px 15px 20px -5px rgba(0, 0, 0, 0.1);
+          padding: 50px 50px;
+          font-size: 17px;
+          line-height: 160%;
+          transition: $toggle-control-speed;
+
+          a {
+            transition: $toggle-control-speed;
+            text-decoration: none;
+            color: #0065ff;
+            cursor: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3174/cursor.png),
+              auto;
+          }
+          a:hover {
+            text-decoration: underline;
+          }
+          @include media("<=tablet") {
+            margin-bottom: 100px;
+          }
+        }
+        .linia3 {
+          position: relative;
+          width: 40%;
+          border: 1px solid #808080;
+          margin-bottom: 70px;
+        }
+        .footer {
+          position: relative;
+          padding-bottom: 80px;
+          font-family: "Be Vietnam", sans-serif;
+          letter-spacing: -0.01em;
+          font-size: 0.9em;
+          color: #808080;
+          line-height: 140%;
+        }
+      }
+    }
+  }
+
+  //darkmode class
+  //background
+  .bcToBlack_on {
+    background-color: #222222 !important;
+  }
+  .bcToGray_on {
+    background-color: #3c3b3a !important;
+  }
+  .bcToWhite_on {
+    background-color: #faf4e6 !important;
+  }
+  //color
+  .colToWhite_on {
+    color: #faf4e6 !important;
+  }
+  .decToUnderline_on {
+    text-decoration: underline !important;
+  }
+  .decBorderLine_on {
+    border: 1px solid #faf4e6 !important;
+  }
+  //animations
+  .bcAnimation100_on {
+    width: 100% !important;
+  }
+  .bcAnimation0_on {
+    width: 0% !important;
+  }
+  .dotAnimation_on {
+    right: 0px !important;
+  }
+  .newHeight_on {
+    height: 290% !important;
+    transition: 0s !important;
+  }
+  //----
+  .reveal {
+    //position: relative;
+    transform: translateY(50px);
+    opacity: 0;
+    transition: 0.4s all ease;
+  }
+  .reveal.active {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  // .animate{
+  //     animation-duration: 0.75s;
+  //     animation-delay: 0.5s;
+  //     animation-name: animate-fade;
+  //     animation-timing-function: cubic-bezier(0.26, 0.53, 0.74, 1.48);
+  //     animation-fill-mode: backwards;
+  // }
+  // .animate.glow{
+  //     animation-name: animate-glow;
+  //     animation-timing-function: ease;
+  // }
+  // @keyframes animate-glow{
+  //     0% {
+  //       opacity: 0;
+  //       filter: brightness(3) saturate(3);
+  //       transform: scale(0.8, 0.8);
+  //     }
+  //     100% {
+  //       opacity: 1;
+  //       filter: brightness(1) saturate(1);
+  //       transform: scale(1, 1);
+  //     }
+  //   }
+
+  //photos
+  .photoVisible_on {
+    display: block !important;
+  }
+  .photoInvisible_on {
+    display: none !important;
+  }
+}

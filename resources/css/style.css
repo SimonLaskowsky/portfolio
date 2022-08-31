@@ -1,0 +1,1200 @@
+html {
+  scroll-behavior: smooth;
+}
+
+html body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  margin: 0;
+}
+
+html body a {
+  cursor: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3174/cursor.png), auto;
+}
+
+html body .naglowek {
+  z-index: 1;
+  position: fixed;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  top: 0;
+  width: 100%;
+  height: 70px;
+  -webkit-box-shadow: 0px 15px 20px -5px rgba(0, 0, 0, 0.08);
+          box-shadow: 0px 15px 20px -5px rgba(0, 0, 0, 0.08);
+}
+
+html body .naglowek .n_lewy.show {
+  -webkit-transition: 0s;
+  transition: 0s;
+}
+
+html body .naglowek .n_prawy.show {
+  -webkit-transition: 0s;
+  transition: 0s;
+}
+
+html body .naglowek .n_lewy {
+  width: 100%;
+  height: 100%;
+  left: 0%;
+  background-color: #ffffff;
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+
+html body .naglowek .n_prawy {
+  width: 0%;
+  height: 100%;
+  right: 0%;
+  background-color: #3c3b3a;
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+
+html body .naglowek .sekcje {
+  top: 0;
+  bottom: 0;
+  position: absolute;
+  margin-left: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  color: #202020;
+}
+
+html body .naglowek .sekcje .logo {
+  padding-top: 5px;
+  margin-top: auto;
+  margin-bottom: auto;
+  -webkit-transition: 1s;
+  transition: 1s;
+  left: 0px;
+}
+
+html body .naglowek .sekcje .logo .logo_czarne {
+  display: none;
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+
+html body .naglowek .sekcje .logo .logo_biale {
+  display: block;
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+
+html body .naglowek .sekcje .logo a {
+  cursor: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3174/cursor.png), auto;
+}
+
+html body .naglowek .sekcje .s {
+  -webkit-transition: 1s;
+  transition: 1s;
+  font-family: "Be Vietnam";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  text-align: center;
+  margin-top: auto;
+  margin-bottom: auto;
+  padding-bottom: 4px;
+}
+
+html body .naglowek .sekcje .s a {
+  margin-left: 30px;
+  -webkit-transition: 1s;
+  transition: 1s;
+  text-decoration: none;
+  color: #0065ff;
+  cursor: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3174/cursor.png), auto;
+}
+
+@media (max-width: 768px) {
+  html body .naglowek .sekcje .s a {
+    margin-left: 20px;
+  }
+}
+
+html body .naglowek .navbaricon {
+  -webkit-transition: 1s;
+  transition: 1s;
+  position: absolute;
+  right: 0;
+  display: none;
+  width: 70px;
+  height: 70px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  overflow: hidden;
+}
+
+html body .naglowek .navbaricon span {
+  position: absolute;
+  width: 30px;
+  height: 2px;
+  background: #0065ff;
+  border-radius: 4px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  left: 15px;
+}
+
+html body .naglowek .navbaricon span:nth-child(1) {
+  -webkit-transform: translateY(-10px);
+          transform: translateY(-10px);
+  width: 20px;
+  left: 15px;
+}
+
+html body .naglowek .navbaricon span:nth-child(2) {
+  -webkit-transform: translateY(10px);
+          transform: translateY(10px);
+  width: 15px;
+  left: 15px;
+}
+
+@media (max-width: 768px) {
+  html body .naglowek .navbaricon {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+
+html body .naglowek .navbaricon.active span:nth-child(1) {
+  width: 30px;
+  -webkit-transform: translateY(0) rotate(45deg);
+          transform: translateY(0) rotate(45deg);
+  -webkit-transition-delay: 0.125s;
+          transition-delay: 0.125s;
+}
+
+html body .naglowek .navbaricon.active span:nth-child(2) {
+  width: 30px;
+  -webkit-transform: translateY(0) rotate(315deg);
+          transform: translateY(0) rotate(315deg);
+  -webkit-transition-delay: 0.25s;
+          transition-delay: 0.25s;
+}
+
+html body .naglowek .navbaricon.active span:nth-child(3) {
+  -webkit-transform: translateX(60px);
+          transform: translateX(60px);
+}
+
+html body .naglowek .sekcje2 {
+  position: absolute;
+  right: 0;
+  margin-right: 25px;
+  top: 28.25%;
+  height: 43.5%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+html body .naglowek .sekcje2 .ikony {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+}
+
+html body .naglowek .sekcje2 .ikony .icon {
+  font-size: 16px;
+  margin-top: auto;
+  margin-bottom: auto;
+  text-decoration: none;
+  margin-right: 30px;
+}
+
+html body .naglowek .sekcje2 .ikony .icon i {
+  color: #0065ff;
+  -webkit-transition: 1s;
+  transition: 1s;
+  cursor: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3174/cursor.png), auto;
+}
+
+html body .naglowek .sekcje2 .p_zone {
+  margin-top: auto;
+  margin-bottom: auto;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: #212529;
+  font-size: 16px;
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+
+html body .naglowek .sekcje2 .p_zone .darkmode {
+  -webkit-transition: 1s;
+  transition: 1s;
+  margin-bottom: 3px;
+  font-size: 15px;
+}
+
+html body .naglowek .sekcje2 .p_zone .przycisk {
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: 5px;
+  cursor: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3174/cursor.png), auto;
+}
+
+html body .naglowek .sekcje2 .p_zone .przycisk .p_tlo {
+  position: relative;
+  width: 50px;
+  height: 25px;
+  border-radius: 160px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #ffffff;
+  -webkit-box-shadow: inset 0 2px 60px rgba(0, 0, 0, 0.1), inset 0 2px 8px rgba(0, 0, 0, 0.1), inset 0 -4px 8px rgba(0, 0, 0, 0.05);
+          box-shadow: inset 0 2px 60px rgba(0, 0, 0, 0.1), inset 0 2px 8px rgba(0, 0, 0, 0.1), inset 0 -4px 8px rgba(0, 0, 0, 0.05);
+}
+
+html body .naglowek .sekcje2 .p_zone .przycisk .p_tlo .p_kropka {
+  position: absolute;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  left: 0px;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
+  background: -webkit-gradient(linear, left top, left bottom, from(#eaeaea), to(#f9f9f9));
+  background: linear-gradient(to bottom, #eaeaea, #f9f9f9);
+  -webkit-box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1), inset 0 0.5px 0.5px #e1e1e1, inset 0 -0.5px 0.5px #e1e1e1;
+          box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1), inset 0 0.5px 0.5px #e1e1e1, inset 0 -0.5px 0.5px #e1e1e1;
+}
+
+html body .naglowek .sekcje2 .p_zone .przycisk.active .p_tlo {
+  background-color: #3c3b3a;
+  -webkit-box-shadow: inset 0 8px 60px rgba(0, 0, 0, 0.1), inset 0 8px 8px rgba(0, 0, 0, 0.1), inset 0 -4px 4px rgba(0, 0, 0, 0.1);
+          box-shadow: inset 0 8px 60px rgba(0, 0, 0, 0.1), inset 0 8px 8px rgba(0, 0, 0, 0.1), inset 0 -4px 4px rgba(0, 0, 0, 0.1);
+}
+
+html body .naglowek .sekcje2 .p_zone .przycisk.active .p_tlo .p_kropka {
+  left: 25px;
+  background: -webkit-gradient(linear, left top, left bottom, from(#444), to(#222));
+  background: linear-gradient(to bottom, #444, #222);
+  -webkit-box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(225, 225, 225, 0.2), inset 0 -1px 1px rgba(225, 225, 225, 0.2);
+          box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(225, 225, 225, 0.2), inset 0 -1px 1px rgba(225, 225, 225, 0.2);
+}
+
+@media (max-width: 768px) {
+  html body .naglowek .sekcje2 {
+    display: none;
+    width: 100%;
+  }
+}
+
+html body .naglowek .show {
+  -webkit-box-shadow: 0px 70px 65px 10px rgba(0, 0, 0, 0.15);
+          box-shadow: 0px 70px 65px 10px rgba(0, 0, 0, 0.15);
+  padding: 20px;
+  left: 0;
+  right: 0;
+  width: 100%;
+  margin-top: 43px;
+  height: 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+html body .naglowek .show .ikony {
+  margin-top: 5px;
+  width: 20px;
+  height: 20px;
+}
+
+html body .naglowek .show .ikony .link {
+  margin-right: 20px;
+}
+
+html body .naglowek .show .ikony .icon-facebook {
+  height: 20px;
+}
+
+html body .naglowek .show .p_zone {
+  margin-top: 70px;
+  position: absolute;
+  margin-left: 0;
+}
+
+html body .cont {
+  height: 150vh;
+  position: relative;
+}
+
+html body .cont .lewy {
+  top: 0;
+  bottom: 0;
+  position: fixed;
+  width: 100%;
+  background-color: #ffffff;
+  left: 0;
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+
+html body .cont .prawy {
+  top: 0;
+  right: 0%;
+  bottom: 0;
+  position: fixed;
+  width: 0%;
+  background-color: #222222;
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+
+html body .cont .glowne {
+  margin-top: 120px;
+  width: 960px;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 992px) {
+  html body .cont .glowne {
+    width: 790px;
+  }
+}
+
+@media (max-width: 830px) {
+  html body .cont .glowne {
+    width: 660px;
+  }
+}
+
+@media (max-width: 768px) {
+  html body .cont .glowne {
+    width: 615px;
+    margin-top: 100px;
+  }
+}
+
+@media (max-width: 645px) {
+  html body .cont .glowne {
+    width: 515px;
+  }
+}
+
+@media (max-width: 540px) {
+  html body .cont .glowne {
+    width: 430px;
+  }
+}
+
+@media (max-width: 450px) {
+  html body .cont .glowne {
+    width: 360px;
+  }
+}
+
+@media (max-width: 370px) {
+  html body .cont .glowne {
+    width: 295px;
+  }
+}
+
+@media (max-width: 360px) {
+  html body .cont .glowne {
+    width: 285px;
+  }
+}
+
+html body .cont .glowne .awatar {
+  position: relative;
+  background-color: #ffffff;
+  width: 100px;
+  height: 100px;
+  left: 0;
+  top: 0;
+  background-image: url(/resources/img/moje_foto.png);
+  background-size: cover;
+  background-position: center;
+  -webkit-box-shadow: 0px 15px 20px -5px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 15px 20px -5px rgba(0, 0, 0, 0.1);
+  border-radius: 100px;
+  -webkit-transition: 1s;
+  transition: 1s;
+  -webkit-animation-delay: 0.1s;
+          animation-delay: 0.1s;
+}
+
+@media (max-width: 992px) {
+  html body .cont .glowne .awatar {
+    width: 70px;
+    height: 70px;
+  }
+}
+
+html body .cont .glowne .wstep {
+  width: 80%;
+  position: relative;
+  left: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #0065ff;
+  -webkit-transition: 1s;
+  transition: 1s;
+  -webkit-animation-delay: 0.2s;
+          animation-delay: 0.2s;
+}
+
+html body .cont .glowne .wstep h1 {
+  margin-top: 0.5em;
+  margin-bottom: 0;
+  font-size: 4.1em;
+  line-height: 100%;
+  letter-spacing: -0.02em;
+  font-style: normal;
+  font-weight: 800;
+  font-family: EB Garamond;
+}
+
+@media (max-width: 768px) {
+  html body .cont .glowne .wstep h1 {
+    font-size: 3em;
+  }
+}
+
+@media (max-width: 600px) {
+  html body .cont .glowne .wstep {
+    width: 100%;
+  }
+}
+
+html body .cont .glowne .linia {
+  margin-top: 80px;
+  margin-bottom: 80px;
+  border: 1px solid #0065ff;
+  position: relative;
+  left: 0;
+  width: 15%;
+  -webkit-transition: 1s;
+  transition: 1s;
+  -webkit-animation-delay: 0.3s;
+          animation-delay: 0.3s;
+}
+
+@media (max-width: 768px) {
+  html body .cont .glowne .linia {
+    margin: 50px 0 50px 0;
+  }
+}
+
+html body .cont .glowne .tekst {
+  margin-top: 10px;
+  margin-bottom: 1rem;
+  position: relative;
+  left: 0;
+  font-family: "Be Vietnam", sans-serif;
+  font-weight: 400;
+  font-size: 17.5px;
+  line-height: 160%;
+  color: #3c3b3a;
+  letter-spacing: -0.01em;
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+
+html body .cont .glowne .tekst .comment {
+  color: rgba(128, 128, 128, 0.512);
+  font-family: "Fira Code", monospace;
+  font-size: 17px;
+}
+
+html body .cont .glowne .tekst .b {
+  font-family: "Fira Code", monospace;
+  color: #09e160;
+  font-size: 17px;
+}
+
+html body .cont .glowne .tekst .tekst_link {
+  -webkit-transition: 1s;
+  transition: 1s;
+  text-decoration: none;
+  color: #0065ff;
+}
+
+html body .cont .glowne .tekst .tekst_link:hover {
+  text-decoration: underline;
+  cursor: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3174/cursor.png), auto;
+}
+
+html body .cont .glowne .label {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin-top: 5rem;
+  margin-bottom: 0.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  padding: 1.5rem;
+  line-height: 140%;
+  -webkit-transition: 1s;
+  transition: 1s;
+  font-size: 0.9em;
+}
+
+@media (max-width: 768px) {
+  html body .cont .glowne .label {
+    display: inline-block;
+    margin-top: 50px;
+  }
+}
+
+html body .cont .glowne .label .label_link {
+  -webkit-transition: 1s;
+  transition: 1s;
+  text-decoration: none;
+  color: #0065ff;
+}
+
+html body .cont .glowne .label .label_link:hover {
+  text-decoration: underline;
+  cursor: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3174/cursor.png), auto;
+}
+
+html body .cont .glowne .linia2 {
+  position: relative;
+  margin-top: 80px;
+  margin-bottom: 80px;
+  border: 1px solid #0065ff;
+  left: 0;
+  width: 100%;
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+
+html body .cont .glowne .mywork {
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 0.5em;
+  margin-bottom: 0.3em;
+  width: 80%;
+  position: relative;
+  left: 0;
+  font-family: EB Garamond;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 4.1em;
+  line-height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  letter-spacing: -0.02em;
+  color: #0065ff;
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+
+@media (max-width: 768px) {
+  html body .cont .glowne .mywork {
+    font-size: 2.2em;
+  }
+}
+
+@media (max-width: 370px) {
+  html body .cont .glowne .mywork {
+    width: 100%;
+  }
+}
+
+html body .cont .glowne .mywork_tekst {
+  margin-top: 70px;
+  -webkit-transition: 1s;
+  transition: 1s;
+  position: relative;
+  left: 0;
+  font-family: "Be Vietnam", sans-serif;
+  font-weight: 400;
+  font-size: 17.5px;
+  line-height: 160%;
+  color: #3c3b3a;
+  letter-spacing: -0.01em;
+}
+
+html body .cont .projekty {
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-top: 60px;
+}
+
+html body .cont .projekty .b {
+  font-family: "Fira Code", monospace;
+  color: #09e160;
+  font-size: 17px;
+}
+
+html body .cont .projekty .projekt_1 {
+  margin-bottom: 90px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+html body .cont .projekty .projekt_1 .czesc_lewa {
+  position: relative;
+  width: 65%;
+}
+
+html body .cont .projekty .projekt_1 .czesc_lewa .saleswizard_white {
+  display: block;
+}
+
+html body .cont .projekty .projekt_1 .czesc_lewa .saleswizard_black {
+  display: none;
+}
+
+html body .cont .projekty .projekt_1 .czesc_lewa img {
+  float: right;
+  margin-right: 2%;
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 990px) {
+  html body .cont .projekty .projekt_1 .czesc_lewa {
+    width: 100%;
+  }
+}
+
+html body .cont .projekty .projekt_1 .czesc_prawa {
+  width: 35%;
+  position: relative;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+html body .cont .projekty .projekt_1 .czesc_prawa .opis_1 {
+  -webkit-transition: 1s;
+  transition: 1s;
+  font-family: "Be Vietnam", sans-serif;
+  font-weight: 400;
+  font-size: 1.1em;
+  line-height: 160%;
+  color: #3c3b3a;
+  letter-spacing: -0.01em;
+  padding-right: 5%;
+}
+
+html body .cont .projekty .projekt_1 .czesc_prawa .opis_1 a {
+  -webkit-transition: 1s;
+  transition: 1s;
+  text-decoration: none;
+  color: #0065ff;
+  cursor: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3174/cursor.png), auto;
+}
+
+html body .cont .projekty .projekt_1 .czesc_prawa .opis_1 a:hover {
+  text-decoration: underline;
+}
+
+html body .cont .projekty .projekt_1 .czesc_prawa .opis_1 .technologie {
+  width: 85%;
+  height: 20%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin-top: 30px;
+  font-size: 13px;
+}
+
+html body .cont .projekty .projekt_1 .czesc_prawa .opis_1 .technologie .technologia {
+  -webkit-transition: 1s;
+  transition: 1s;
+  padding: 4px 8px 4px 8px;
+  margin: 0px 8px 8px 0px;
+  background-color: #f8f9fa;
+  border-radius: 20px;
+  height: 20px !important;
+  line-height: 140%;
+}
+
+@media (max-width: 990px) {
+  html body .cont .projekty .projekt_1 .czesc_prawa {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 769px) {
+  html body .cont .projekty .projekt_1 .czesc_prawa {
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 990px) {
+  html body .cont .projekty .projekt_1 {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+html body .cont .projekty .projekt_2 {
+  margin-top: 35px;
+  margin-bottom: 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+html body .cont .projekty .projekt_2 .czesc_lewa {
+  position: relative;
+  width: 65%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+html body .cont .projekty .projekt_2 .czesc_lewa .bookable_white {
+  display: block;
+}
+
+html body .cont .projekty .projekt_2 .czesc_lewa .bookable_black {
+  display: none;
+}
+
+html body .cont .projekty .projekt_2 .czesc_lewa img {
+  float: right;
+  margin-right: 2%;
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 990px) {
+  html body .cont .projekty .projekt_2 .czesc_lewa {
+    width: 100%;
+  }
+}
+
+html body .cont .projekty .projekt_2 .czesc_prawa {
+  width: 35%;
+  position: relative;
+  margin-bottom: auto;
+  margin-top: auto;
+}
+
+html body .cont .projekty .projekt_2 .czesc_prawa .opis_1 {
+  -webkit-transition: 1s;
+  transition: 1s;
+  font-family: "Be Vietnam", sans-serif;
+  font-weight: 400;
+  font-size: 1.1em;
+  line-height: 160%;
+  color: #3c3b3a;
+  letter-spacing: -0.01em;
+  padding-right: 5%;
+}
+
+html body .cont .projekty .projekt_2 .czesc_prawa .opis_1 a {
+  -webkit-transition: 1s;
+  transition: 1s;
+  text-decoration: none;
+  color: #0065ff;
+  cursor: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3174/cursor.png), auto;
+}
+
+html body .cont .projekty .projekt_2 .czesc_prawa .opis_1 a:hover {
+  text-decoration: underline;
+}
+
+html body .cont .projekty .projekt_2 .czesc_prawa .opis_1 .technologie {
+  width: 85%;
+  height: 20%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin-top: 30px;
+  font-size: 13px;
+}
+
+html body .cont .projekty .projekt_2 .czesc_prawa .opis_1 .technologie .technologia {
+  -webkit-transition: 1s;
+  transition: 1s;
+  padding: 4px 8px 4px 8px;
+  margin: 0px 8px 8px 0px;
+  background-color: #f8f9fa;
+  border-radius: 20px;
+  height: 20px;
+  line-height: 140%;
+}
+
+@media (max-width: 990px) {
+  html body .cont .projekty .projekt_2 .czesc_prawa {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 769px) {
+  html body .cont .projekty .projekt_2 .czesc_prawa {
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 990px) {
+  html body .cont .projekty .projekt_2 {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+html body .cont .projekty .projekt_3 {
+  margin-top: 35px;
+  margin-bottom: 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+html body .cont .projekty .projekt_3 .czesc_lewa {
+  position: relative;
+  width: 65%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+html body .cont .projekty .projekt_3 .czesc_lewa .freedeal_white {
+  display: block;
+}
+
+html body .cont .projekty .projekt_3 .czesc_lewa .freedeal_black {
+  display: none;
+}
+
+html body .cont .projekty .projekt_3 .czesc_lewa img {
+  float: right;
+  margin-right: 2%;
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 990px) {
+  html body .cont .projekty .projekt_3 .czesc_lewa {
+    width: 100%;
+  }
+}
+
+html body .cont .projekty .projekt_3 .czesc_prawa {
+  width: 35%;
+  position: relative;
+  margin-bottom: auto;
+  margin-top: auto;
+}
+
+html body .cont .projekty .projekt_3 .czesc_prawa .opis_1 {
+  -webkit-transition: 1s;
+  transition: 1s;
+  font-family: "Be Vietnam", sans-serif;
+  font-weight: 400;
+  font-size: 1.1em;
+  line-height: 160%;
+  color: #3c3b3a;
+  letter-spacing: -0.01em;
+  padding-right: 5%;
+}
+
+html body .cont .projekty .projekt_3 .czesc_prawa .opis_1 a {
+  -webkit-transition: 1s;
+  transition: 1s;
+  text-decoration: none;
+  color: #0065ff;
+  cursor: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3174/cursor.png), auto;
+}
+
+html body .cont .projekty .projekt_3 .czesc_prawa .opis_1 a:hover {
+  text-decoration: underline;
+}
+
+html body .cont .projekty .projekt_3 .czesc_prawa .opis_1 .technologie {
+  width: 85%;
+  height: 20%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin-top: 30px;
+  font-size: 13px;
+}
+
+html body .cont .projekty .projekt_3 .czesc_prawa .opis_1 .technologie .technologia {
+  -webkit-transition: 1s;
+  transition: 1s;
+  padding: 4px 8px 4px 8px;
+  margin: 0px 8px 8px 0px;
+  background-color: #f8f9fa;
+  border-radius: 20px;
+  height: 20px;
+  line-height: 140%;
+}
+
+@media (max-width: 990px) {
+  html body .cont .projekty .projekt_3 .czesc_prawa {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 769px) {
+  html body .cont .projekty .projekt_3 .czesc_prawa {
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 990px) {
+  html body .cont .projekty .projekt_3 {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+@media (max-width: 768px) {
+  html body .cont .projekty .projekt_3 {
+    margin-bottom: 80px;
+  }
+}
+
+html body .cont .glowne_2 {
+  max-width: 960px;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 992px) {
+  html body .cont .glowne_2 {
+    width: 790px;
+  }
+}
+
+@media (max-width: 830px) {
+  html body .cont .glowne_2 {
+    width: 660px;
+  }
+}
+
+@media (max-width: 768px) {
+  html body .cont .glowne_2 {
+    width: 615px;
+  }
+}
+
+@media (max-width: 645px) {
+  html body .cont .glowne_2 {
+    width: 515px;
+  }
+}
+
+@media (max-width: 540px) {
+  html body .cont .glowne_2 {
+    width: 430px;
+  }
+}
+
+@media (max-width: 450px) {
+  html body .cont .glowne_2 {
+    width: 360px;
+  }
+}
+
+@media (max-width: 370px) {
+  html body .cont .glowne_2 {
+    width: 295px;
+  }
+}
+
+@media (max-width: 360px) {
+  html body .cont .glowne_2 {
+    width: 285px;
+  }
+}
+
+html body .cont .glowne_2 .label_2 {
+  position: relative;
+  font-family: "Be Vietnam", sans-serif;
+  margin-bottom: 140px;
+  background-color: #c5e3f6;
+  border-radius: 15px;
+  -webkit-box-shadow: 0px 15px 20px -5px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 15px 20px -5px rgba(0, 0, 0, 0.1);
+  padding: 50px 50px;
+  font-size: 17px;
+  line-height: 160%;
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+
+html body .cont .glowne_2 .label_2 a {
+  -webkit-transition: 1s;
+  transition: 1s;
+  text-decoration: none;
+  color: #0065ff;
+  cursor: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3174/cursor.png), auto;
+}
+
+html body .cont .glowne_2 .label_2 a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  html body .cont .glowne_2 .label_2 {
+    margin-bottom: 100px;
+  }
+}
+
+html body .cont .glowne_2 .linia3 {
+  position: relative;
+  width: 40%;
+  border: 1px solid #808080;
+  margin-bottom: 70px;
+}
+
+html body .cont .glowne_2 .footer {
+  position: relative;
+  padding-bottom: 80px;
+  font-family: "Be Vietnam", sans-serif;
+  letter-spacing: -0.01em;
+  font-size: 0.9em;
+  color: #808080;
+  line-height: 140%;
+}
+
+html .bcToBlack_on {
+  background-color: #222222 !important;
+}
+
+html .bcToGray_on {
+  background-color: #3c3b3a !important;
+}
+
+html .bcToWhite_on {
+  background-color: #faf4e6 !important;
+}
+
+html .colToWhite_on {
+  color: #faf4e6 !important;
+}
+
+html .decToUnderline_on {
+  text-decoration: underline !important;
+}
+
+html .decBorderLine_on {
+  border: 1px solid #faf4e6 !important;
+}
+
+html .bcAnimation100_on {
+  width: 100% !important;
+}
+
+html .bcAnimation0_on {
+  width: 0% !important;
+}
+
+html .dotAnimation_on {
+  right: 0px !important;
+}
+
+html .newHeight_on {
+  height: 290% !important;
+  -webkit-transition: 0s !important;
+  transition: 0s !important;
+}
+
+html .reveal {
+  -webkit-transform: translateY(50px);
+          transform: translateY(50px);
+  opacity: 0;
+  -webkit-transition: 0.4s all ease;
+  transition: 0.4s all ease;
+}
+
+html .reveal.active {
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+  opacity: 1;
+}
+
+html .photoVisible_on {
+  display: block !important;
+}
+
+html .photoInvisible_on {
+  display: none !important;
+}
+/*# sourceMappingURL=style.css.map */
