@@ -3,7 +3,9 @@ html {
 }
 
 html body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+ "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
+ "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   margin: 0;
 }
 
@@ -793,9 +795,6 @@ html body .cont .projekty .projekt_2 {
 html body .cont .projekty .projekt_2 .czesc_lewa {
   position: relative;
   width: 65%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
 }
 
 html body .cont .projekty .projekt_2 .czesc_lewa .bookable_white {
@@ -913,9 +912,6 @@ html body .cont .projekty .projekt_3 {
 html body .cont .projekty .projekt_3 .czesc_lewa {
   position: relative;
   width: 65%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
 }
 
 html body .cont .projekty .projekt_3 .czesc_lewa .freedeal_white {
