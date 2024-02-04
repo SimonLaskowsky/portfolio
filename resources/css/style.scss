@@ -81,9 +81,9 @@ html {
               max-width: 200px;
               position: relative;
               top: 2px;
-              @include media("<=600x") {
+              @include media("<=600px") {
                 max-width: 150px;
-                margin-left: -10px;
+                margin-left: -15px;
               }
             }
           }

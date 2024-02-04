@@ -70,9 +70,10 @@ html body .naglowek .sekcje .logo a img {
   position: relative;
   top: 2px;
 }
-@media (max-width: 990px) {
+@media (max-width: 600px) {
   html body .naglowek .sekcje .logo a img {
     max-width: 150px;
+    margin-left: -15px;
   }
 }
 html body .naglowek .sekcje .s {
