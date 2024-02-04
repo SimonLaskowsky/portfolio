@@ -1,9 +1,1 @@
-{
-    "version": 3,
-    "mappings": "",
-    "sources": [
-        "breakpoints.scss"
-    ],
-    "names": [],
-    "file": "breakpoints.css"
-}
+{"version":3,"sources":[],"names":[],"mappings":"","file":"breakpoints.css"}

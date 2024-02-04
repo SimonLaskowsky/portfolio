@@ -77,6 +77,15 @@ html {
           }
           a {
             cursor: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3174/cursor.png), auto;
+            img {
+              max-width: 200px;
+              position: relative;
+              top: 2px;
+              @include media("<=600x") {
+                max-width: 150px;
+                margin-left: -10px;
+              }
+            }
           }
         }
         .s {
@@ -549,7 +558,6 @@ html {
             }
           }
           .czesc_prawa {
-            position:;
             width: 35%;
             position: relative;
             margin-top: auto;
