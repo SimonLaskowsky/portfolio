@@ -858,6 +858,7 @@ html body .cont #myProjects .projects-wrapper .project .project-image img {
     max-width: 600px;
     width: 100%;
     height: auto;
+    margin: 0;
   }
 }
 html body .cont #myProjects .projects-wrapper .project .project-description {
@@ -882,6 +883,11 @@ html body .cont #myProjects .projects-wrapper .project .project-description h4 a
 }
 html body .cont #myProjects .projects-wrapper .project .project-description p {
   color: #3c3b3a;
+}
+@media (max-width: 990px) {
+  html body .cont #myProjects .projects-wrapper .project .project-description {
+    margin: 0;
+  }
 }
 @media (max-width: 990px) {
   html body .cont #myProjects .projects-wrapper .project {

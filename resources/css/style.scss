@@ -861,6 +861,7 @@ html {
                 max-width: 600px;
                 width: 100%;
                 height: auto;
+                margin: 0;
               }
             }
             .project-description {
@@ -885,6 +886,10 @@ html {
               }
               p {
                 color: #3c3b3a;
+              }
+
+              @include media("<=990px") {
+                margin: 0;
               }
             }
             @include media("<=990px") {
