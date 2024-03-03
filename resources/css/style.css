@@ -66,7 +66,7 @@ html body .naglowek .sekcje .logo a {
   cursor: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3174/cursor.png), auto;
 }
 html body .naglowek .sekcje .logo a img {
-  max-width: 200px;
+  max-width: 160px;
   position: relative;
   top: 2px;
 }
@@ -78,14 +78,15 @@ html body .naglowek .sekcje .logo a img {
 }
 html body .naglowek .sekcje .s {
   transition: 1s;
-  font-family: "Be Vietnam";
+  font-family: "Be Vietnam Pro";
   font-style: normal;
   font-weight: normal;
   font-size: 15px;
   text-align: center;
   margin-top: auto;
   margin-bottom: auto;
-  padding-bottom: 4px;
+  position: relative;
+  top: 1px;
 }
 html body .naglowek .sekcje .s a {
   margin-left: 30px;
@@ -97,6 +98,7 @@ html body .naglowek .sekcje .s a {
 @media (max-width: 768px) {
   html body .naglowek .sekcje .s a {
     margin-left: 20px;
+    display: none;
   }
 }
 html body .naglowek .navbaricon {
@@ -228,6 +230,14 @@ html body .naglowek .sekcje2 .p_zone .przycisk.active .p_tlo .p_kropka {
     width: 100%;
   }
 }
+html body .naglowek .sekcje2 .mobile-links {
+  display: none;
+}
+@media (max-width: 768px) {
+  html body .naglowek .sekcje2 .mobile-links {
+    display: block;
+  }
+}
 html body .naglowek .show {
   box-shadow: 0px 70px 65px 10px rgba(0, 0, 0, 0.15);
   padding: 20px;
@@ -235,8 +245,9 @@ html body .naglowek .show {
   right: 0;
   width: 100%;
   margin-top: 43px;
-  height: 100px;
+  height: 150px;
   display: flex;
+  flex-direction: column;
 }
 html body .naglowek .show .ikony {
   margin-top: 5px;
@@ -250,9 +261,26 @@ html body .naglowek .show .ikony .icon-facebook {
   height: 20px;
 }
 html body .naglowek .show .p_zone {
-  margin-top: 70px;
+  margin-top: 100px;
   position: absolute;
   margin-left: 0;
+  left: 15px;
+}
+html body .naglowek .show .mobile-links {
+  transition: 1s;
+  font-family: "Be Vietnam Pro";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  margin-top: 29px;
+  padding-bottom: 4px;
+}
+html body .naglowek .show .mobile-links a {
+  margin-right: 15px;
+  transition: 1s;
+  text-decoration: none;
+  color: #0065ff;
+  cursor: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3174/cursor.png), auto;
 }
 html body .cont {
   height: 150vh;
@@ -395,7 +423,7 @@ html body .cont .glowne .tekst {
   margin-bottom: 1rem;
   position: relative;
   left: 0;
-  font-family: "Be Vietnam", sans-serif;
+  font-family: "Be Vietnam Pro", sans-serif;
   font-weight: 400;
   font-size: 17.5px;
   line-height: 160%;
@@ -494,7 +522,7 @@ html body .cont .glowne .mywork_tekst {
   transition: 1s;
   position: relative;
   left: 0;
-  font-family: "Be Vietnam", sans-serif;
+  font-family: "Be Vietnam Pro", sans-serif;
   font-weight: 400;
   font-size: 17.5px;
   line-height: 160%;
@@ -544,7 +572,7 @@ html body .cont .projekty .projekt_1 .czesc_prawa {
 }
 html body .cont .projekty .projekt_1 .czesc_prawa .opis_1 {
   transition: 1s;
-  font-family: "Be Vietnam", sans-serif;
+  font-family: "Be Vietnam Pro", sans-serif;
   font-weight: 400;
   font-size: 1.1em;
   line-height: 160%;
@@ -633,7 +661,7 @@ html body .cont .projekty .projekt_2 .czesc_prawa {
 }
 html body .cont .projekty .projekt_2 .czesc_prawa .opis_1 {
   transition: 1s;
-  font-family: "Be Vietnam", sans-serif;
+  font-family: "Be Vietnam Pro", sans-serif;
   font-weight: 400;
   font-size: 1.1em;
   line-height: 160%;
@@ -721,7 +749,7 @@ html body .cont .projekty .projekt_3 .czesc_prawa {
 }
 html body .cont .projekty .projekt_3 .czesc_prawa .opis_1 {
   transition: 1s;
-  font-family: "Be Vietnam", sans-serif;
+  font-family: "Be Vietnam Pro", sans-serif;
   font-weight: 400;
   font-size: 1.1em;
   line-height: 160%;
@@ -780,6 +808,104 @@ html body .cont .projekty .projekt_3 .czesc_prawa .opis_1 .technologie .technolo
     margin-bottom: 80px;
   }
 }
+html body .cont #myProjects {
+  position: relative;
+  background-color: #f8f9fa;
+  display: flex;
+  justify-content: center;
+}
+html body .cont #myProjects .projects-wrapper {
+  max-width: 960px;
+  width: 100%;
+  margin-bottom: 100px;
+}
+html body .cont #myProjects .projects-wrapper .projects-title h2 {
+  color: #3c3b3a;
+  margin: 36px 0;
+  font-size: 30px;
+  font-family: "Be Vietnam Pro", sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+html body .cont #myProjects .projects-wrapper .projects-description {
+  color: #3c3b3a;
+  font-size: 17.5px;
+  letter-spacing: -0.01em;
+  font-family: "Be Vietnam Pro", sans-serif;
+  margin-bottom: 10px;
+  line-height: 160%;
+}
+html body .cont #myProjects .projects-wrapper .project {
+  display: flex;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+@media (max-width: 990px) {
+  html body .cont #myProjects .projects-wrapper .project .project-image {
+    display: flex;
+    justify-content: center;
+  }
+}
+html body .cont #myProjects .projects-wrapper .project .project-image img {
+  margin: 15px;
+  border-radius: 10px;
+  border: 4px solid #F0F0F0;
+  max-width: 250px;
+  box-shadow: 0px 10px 20px 10px rgba(0, 0, 0, 0.1);
+}
+@media (max-width: 990px) {
+  html body .cont #myProjects .projects-wrapper .project .project-image img {
+    max-width: 600px;
+    width: 100%;
+    height: auto;
+  }
+}
+html body .cont #myProjects .projects-wrapper .project .project-description {
+  margin: 0px 15px 0px 15px;
+  width: 100%;
+  font-family: "Be Vietnam Pro", sans-serif;
+  font-size: 1.1em;
+  letter-spacing: -0.01em;
+  line-height: 160%;
+}
+html body .cont #myProjects .projects-wrapper .project .project-description h4 {
+  color: #3c3b3a;
+  margin: 15px 0;
+  font-size: 20px;
+  font-weight: 600;
+  font-family: "Be Vietnam Pro", sans-serif;
+  letter-spacing: -0.01em;
+}
+html body .cont #myProjects .projects-wrapper .project .project-description h4 a {
+  color: #3c3b3a;
+  text-decoration: none;
+}
+html body .cont #myProjects .projects-wrapper .project .project-description p {
+  color: #3c3b3a;
+}
+@media (max-width: 990px) {
+  html body .cont #myProjects .projects-wrapper .project {
+    flex-direction: column;
+  }
+}
+html body .cont #myProjects .projects-wrapper a {
+  transition: 1s;
+  text-decoration: none;
+  color: #0065ff;
+  cursor: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3174/cursor.png), auto;
+}
+html body .cont #myProjects .projects-wrapper a:hover {
+  text-decoration: underline;
+}
+@media (max-width: 990px) {
+  html body .cont #myProjects .projects-wrapper {
+    width: 80%;
+  }
+}
+html body .cont footer {
+  background-color: #f8f9fa;
+  position: relative;
+}
 html body .cont .glowne_2 {
   max-width: 960px;
   left: 0;
@@ -829,7 +955,7 @@ html body .cont .glowne_2 {
 }
 html body .cont .glowne_2 .label_2 {
   position: relative;
-  font-family: "Be Vietnam", sans-serif;
+  font-family: "Be Vietnam Pro", sans-serif;
   margin-bottom: 140px;
   background-color: #c5e3f6;
   border-radius: 15px;
@@ -862,7 +988,7 @@ html body .cont .glowne_2 .linia3 {
 html body .cont .glowne_2 .footer {
   position: relative;
   padding-bottom: 80px;
-  font-family: "Be Vietnam", sans-serif;
+  font-family: "Be Vietnam Pro", sans-serif;
   letter-spacing: -0.01em;
   font-size: 0.9em;
   color: #808080;
@@ -896,7 +1022,7 @@ html .dotAnimation_on {
   right: 0px !important;
 }
 html .newHeight_on {
-  height: 290% !important;
+  height: 360% !important;
   transition: 0s !important;
 }
 html .reveal {
@@ -913,4 +1039,27 @@ html .photoVisible_on {
 }
 html .photoInvisible_on {
   display: none !important;
+}
+html .technologie {
+  width: 85%;
+  height: 20%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 30px;
+  font-size: 13px;
+}
+html .technologie .technologia {
+  transition: 1s;
+  padding: 4px 8px 4px 8px;
+  margin: 0px 8px 8px 0px;
+  background-color: #fff;
+  border-radius: 20px;
+  height: 20px !important;
+  line-height: 140%;
+}
+html .b {
+  font-family: "Fira Code", monospace;
+  color: #09e160;
+  font-size: 17px;
 }/*# sourceMappingURL=style.css.map */

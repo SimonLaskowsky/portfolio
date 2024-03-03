@@ -78,7 +78,7 @@ html {
           a {
             cursor: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3174/cursor.png), auto;
             img {
-              max-width: 200px;
+              max-width: 160px;
               position: relative;
               top: 2px;
               @include media("<=600px") {
@@ -90,14 +90,15 @@ html {
         }
         .s {
           transition: $toggle-control-speed;
-          font-family: "Be Vietnam";
+          font-family: "Be Vietnam Pro";
           font-style: normal;
           font-weight: normal;
           font-size: 15px;
           text-align: center;
           margin-top: auto;
           margin-bottom: auto;
-          padding-bottom: 4px;
+          position: relative;
+          top: 1px;
           a {
             margin-left: 30px;
             transition: $toggle-control-speed;
@@ -107,6 +108,7 @@ html {
 
             @include media("<=tablet") {
               margin-left: 20px;
+              display: none;
             }
           }
         }
@@ -254,9 +256,16 @@ html {
             }
           }
         }
+        
         @include media("<=tablet") {
           display: none;
           width: 100%;
+        }
+        .mobile-links {
+          display: none;
+          @include media("<=tablet") {
+            display: block;
+          }
         }
       }
       .show {
@@ -266,8 +275,9 @@ html {
         right: 0;
         width: 100%;
         margin-top: 43px;
-        height: 100px;
+        height: 150px;
         display: flex;
+        flex-direction: column;
         .ikony {
           margin-top: 5px;
           width: 20px;
@@ -280,9 +290,27 @@ html {
           }
         }
         .p_zone {
-          margin-top: 70px;
+          margin-top: 100px;
           position: absolute;
           margin-left: 0;
+          left: 15px;
+        }
+        .mobile-links {
+          transition: $toggle-control-speed;
+          font-family: "Be Vietnam Pro";
+          font-style: normal;
+          font-weight: normal;
+          font-size: 15px;
+          margin-top: 29px;
+          padding-bottom: 4px;
+          a {
+            margin-right: 15px;
+            transition: $toggle-control-speed;
+            text-decoration: none;
+            color: #0065ff;
+            cursor: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3174/cursor.png), auto;
+
+          }
         }
       }
     }
@@ -418,7 +446,7 @@ html {
           position: relative;
           left: 0;
           //top:37%;
-          font-family: "Be Vietnam", sans-serif;
+          font-family: "Be Vietnam Pro", sans-serif;
           font-weight: 400;
           font-size: 17.5px;
           line-height: 160%;
@@ -516,7 +544,7 @@ html {
           transition: $toggle-control-speed;
           position: relative;
           left: 0;
-          font-family: "Be Vietnam", sans-serif;
+          font-family: "Be Vietnam Pro", sans-serif;
           font-weight: 400;
           font-size: 17.5px;
           line-height: 160%;
@@ -573,7 +601,7 @@ html {
                 text-decoration: underline;
               }
               transition: $toggle-control-speed;
-              font-family: "Be Vietnam", sans-serif;
+              font-family: "Be Vietnam Pro", sans-serif;
               font-weight: 400;
               font-size: 1.1em;
               line-height: 160%;
@@ -656,7 +684,7 @@ html {
                 text-decoration: underline;
               }
               transition: $toggle-control-speed;
-              font-family: "Be Vietnam", sans-serif;
+              font-family: "Be Vietnam Pro", sans-serif;
               font-weight: 400;
               font-size: 1.1em;
               line-height: 160%;
@@ -738,7 +766,7 @@ html {
                 text-decoration: underline;
               }
               transition: $toggle-control-speed;
-              font-family: "Be Vietnam", sans-serif;
+              font-family: "Be Vietnam Pro", sans-serif;
               font-weight: 400;
               font-size: 1.1em;
               line-height: 160%;
@@ -786,6 +814,101 @@ html {
           }
         }
       }
+      //my projects
+      #myProjects {
+        position: relative;
+        background-color: #f8f9fa;
+        display: flex;
+        justify-content: center;
+        .projects-wrapper {
+          max-width: 960px;
+          width: 100%;
+          margin-bottom: 100px;
+          .projects-title h2{
+            color: #3c3b3a;
+            margin: 36px 0;
+            font-size: 30px;
+            font-family: 'Be Vietnam Pro', sans-serif;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+          }
+          .projects-description {
+            color: #3c3b3a;
+            font-size: 17.5px;
+            letter-spacing: -0.01em;
+            font-family: "Be Vietnam Pro", sans-serif;
+            margin-bottom: 10px;
+            line-height: 160%;
+          }
+          .project {
+            display: flex;
+            margin-top: 30px;
+            margin-bottom: 20px;
+            .project-image {
+              @include media("<=990px") {
+                display: flex;
+                justify-content: center;
+              }
+            }
+            .project-image img{
+              margin: 15px;
+              border-radius: 10px;
+              border: 4px solid #F0F0F0;
+              max-width: 250px;
+              box-shadow: 0px 10px 20px 10px rgba(0, 0, 0, 0.1);
+
+              @include media("<=990px") {
+                max-width: 600px;
+                width: 100%;
+                height: auto;
+              }
+            }
+            .project-description {
+              margin: 0px 15px 0px 15px;
+              width: 100%;
+              font-family: "Be Vietnam Pro", sans-serif;
+              font-size: 1.1em;
+              letter-spacing: -0.01em;
+              line-height: 160%;
+              h4 {
+                color: #3c3b3a;
+                margin: 15px 0;
+                font-size: 20px;
+                font-weight: 600;
+                font-family: "Be Vietnam Pro", sans-serif;
+                letter-spacing: -0.01em;
+
+                a{
+                  color: #3c3b3a;
+                  text-decoration: none;
+                }
+              }
+              p {
+                color: #3c3b3a;
+              }
+            }
+            @include media("<=990px") {
+              flex-direction: column;
+            }
+          }
+          a {
+            transition: 1s;
+            text-decoration: none;
+            color: #0065ff;
+            cursor: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3174/cursor.png), auto;
+          }
+          a:hover {
+            text-decoration: underline;
+          }
+          @include media("<=990px") {
+            width: 80%;
+          }
+        }
+      }
+      footer {
+        background-color: #f8f9fa;
+        position: relative;
+      }
       .glowne_2 {
         max-width: 960px;
         left: 0;
@@ -819,7 +942,7 @@ html {
         }
         .label_2 {
           position: relative;
-          font-family: "Be Vietnam", sans-serif;
+          font-family: "Be Vietnam Pro", sans-serif;
           margin-bottom: 140px;
           background-color: #c5e3f6;
           border-radius: 15px;
@@ -851,7 +974,7 @@ html {
         .footer {
           position: relative;
           padding-bottom: 80px;
-          font-family: "Be Vietnam", sans-serif;
+          font-family: "Be Vietnam Pro", sans-serif;
           letter-spacing: -0.01em;
           font-size: 0.9em;
           color: #808080;
@@ -893,7 +1016,7 @@ html {
     right: 0px !important;
   }
   .newHeight_on {
-    height: 290% !important;
+    height: 360% !important;
     transition: 0s !important;
   }
   //----
@@ -937,5 +1060,29 @@ html {
   }
   .photoInvisible_on {
     display: none !important;
+  }
+
+  .technologie {
+    width: 85%;
+    height: 20%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 30px;
+    font-size: 13px;
+    .technologia {
+      transition: $toggle-control-speed;
+      padding: 4px 8px 4px 8px;
+      margin: 0px 8px 8px 0px;
+      background-color: #fff;
+      border-radius: 20px;
+      height: 20px !important;
+      line-height: 140%;
+    }
+  }
+  .b {
+    font-family: "Fira Code", monospace;
+    color: #09e160;
+    font-size: 17px;
   }
 }
