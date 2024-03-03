@@ -894,6 +894,7 @@ html {
             }
             @include media("<=990px") {
               flex-direction: column;
+              margin-top: 40px;
             }
           }
           a {

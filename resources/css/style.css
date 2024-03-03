@@ -892,6 +892,7 @@ html body .cont #myProjects .projects-wrapper .project .project-description p {
 @media (max-width: 990px) {
   html body .cont #myProjects .projects-wrapper .project {
     flex-direction: column;
+    margin-top: 40px;
   }
 }
 html body .cont #myProjects .projects-wrapper a {
