@@ -634,7 +634,6 @@ html body .cont .projekty .projekt_2 {
 html body .cont .projekty .projekt_2 .czesc_lewa {
   position: relative;
   width: 65%;
-  display: flex;
 }
 html body .cont .projekty .projekt_2 .czesc_lewa .bookable_white {
   display: block;
