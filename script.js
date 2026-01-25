@@ -1,59 +1,61 @@
-
-//przycisk do zmiany darkmode
-const button = document.querySelector('.przycisk');
+// Dark mode toggle button
+const button = document.querySelector('.dark-toggle');
 const hamburger = document.querySelector('.navbaricon');
-const sekcje2 = document.querySelector('.sekcje2');
-const cont = document.querySelector('.cont');
+const navControls = document.querySelector('.nav-controls');
+const container = document.querySelector('.container');
 const navbarColorChange = document.querySelectorAll('.navbarColor');
 const reveals = document.querySelectorAll('.reveal');
 const windowHeight = window.innerHeight;
-//darkmode
-//szukamy klas do zmiany na darkmode dopisanych w html
-const variableToBlackBackground = document.querySelectorAll('.bcToBlack');
-const variableToGrayBackground = document.querySelectorAll('.bcToGray');
-const variableToWhiteBackground = document.querySelectorAll('.bcToWhite');
-const variableToUnderline = cont.querySelectorAll('a');
-const variableToBorderLine = document.querySelectorAll('.decBorderLine');
-//do zmiennej variablewhitecolor potrzebujemy 2 tablic (wszyskich linkow i wszyskich zmiennych colTowhite)
-const toWhite = document.querySelectorAll('.colToWhite');
+
+// Dark mode - find classes to change
+const elementsToBlackBg = document.querySelectorAll('.bcToBlack');
+const elementsToGrayBg = document.querySelectorAll('.bcToGray');
+const elementsToWhiteBg = document.querySelectorAll('.bcToWhite');
+const elementsToUnderline = container.querySelectorAll('a');
+const borderLineElements = document.querySelectorAll('.decBorderLine');
+
+// For white color we need 2 arrays (all links and all colToWhite elements)
+const textToWhite = document.querySelectorAll('.colToWhite');
 const allLinks = document.querySelectorAll('a');
 const allIcons = document.querySelectorAll('i');
-const variableToWhiteColor = [...toWhite, ...allLinks, ...allIcons];
-//pobieramy elementy do animacji przejscia
-const variableToAnimationBackground0 = document.querySelectorAll('.bcAnimation0');
-const variableToAnimationBackground100 = document.querySelectorAll('.bcAnimation100');
-//pobieramy zdjecia ktore maja zniknac
+const elementsToWhiteColor = [...textToWhite, ...allLinks, ...allIcons];
+
+// Get elements for transition animations
+const animationBgZero = document.querySelectorAll('.bcAnimation0');
+const animationBgFull = document.querySelectorAll('.bcAnimation100');
+
+// Get photos that should disappear in dark mode
 const photosToDisappear = document.querySelectorAll('.photoInvisible');
-//pobieramy zdjecia ktore maja sie pojawic
+
+// Get photos that should appear in dark mode
 const photosToAppear = document.querySelectorAll('.photoVisible');
 
-//elementy z odpowiednia klasa zmieniamy na on i wykonujemy darkmode
-const darkmodeChange = () => {
-
+// Toggle dark mode on elements with appropriate classes
+const toggleDarkMode = () => {
     button.classList.toggle('active');
 
-    variableToBlackBackground.forEach(element => {
+    elementsToBlackBg.forEach(element => {
         element.classList.toggle('bcToBlack_on');
     });
-    variableToGrayBackground.forEach(element => {
+    elementsToGrayBg.forEach(element => {
         element.classList.toggle('bcToGray_on');
     });
-    variableToWhiteBackground.forEach(element => {
+    elementsToWhiteBg.forEach(element => {
         element.classList.toggle('bcToWhite_on');
     });
-    variableToWhiteColor.forEach(element => {
+    elementsToWhiteColor.forEach(element => {
         element.classList.toggle('colToWhite_on');
     });
-    variableToUnderline.forEach(element => {
+    elementsToUnderline.forEach(element => {
         element.classList.toggle('decToUnderline_on');
     });
-    variableToBorderLine.forEach(element => {
+    borderLineElements.forEach(element => {
         element.classList.toggle('decBorderLine_on');
     });
-    variableToAnimationBackground0.forEach(element => {
+    animationBgZero.forEach(element => {
         element.classList.toggle('bcAnimation0_on');
     });
-    variableToAnimationBackground100.forEach(element => {
+    animationBgFull.forEach(element => {
         element.classList.toggle('bcAnimation100_on');
     });
     photosToDisappear.forEach(element => {
@@ -62,14 +64,15 @@ const darkmodeChange = () => {
     photosToAppear.forEach(element => {
         element.classList.toggle('photoVisible_on');
     });
-
 }
 
-const hamburgerChange = () => {
-    sekcje2.classList.toggle('show'); 
+// Toggle mobile menu visibility
+const toggleMobileMenu = () => {
+    navControls.classList.toggle('show');
 }
 
-const phoneMenu = () => {
+// Handle phone menu height change
+const handlePhoneMenu = () => {
     if (window.innerWidth <= 768) {
         navbarColorChange.forEach(element => {
             element.classList.toggle('newHeight_on');
@@ -77,7 +80,7 @@ const phoneMenu = () => {
     }
 }
 
-//animacje elementów HTML
+// Reveal animations for HTML elements on scroll
 const revealAnimation = () => {
     reveals.forEach(element => {
         let windowHeight = window.innerHeight;
@@ -86,24 +89,20 @@ const revealAnimation = () => {
 
         if (elementTop < windowHeight - elementVisible) {
             element.classList.add("active");
-          } else {
+        } else {
             element.classList.remove("active");
-          }
+        }
     });
 }
 
-let menutoggle = document.querySelector('.navbaricon')
-menutoggle.onclick = () => {
-    menutoggle.classList.toggle('active')
+// Hamburger menu toggle
+const menuToggle = document.querySelector('.navbaricon');
+menuToggle.onclick = () => {
+    menuToggle.classList.toggle('active');
 }
 
-
-button.addEventListener('click', darkmodeChange);
-hamburger.addEventListener('click', phoneMenu);
-hamburger.addEventListener('click', hamburgerChange);
+// Event listeners
+button.addEventListener('click', toggleDarkMode);
+hamburger.addEventListener('click', handlePhoneMenu);
+hamburger.addEventListener('click', toggleMobileMenu);
 window.addEventListener('scroll', revealAnimation);
-
-
-var a = 1 + "1" -2;
-console.log(a);
-

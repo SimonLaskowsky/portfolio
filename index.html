@@ -5,30 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="keywords" content="Simon, Laskowsky, Simon Laskowsky , simon laskowsky, Simon Laskowski, simonlaskowsky, simonlaskowski, Szymon, Laskowski, Szymon Laskowski, szymon laskowski, szymonlaskowski" />
-    <meta name="description" content="So I'm 21, a computer science student, and I love creating beaufiful looking webisites. " />
+    <meta name="description" content="I'm 25, a software engineer with a passion for creating beautiful, performant web applications." />
 
     <title>Simon Laskowsky | Front-end Developer</title>
 
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@700&display=swap"
-      rel="stylesheet"
-    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;700&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=EB+Garamond:wght@700&family=Noto+Sans:wght@700&family=Fira+Code:wght@300;400;700&display=swap" rel="stylesheet" />
     <link
       rel="icon"
       type="image/x-icon"
@@ -52,35 +35,34 @@
   </head>
 
   <body>
-    <!-- I know this code is a mess, it was my first project in my life, I have been running it since the beginning of my programming career. -->
     <header>
-      <div class="naglowek">
-        <div class="n_lewy bcAnimation0 navbarColor"></div>
-        <div class="n_prawy bcAnimation100 navbarColor"></div>
+      <div class="navbar">
+        <div class="navbar-left bcAnimation0 navbarColor"></div>
+        <div class="navbar-right bcAnimation100 navbarColor"></div>
 
-        <div class="sekcje">
+        <div class="nav-section">
           <div class="logo">
-            <div class="logo_biale photoInvisible">
+            <div class="logo-light photoInvisible">
               <a href="#">
                 <img
                   src="resources/img/Portfolio_logo_design.gif"
-                  alt="logo kolor czarny"
+                  alt="Logo dark color"
                 />
               </a>
             </div>
-            <div class="logo_czarne photoVisible">
+            <div class="logo-dark photoVisible">
               <a href="#">
                 <img
                   src="resources/img/Portfolio_logo_design_4.gif"
-                  alt="logo kolor biały"
+                  alt="Logo light color"
                 />
               </a>
             </div>
           </div>
 
           <div class="s">
-            <a href="#tekst" id="a1">Home</a>
-            <a href="#mywork" id="a2">Work</a>
+            <a href="#about-text" id="a1">Home</a>
+            <a href="#work-title" id="a2">Work</a>
             <a href="#myProjects" id="a2">Projects</a>
           </div>
         </div>
@@ -89,8 +71,8 @@
             <span class="bcToWhite" ></span>
             <span class="bcToWhite" ></span>
         </div>
-        <div class="sekcje2">
-          <div class="ikony">
+        <div class="nav-controls">
+          <div class="icons">
             <div class="icon">
               <a href="mailto: simonlaskowsky@gmail.com" target="_blank">
                 <i class="fa-solid fa-paper-plane"></i>
@@ -107,33 +89,33 @@
               </a>
             </div>
           </div>
-          <div class="p_zone">
-            <div class="przycisk">
-              <div class="p_tlo">
-                <div class="p_kropka"></div>
+          <div class="toggle-zone">
+            <div class="dark-toggle">
+              <div class="toggle-bg">
+                <div class="toggle-dot"></div>
               </div>
             </div>
           </div>
           <div class="mobile-links">
-            <a href="#tekst" id="a1">Home</a>
-            <a href="#mywork" id="a2">Work</a>
+            <a href="#about-text" id="a1">Home</a>
+            <a href="#work-title" id="a2">Work</a>
             <a href="#myProjects" id="a2">Projects</a>
           </div>
         </div>
       </div>
     </header>
-    <div class="tlo">
-      <div class="cont">
-        <div class="lewy bcAnimation0"></div>
-        <div class="prawy bcAnimation100"></div>
+    <div class="background">
+      <div class="container">
+        <div class="bg-left bcAnimation0"></div>
+        <div class="bg-right bcAnimation100"></div>
         <main>
           <section>
-            <div class="glowne" id="tekst">
-              <img class="awatar bcToGray" src="resources/img/moje_foto.png" alt="Awatar przedstawiający mnie w białych włosach"/>
+            <div class="main-content" id="about-text">
+              <img class="avatar bcToGray" src="resources/img/moje_foto.png" alt="Avatar showing me with white hair"/>
 
-              <div class="wstep colToWhite">
+              <div class="intro colToWhite">
                 <h1>
-                    Hello. 
+                    Hello.
                     <br />
                     My name is Simon
                     <br />
@@ -141,122 +123,121 @@
                 </h1>
               </div>
 
-              <div class="linia decBorderLine"></div>
+              <div class="divider decBorderLine"></div>
 
-              <div class="tekst colToWhite">
+              <div class="about-text colToWhite">
                 <p>
-                    Welcome on my website &nbsp👋 ...
+                    Welcome on my website &nbsp;
                     <br />
                     <br />
                     <span class="comment"> &#47;&#47;About me <br /> </span>
-                    So I'm 22, a computer science student, and I love creating
-                    beautiful looking websites.
+                    I'm 25, a software engineer with a passion for creating
+                    beautiful, performant web applications.
                     <br />
                     <br />
                     <span class="comment"> &#47;&#47;Technologies <br /> </span>
                     I feel very comfortable with technologies such as
-                    <span class="b">&#60;b&#62;</span>HTML<span class="b">&#60;&#47;b&#62;</span>, 
-                    <span class="b">&#60;b&#62;</span>CSS<span class="b">&#60;&#47;b&#62;</span>, 
-                    <span class="b">&#60;b&#62;</span>JavaScript<span class="b">&#60;&#47;b&#62;</span>. 
-                    I am currently in the process of learning
                     <span class="b">&#60;b&#62;</span>React<span class="b">&#60;&#47;b&#62;</span>,
+                    <span class="b">&#60;b&#62;</span>Next.js<span class="b">&#60;&#47;b&#62;</span>,
+                    <span class="b">&#60;b&#62;</span>TypeScript<span class="b">&#60;&#47;b&#62;</span>,
+                    <span class="b">&#60;b&#62;</span>Vue<span class="b">&#60;&#47;b&#62;</span>.
+                    I also have experience with
+                    <span class="b">&#60;b&#62;</span>Node.js<span class="b">&#60;&#47;b&#62;</span>,
+                    <span class="b">&#60;b&#62;</span>Tailwind CSS<span class="b">&#60;&#47;b&#62;</span>,
                     and I enjoy designing in
                     <span class="b">&#60;b&#62;</span>Figma<span class="b">&#60;&#47;b&#62;</span>.
                     <br />
                     <br />
                     <span class="comment"> &#47;&#47;Key to success <br /> </span>
-                    My fuel is good coffee 😅
+                    My fuel is good coffee
                     <br />
                     <br />
                     I invite you below to check my
-                    <a class="tekst_link" href="#mywork"> other projects </a>
-                    👈
+                    <a class="text-link" href="#work-title"> other projects </a>
                 </p>
               </div>
-              <div class="label bcToGray colToWhite reveal">
-                    <div class="label_tekst">
-                      Always happy and available for work -&nbsp
+              <div class="highlight-box bcToGray colToWhite reveal">
+                    <div class="highlight-text">
+                      Always happy and available for work -&nbsp;
                     </div>
                     <a
-                      class="label_link"
+                      class="highlight-link"
                       href="https://www.facebook.com/profile.php?id=100008975593389"
                       target="_blank"
                     >
                       say hello
                     </a>
-                    &nbsp👋
               </div>
 
-              <div class="linia2 decBorderLine"></div>
+              <div class="divider-section decBorderLine"></div>
 
-              <div class="mywork colToWhite" id="mywork">My commercial work</div>
+              <div class="work-title colToWhite" id="work-title">My commercial work</div>
 
-              <div class="mywork_tekst colToWhite">
+              <div class="work-description colToWhite">
                 <p>
-                    Here you will see some of my projects I'm proud of 😎 <br />
+                    Here you will see some of my projects I'm proud of <br />
                     you will also find information about the technologies I used.
                     Check how they look fully through the links in the description
-                    👇
                 </p>
               </div>
             </div>
           </section>
 
           <section>
-            <div class="projekty">
-              <div class="projekt_1 reveal">
-                <div class="czesc_lewa">
-                  <div class="saleswizard_white white photoInvisible">
+            <div class="projects">
+              <div class="project-1 reveal">
+                <div class="project-left">
+                  <div class="saleswizard-light light photoInvisible">
                     <img
                       src="resources/img/saleswizard-white.png"
-                      alt="zdjecie strony saleswizard"
+                      alt="Screenshot of saleswizard website"
                     />
                   </div>
-                  <div class="saleswizard_black black photoVisible">
+                  <div class="saleswizard-dark dark photoVisible">
                     <img
                       src="resources/img/saleswizard-black.png"
-                      alt="zdjecie strony saleswizard"
+                      alt="Screenshot of saleswizard website"
                     />
                   </div>
                 </div>
 
-                <div class="czesc_prawa">
-                  <div class="opis_1 colToWhite">
+                <div class="project-right">
+                  <div class="project-description colToWhite">
                     <p>
                         <a href="https://saleswizard.pl" target="_blank" id="a3"
                         >Sales Wizard</a>
                         is a platform for managing your company's sales. I made this
                         website as part of employment by
                         <span class="b">&#60;b&#62;</span>4b systems<span class="b"
-                        >&#60;&#47;b&#62;</span>. 
+                        >&#60;&#47;b&#62;</span>.
                         The technologies used during the development process are:
                     </p>
-                    <div class="technologie">
-                      <div class="technologia bcToGray colToWhite">HTML</div>
-                      <div class="technologia bcToGray colToWhite">CSS</div>
-                      <div class="technologia bcToGray colToWhite">SASS</div>
-                      <div class="technologia bcToGray colToWhite">JavaScript</div>
+                    <div class="tech-list">
+                      <div class="tech-tag bcToGray colToWhite">HTML</div>
+                      <div class="tech-tag bcToGray colToWhite">CSS</div>
+                      <div class="tech-tag bcToGray colToWhite">SASS</div>
+                      <div class="tech-tag bcToGray colToWhite">JavaScript</div>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="projekt_2 reveal">
-                <div class="czesc_lewa">
-                  <div class="bookable_white white photoInvisible">
+              <div class="project-2 reveal">
+                <div class="project-left">
+                  <div class="bookable-light light photoInvisible">
                     <img
                       src="resources/img/bookable-white.png"
-                      alt="zdjecie strony bookable"
+                      alt="Screenshot of bookable website"
                     />
                   </div>
-                  <div class="bookable_black black photoVisible">
+                  <div class="bookable-dark dark photoVisible">
                     <img
                       src="resources/img/bookable-black.png"
-                      alt="zjdecie storny bookable"
+                      alt="Screenshot of bookable website"
                     />
                   </div>
                 </div>
-                <div class="czesc_prawa">
-                  <div class="opis_1 colToWhite">
+                <div class="project-right">
+                  <div class="project-description colToWhite">
                     <p>
                         Surely you associate sites for booking hotels, rooms etc.
                         <a href="https://bookable-app.com" target="_blank" id="a4"
@@ -266,38 +247,38 @@
                         cooperation with <span class="b">&#60;b&#62;</span>4b
                         systems<span class="b">&#60;&#47;b&#62;</span>. A fully
                         responsive website, designed and created by me using the
-                        technologies listed below 👇
+                        technologies listed below
                     </p>
-                    <div class="opis_technologie">
-                      <div class="technologie">
-                        <div class="technologia bcToGray colToWhite">HTML</div>
-                        <div class="technologia bcToGray colToWhite">CSS</div>
-                        <div class="technologia bcToGray colToWhite">SASS</div>
-                        <div class="technologia bcToGray colToWhite">JavaScript</div>
+                    <div class="tech-stack">
+                      <div class="tech-list">
+                        <div class="tech-tag bcToGray colToWhite">HTML</div>
+                        <div class="tech-tag bcToGray colToWhite">CSS</div>
+                        <div class="tech-tag bcToGray colToWhite">SASS</div>
+                        <div class="tech-tag bcToGray colToWhite">JavaScript</div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
               <!--3rd project-->
-              <div class="projekt_3 reveal">
-                <div class="czesc_lewa">
-                  <div class="freedeal_white white photoInvisible">
+              <div class="project-3 reveal">
+                <div class="project-left">
+                  <div class="freedeal-light light photoInvisible">
                     <img
                       src="resources/img/freedeal-white.png"
-                      alt="zdjecie strony freedeal"
+                      alt="Screenshot of freedeal website"
                     />
                   </div>
-                  <div class="freedeal_black black photoVisible">
+                  <div class="freedeal-dark dark photoVisible">
                     <img
                       src="resources/img/freedeal-black.png"
-                      alt="zdjecie strony freedeal"
+                      alt="Screenshot of freedeal website"
                     />
                   </div>
                 </div>
 
-                <div class="czesc_prawa">
-                  <div class="opis_1 colToWhite">
+                <div class="project-right">
+                  <div class="project-description colToWhite">
                     <p>
                         I think that
                         Freedeal is one of my best projects.
@@ -312,56 +293,56 @@
                           >&#60;&#47;b&#62;</span
                         >. Its idea is to create an environment for freelancers
                         where they can find or publish offers. I encourage you to
-                        check 🧐
+                        check
                     </p>
-                    <div class="opis_technologie">
-                      <div class="technologie">
-                        <div class="technologia bcToGray colToWhite">CSS</div>
-                        <div class="technologia bcToGray colToWhite">JavaScript</div>
-                        <div class="technologia bcToGray colToWhite">PHP</div>
-                        <div class="technologia bcToGray colToWhite">Wordpress</div>
+                    <div class="tech-stack">
+                      <div class="tech-list">
+                        <div class="tech-tag bcToGray colToWhite">CSS</div>
+                        <div class="tech-tag bcToGray colToWhite">JavaScript</div>
+                        <div class="tech-tag bcToGray colToWhite">PHP</div>
+                        <div class="tech-tag bcToGray colToWhite">Wordpress</div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
               <!--4th project-->
-              <div class="projekt_3 reveal">
-                <div class="czesc_lewa">
-                  <div class="freedeal_white white photoInvisible">
+              <div class="project-3 reveal">
+                <div class="project-left">
+                  <div class="freedeal-light light photoInvisible">
                     <img
                       src="resources/img/interact-white.png"
-                      alt="zdjecie strony freedeal"
+                      alt="Screenshot of interact website"
                     />
                   </div>
-                  <div class="freedeal_black black photoVisible">
+                  <div class="freedeal-dark dark photoVisible">
                     <img
                       src="resources/img/interact-black.png"
-                      alt="zdjecie strony freedeal"
+                      alt="Screenshot of interact website"
                     />
                   </div>
                 </div>
 
-                <div class="czesc_prawa">
-                  <div class="opis_1 colToWhite">
+                <div class="project-right">
+                  <div class="project-description colToWhite">
                     <p>
                         Introducing
                         <a href="https://interact.fun/" target="_blank" id="a7">Interact</a>
-                         - platform I developed, 
-                        dedicated to interactive workshops. Much like booking sites for hotels or rooms, 
+                         - platform I developed,
+                        dedicated to interactive workshops. Much like booking sites for hotels or rooms,
                         Interact empowers users to
                         <span class="b">&#60;b&#62;</span>reserve spots<span class="b">&#60;&#47;b&#62;</span>
-                        for hands-on workshops, 
+                        for hands-on workshops,
                         where they can actively participate in crafting various items.
                     </p>
-                    <div class="opis_technologie">
-                      <div class="technologie">
-                        <div class="technologia bcToGray colToWhite">Blazor</div>
-                        <div class="technologia bcToGray colToWhite">JavaScript</div>
-                        <div class="technologia bcToGray colToWhite">jQuery</div>
-                        <div class="technologia bcToGray colToWhite">HTML</div>
-                        <div class="technologia bcToGray colToWhite">CSS</div>
-                        <div class="technologia bcToGray colToWhite">Figma</div>
+                    <div class="tech-stack">
+                      <div class="tech-list">
+                        <div class="tech-tag bcToGray colToWhite">Blazor</div>
+                        <div class="tech-tag bcToGray colToWhite">JavaScript</div>
+                        <div class="tech-tag bcToGray colToWhite">jQuery</div>
+                        <div class="tech-tag bcToGray colToWhite">HTML</div>
+                        <div class="tech-tag bcToGray colToWhite">CSS</div>
+                        <div class="tech-tag bcToGray colToWhite">Figma</div>
                       </div>
                     </div>
                   </div>
@@ -378,33 +359,33 @@
                 </h2>
               </div>
               <div class="projects-description colToWhite">
-                Welcome to a glimpse of my passion projects! 😊 Take a stroll through these smaller, yet equally exciting ventures that I've undertaken just for the fun of it. Here, I've poured my creativity into crafting unique experiences, and you can explore them further through the links below. Dive in and discover the technologies that bring these projects to life! 👇
+                Welcome to a glimpse of my passion projects! Take a stroll through these smaller, yet equally exciting ventures that I've undertaken just for the fun of it. Here, I've poured my creativity into crafting unique experiences, and you can explore them further through the links below. Dive in and discover the technologies that bring these projects to life!
               </div>
               <div class="project reveal">
                 <div class="project-image">
                   <a target="_blank" href="https://simonlaskowsky.github.io/terminal/">
                     <img
                         src="resources/img/apka-terminal.png"
-                        alt="zdjecie projektu terminal"
+                        alt="Screenshot of terminal project"
                       />
                   </a>
                 </div>
                 <div class="project-description">
                   <h4 class="colToWhite"><a target="_blank" href="https://simonlaskowsky.github.io/terminal/">Terminal</a></h4>
                   <p class="colToWhite">
-                    Introducing first delightful mini-project: a terminal-inspired application! 😊 Dive into a user-friendly space where 
+                    Introducing first delightful mini-project: a terminal-inspired application! Dive into a user-friendly space where
                     <span class="b">&#60;b&#62;</span>built-in commands<span class="b">&#60;&#47;b&#62;</span>
-                    , 
+                    ,
                     <span class="b">&#60;b&#62;</span>dynamic auto-suggestions<span class="b">&#60;&#47;b&#62;</span>
-                    , and a 
+                    , and a
                     <span class="b">&#60;b&#62;</span>command history<span class="b">&#60;&#47;b&#62;</span>
-                     come together to mimic the essence of a real terminal. Experience the convenience and explore the functionalities by clicking the link above. 👆
+                     come together to mimic the essence of a real terminal. Experience the convenience and explore the functionalities by clicking the link above.
                      Or check the <a href="https://github.com/SimonLaskowsky/terminal" target="_blank" id="a7">source code</a> if you want.
                   </p>
-                  <div class="technologie">
-                    <div class="technologia bcToBlack colToWhite">JavaScript</div>
-                    <div class="technologia bcToBlack colToWhite">HTML</div>
-                    <div class="technologia bcToBlack colToWhite">CSS</div>
+                  <div class="tech-list">
+                    <div class="tech-tag bcToBlack colToWhite">JavaScript</div>
+                    <div class="tech-tag bcToBlack colToWhite">HTML</div>
+                    <div class="tech-tag bcToBlack colToWhite">CSS</div>
                   </div>
                 </div>
               </div>
@@ -413,23 +394,23 @@
                   <a target="_blank" href="https://github.com/SimonLaskowsky/todo-list">
                     <img
                         src="resources/img/apka-todo.png"
-                        alt="zdjecie projektu terminal"
+                        alt="Screenshot of todo project"
                       />
                   </a>
                 </div>
                 <div class="project-description">
                   <h4 class="colToWhite"><a target="_blank" href="https://github.com/SimonLaskowsky/todo-list">To do</a></h4>
-                  <p class="colToWhite">Next up in this lineup is a classic yet charming to-do application! 📝 Manage your tasks seamlessly with features like
+                  <p class="colToWhite">Next up in this lineup is a classic yet charming to-do application! Manage your tasks seamlessly with features like
                     <span class="b">&#60;b&#62;</span>adding<span class="b">&#60;&#47;b&#62;</span>
-                     , 
-                     <span class="b">&#60;b&#62;</span>deleting<span class="b">&#60;&#47;b&#62;</span>, 
-                     and 
+                     ,
+                     <span class="b">&#60;b&#62;</span>deleting<span class="b">&#60;&#47;b&#62;</span>,
+                     and
                      <span class="b">&#60;b&#62;</span>ticking off <span class="b">&#60;&#47;b&#62;</span>
                      items from your list. Experience the simplicity and efficiency by checking out the app through the link in the title or check out <a href="https://github.com/SimonLaskowsky/todo-list" target="_blank" id="a7">source code</a>.</p>
-                  <div class="technologie">
-                    <div class="technologia bcToBlack colToWhite">JavaScript</div>
-                    <div class="technologia bcToBlack colToWhite">HTML</div>
-                    <div class="technologia bcToBlack colToWhite">CSS</div>
+                  <div class="tech-list">
+                    <div class="tech-tag bcToBlack colToWhite">JavaScript</div>
+                    <div class="tech-tag bcToBlack colToWhite">HTML</div>
+                    <div class="tech-tag bcToBlack colToWhite">CSS</div>
                   </div>
                 </div>
               </div>
@@ -438,24 +419,24 @@
                   <a target="_blank" href="https://github.com/SimonLaskowsky/weather-app">
                     <img
                         src="resources/img/apka-pogoda.png"
-                        alt="zdjecie projektu terminal"
+                        alt="Screenshot of weather app project"
                       />
                   </a>
                 </div>
                 <div class="project-description">
                   <h4 class="colToWhite"><a target="_blank" href="https://github.com/SimonLaskowsky/weather-app">Weather app</a></h4>
-                  <p class="colToWhite">Step into the world of weather with my next application! 🌦️ Enter a city, and let the magic unfold as the app fetches real-time data from an API, providing you with 
-                    <span class="b">&#60;b&#62;</span>temperature<span class="b">&#60;&#47;b&#62;</span>, 
-                    <span class="b">&#60;b&#62;</span>air humidity<span class="b">&#60;&#47;b&#62;</span>, 
-                    and 
+                  <p class="colToWhite">Step into the world of weather with my next application! Enter a city, and let the magic unfold as the app fetches real-time data from an API, providing you with
+                    <span class="b">&#60;b&#62;</span>temperature<span class="b">&#60;&#47;b&#62;</span>,
+                    <span class="b">&#60;b&#62;</span>air humidity<span class="b">&#60;&#47;b&#62;</span>,
+                    and
                     <span class="b">&#60;b&#62;</span>cloud cover<span class="b">&#60;&#47;b&#62;</span>
-                     details. Discover the weather in a whole new way by exploring the app. Also feel free to check 
+                     details. Discover the weather in a whole new way by exploring the app. Also feel free to check
                      <a href="https://github.com/SimonLaskowsky/weather-app" target="_blank" id="a7">code</a>
                       behind the app.</p>
-                  <div class="technologie">
-                    <div class="technologia bcToBlack colToWhite">JavaScript</div>
-                    <div class="technologia bcToBlack colToWhite">HTML</div>
-                    <div class="technologia bcToBlack colToWhite">CSS</div>
+                  <div class="tech-list">
+                    <div class="tech-tag bcToBlack colToWhite">JavaScript</div>
+                    <div class="tech-tag bcToBlack colToWhite">HTML</div>
+                    <div class="tech-tag bcToBlack colToWhite">CSS</div>
                   </div>
                 </div>
               </div>
@@ -464,19 +445,19 @@
                   <a target="_blank" href="https://simonlaskowsky.github.io/search/">
                      <img
                         src="resources/img/apka-search.png"
-                        alt="zdjecie projektu terminal"
+                        alt="Screenshot of search project"
                       />
                   </a>
                 </div>
                 <div class="project-description">
                   <h4 class="colToWhite"><a target="_blank" href="https://simonlaskowsky.github.io/search/">API Search</a></h4>
-                  <p class="colToWhite">Saving the best for last – a unique search bar application! 🔍 Watch as it dynamically responds to your typing or clicking on it. This app utilizes an 
+                  <p class="colToWhite">Saving the best for last – a unique search bar application! Watch as it dynamically responds to your typing or clicking on it. This app utilizes an
                     <span class="b">&#60;b&#62;</span>external API<span class="b">&#60;&#47;b&#62;</span>
                     , ensuring a seamless search experience. Click the title to witness the interactive search bar in action or check the <a href="https://github.com/SimonLaskowsky/search" target="_blank" id="a7">source code</a>.</p>
-                  <div class="technologie">
-                    <div class="technologia bcToBlack colToWhite">JavaScript</div>
-                    <div class="technologia bcToBlack colToWhite">HTML</div>
-                    <div class="technologia bcToBlack colToWhite">CSS</div>
+                  <div class="tech-list">
+                    <div class="tech-tag bcToBlack colToWhite">JavaScript</div>
+                    <div class="tech-tag bcToBlack colToWhite">HTML</div>
+                    <div class="tech-tag bcToBlack colToWhite">CSS</div>
                   </div>
                 </div>
               </div>
@@ -484,10 +465,10 @@
           </section>
 
           <footer class="bcToGray">
-            <div class="glowne_2">
-              <div class="label_2 bcToBlack colToWhite reveal">
+            <div class="footer-content">
+              <div class="footer-box bcToBlack colToWhite reveal">
                 <p>
-                    Want to say hello? &nbsp👋
+                    Want to say hello?
                     <br />
                     It would be great to talk, chat, discuss or connect, just
                     <a href="mailto: simonlaskowsky@gmail.com" id="a5">email me</a>
@@ -502,9 +483,9 @@
                 </p>
               </div>
 
-              <div class="linia3 decBorderLine"></div>
+              <div class="divider-footer decBorderLine"></div>
 
-              <div class="footer">Made by Simon Laskowsky 2023</div>
+              <div class="footer">Made by Simon Laskowsky 2026</div>
             </div>
           </footer>
         </main>

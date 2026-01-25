@@ -8,7 +8,7 @@ html body {
 html body a {
   cursor: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3174/cursor.png), auto;
 }
-html body .naglowek {
+html body .navbar {
   z-index: 1;
   position: fixed;
   display: flex;
@@ -17,27 +17,27 @@ html body .naglowek {
   height: 70px;
   box-shadow: 0px 15px 20px -5px rgba(0, 0, 0, 0.08);
 }
-html body .naglowek .n_lewy.show {
+html body .navbar .navbar-left.show {
   transition: 0s;
 }
-html body .naglowek .n_prawy.show {
+html body .navbar .navbar-right.show {
   transition: 0s;
 }
-html body .naglowek .n_lewy {
+html body .navbar .navbar-left {
   width: 100%;
   height: 100%;
   left: 0%;
   background-color: #ffffff;
   transition: 1s;
 }
-html body .naglowek .n_prawy {
+html body .navbar .navbar-right {
   width: 0%;
   height: 100%;
   right: 0%;
   background-color: #3c3b3a;
   transition: 1s;
 }
-html body .naglowek .sekcje {
+html body .navbar .nav-section {
   top: 0;
   bottom: 0;
   position: absolute;
@@ -47,36 +47,36 @@ html body .naglowek .sekcje {
   align-items: flex-end;
   color: #202020;
 }
-html body .naglowek .sekcje .logo {
+html body .navbar .nav-section .logo {
   padding-top: 5px;
   margin-top: auto;
   margin-bottom: auto;
   transition: 1s;
   left: 0px;
 }
-html body .naglowek .sekcje .logo .logo_czarne {
+html body .navbar .nav-section .logo .logo-dark {
   display: none;
   transition: 1s;
 }
-html body .naglowek .sekcje .logo .logo_biale {
+html body .navbar .nav-section .logo .logo-light {
   display: block;
   transition: 1s;
 }
-html body .naglowek .sekcje .logo a {
+html body .navbar .nav-section .logo a {
   cursor: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3174/cursor.png), auto;
 }
-html body .naglowek .sekcje .logo a img {
+html body .navbar .nav-section .logo a img {
   max-width: 160px;
   position: relative;
   top: 2px;
 }
 @media (max-width: 600px) {
-  html body .naglowek .sekcje .logo a img {
+  html body .navbar .nav-section .logo a img {
     max-width: 150px;
     margin-left: -15px;
   }
 }
-html body .naglowek .sekcje .s {
+html body .navbar .nav-section .s {
   transition: 1s;
   font-family: "Be Vietnam Pro";
   font-style: normal;
@@ -88,7 +88,7 @@ html body .naglowek .sekcje .s {
   position: relative;
   top: 1px;
 }
-html body .naglowek .sekcje .s a {
+html body .navbar .nav-section .s a {
   margin-left: 30px;
   transition: 1s;
   text-decoration: none;
@@ -96,12 +96,12 @@ html body .naglowek .sekcje .s a {
   cursor: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3174/cursor.png), auto;
 }
 @media (max-width: 768px) {
-  html body .naglowek .sekcje .s a {
+  html body .navbar .nav-section .s a {
     margin-left: 20px;
     display: none;
   }
 }
-html body .naglowek .navbaricon {
+html body .navbar .navbaricon {
   transition: 1s;
   position: absolute;
   right: 0;
@@ -112,7 +112,7 @@ html body .naglowek .navbaricon {
   align-items: center;
   overflow: hidden;
 }
-html body .naglowek .navbaricon span {
+html body .navbar .navbaricon span {
   position: absolute;
   width: 30px;
   height: 2px;
@@ -121,35 +121,35 @@ html body .naglowek .navbaricon span {
   transition: 0.5s;
   left: 15px;
 }
-html body .naglowek .navbaricon span:nth-child(1) {
+html body .navbar .navbaricon span:nth-child(1) {
   transform: translateY(-10px);
   width: 20px;
   left: 15px;
 }
-html body .naglowek .navbaricon span:nth-child(2) {
+html body .navbar .navbaricon span:nth-child(2) {
   transform: translateY(10px);
   width: 15px;
   left: 15px;
 }
 @media (max-width: 768px) {
-  html body .naglowek .navbaricon {
+  html body .navbar .navbaricon {
     display: flex;
   }
 }
-html body .naglowek .navbaricon.active span:nth-child(1) {
+html body .navbar .navbaricon.active span:nth-child(1) {
   width: 30px;
   transform: translateY(0) rotate(45deg);
   transition-delay: 0.125s;
 }
-html body .naglowek .navbaricon.active span:nth-child(2) {
+html body .navbar .navbaricon.active span:nth-child(2) {
   width: 30px;
   transform: translateY(0) rotate(315deg);
   transition-delay: 0.25s;
 }
-html body .naglowek .navbaricon.active span:nth-child(3) {
+html body .navbar .navbaricon.active span:nth-child(3) {
   transform: translateX(60px);
 }
-html body .naglowek .sekcje2 {
+html body .navbar .nav-controls {
   position: absolute;
   right: 0;
   margin-right: 25px;
@@ -158,23 +158,23 @@ html body .naglowek .sekcje2 {
   display: flex;
   flex-direction: row;
 }
-html body .naglowek .sekcje2 .ikony {
+html body .navbar .nav-controls .icons {
   display: flex;
   height: 100%;
 }
-html body .naglowek .sekcje2 .ikony .icon {
+html body .navbar .nav-controls .icons .icon {
   font-size: 16px;
   margin-top: auto;
   margin-bottom: auto;
   text-decoration: none;
   margin-right: 30px;
 }
-html body .naglowek .sekcje2 .ikony .icon i {
+html body .navbar .nav-controls .icons .icon i {
   color: #0065ff;
   transition: 1s;
   cursor: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3174/cursor.png), auto;
 }
-html body .naglowek .sekcje2 .p_zone {
+html body .navbar .nav-controls .toggle-zone {
   margin-top: auto;
   margin-bottom: auto;
   position: relative;
@@ -183,18 +183,18 @@ html body .naglowek .sekcje2 .p_zone {
   font-size: 16px;
   transition: 1s;
 }
-html body .naglowek .sekcje2 .p_zone .darkmode {
+html body .navbar .nav-controls .toggle-zone .darkmode {
   transition: 1s;
   margin-bottom: 3px;
   font-size: 15px;
 }
-html body .naglowek .sekcje2 .p_zone .przycisk {
+html body .navbar .nav-controls .toggle-zone .dark-toggle {
   margin-top: auto;
   margin-bottom: auto;
   margin-left: 5px;
   cursor: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3174/cursor.png), auto;
 }
-html body .naglowek .sekcje2 .p_zone .przycisk .p_tlo {
+html body .navbar .nav-controls .toggle-zone .dark-toggle .toggle-bg {
   position: relative;
   width: 50px;
   height: 25px;
@@ -204,7 +204,7 @@ html body .naglowek .sekcje2 .p_zone .przycisk .p_tlo {
   background-color: #ffffff;
   box-shadow: inset 0 2px 60px rgba(0, 0, 0, 0.1), inset 0 2px 8px rgba(0, 0, 0, 0.1), inset 0 -4px 8px rgba(0, 0, 0, 0.05);
 }
-html body .naglowek .sekcje2 .p_zone .przycisk .p_tlo .p_kropka {
+html body .navbar .nav-controls .toggle-zone .dark-toggle .toggle-bg .toggle-dot {
   position: absolute;
   border-radius: 50%;
   width: 25px;
@@ -215,30 +215,30 @@ html body .naglowek .sekcje2 .p_zone .przycisk .p_tlo .p_kropka {
   background: linear-gradient(to bottom, #eaeaea, #f9f9f9);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1), inset 0 0.5px 0.5px rgb(225, 225, 225), inset 0 -0.5px 0.5px rgb(225, 225, 225);
 }
-html body .naglowek .sekcje2 .p_zone .przycisk.active .p_tlo {
+html body .navbar .nav-controls .toggle-zone .dark-toggle.active .toggle-bg {
   background-color: #3c3b3a;
   box-shadow: inset 0 8px 60px rgba(0, 0, 0, 0.1), inset 0 8px 8px rgba(0, 0, 0, 0.1), inset 0 -4px 4px rgba(0, 0, 0, 0.1);
 }
-html body .naglowek .sekcje2 .p_zone .przycisk.active .p_tlo .p_kropka {
+html body .navbar .nav-controls .toggle-zone .dark-toggle.active .toggle-bg .toggle-dot {
   left: 25px;
   background: linear-gradient(to bottom, #444, #222);
   box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(225, 225, 225, 0.2), inset 0 -1px 1px rgba(225, 225, 225, 0.2);
 }
 @media (max-width: 768px) {
-  html body .naglowek .sekcje2 {
+  html body .navbar .nav-controls {
     display: none;
     width: 100%;
   }
 }
-html body .naglowek .sekcje2 .mobile-links {
+html body .navbar .nav-controls .mobile-links {
   display: none;
 }
 @media (max-width: 768px) {
-  html body .naglowek .sekcje2 .mobile-links {
+  html body .navbar .nav-controls .mobile-links {
     display: block;
   }
 }
-html body .naglowek .show {
+html body .navbar .show {
   box-shadow: 0px 70px 65px 10px rgba(0, 0, 0, 0.15);
   padding: 20px;
   left: 0;
@@ -249,24 +249,24 @@ html body .naglowek .show {
   display: flex;
   flex-direction: column;
 }
-html body .naglowek .show .ikony {
+html body .navbar .show .icons {
   margin-top: 5px;
   width: 20px;
   height: 20px;
 }
-html body .naglowek .show .ikony .link {
+html body .navbar .show .icons .link {
   margin-right: 20px;
 }
-html body .naglowek .show .ikony .icon-facebook {
+html body .navbar .show .icons .icon-facebook {
   height: 20px;
 }
-html body .naglowek .show .p_zone {
+html body .navbar .show .toggle-zone {
   margin-top: 100px;
   position: absolute;
   margin-left: 0;
   left: 15px;
 }
-html body .naglowek .show .mobile-links {
+html body .navbar .show .mobile-links {
   transition: 1s;
   font-family: "Be Vietnam Pro";
   font-style: normal;
@@ -275,18 +275,18 @@ html body .naglowek .show .mobile-links {
   margin-top: 29px;
   padding-bottom: 4px;
 }
-html body .naglowek .show .mobile-links a {
+html body .navbar .show .mobile-links a {
   margin-right: 15px;
   transition: 1s;
   text-decoration: none;
   color: #0065ff;
   cursor: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3174/cursor.png), auto;
 }
-html body .cont {
+html body .container {
   height: 150vh;
   position: relative;
 }
-html body .cont .lewy {
+html body .container .bg-left {
   top: 0;
   bottom: 0;
   position: fixed;
@@ -295,7 +295,7 @@ html body .cont .lewy {
   left: 0;
   transition: 1s;
 }
-html body .cont .prawy {
+html body .container .bg-right {
   top: 0;
   right: 0%;
   bottom: 0;
@@ -304,7 +304,7 @@ html body .cont .prawy {
   background-color: #222222;
   transition: 1s;
 }
-html body .cont .glowne {
+html body .container .main-content {
   margin-top: 120px;
   width: 960px;
   left: 0;
@@ -313,47 +313,47 @@ html body .cont .glowne {
   margin-right: auto;
 }
 @media (max-width: 992px) {
-  html body .cont .glowne {
+  html body .container .main-content {
     width: 790px;
   }
 }
 @media (max-width: 830px) {
-  html body .cont .glowne {
+  html body .container .main-content {
     width: 660px;
   }
 }
 @media (max-width: 768px) {
-  html body .cont .glowne {
+  html body .container .main-content {
     width: 615px;
     margin-top: 100px;
   }
 }
 @media (max-width: 645px) {
-  html body .cont .glowne {
+  html body .container .main-content {
     width: 515px;
   }
 }
 @media (max-width: 540px) {
-  html body .cont .glowne {
+  html body .container .main-content {
     width: 430px;
   }
 }
 @media (max-width: 450px) {
-  html body .cont .glowne {
+  html body .container .main-content {
     width: 360px;
   }
 }
 @media (max-width: 370px) {
-  html body .cont .glowne {
+  html body .container .main-content {
     width: 295px;
   }
 }
 @media (max-width: 360px) {
-  html body .cont .glowne {
+  html body .container .main-content {
     width: 285px;
   }
 }
-html body .cont .glowne .awatar {
+html body .container .main-content .avatar {
   position: relative;
   background-color: #ffffff;
   width: 100px;
@@ -368,12 +368,12 @@ html body .cont .glowne .awatar {
   animation-delay: 0.1s;
 }
 @media (max-width: 992px) {
-  html body .cont .glowne .awatar {
+  html body .container .main-content .avatar {
     width: 70px;
     height: 70px;
   }
 }
-html body .cont .glowne .wstep {
+html body .container .main-content .intro {
   width: 80%;
   position: relative;
   left: 0;
@@ -381,9 +381,8 @@ html body .cont .glowne .wstep {
   align-items: center;
   color: #0065ff;
   transition: 1s;
-  animation-delay: 0.2s;
 }
-html body .cont .glowne .wstep h1 {
+html body .container .main-content .intro h1 {
   margin-top: 0.5em;
   margin-bottom: 0;
   font-size: 4.1em;
@@ -394,16 +393,19 @@ html body .cont .glowne .wstep h1 {
   font-family: EB Garamond;
 }
 @media (max-width: 768px) {
-  html body .cont .glowne .wstep h1 {
+  html body .container .main-content .intro h1 {
     font-size: 3em;
   }
 }
+html body .container .main-content .intro {
+  animation-delay: 0.2s;
+}
 @media (max-width: 600px) {
-  html body .cont .glowne .wstep {
+  html body .container .main-content .intro {
     width: 100%;
   }
 }
-html body .cont .glowne .linia {
+html body .container .main-content .divider {
   margin-top: 80px;
   margin-bottom: 80px;
   border: 1px solid #0065ff;
@@ -414,11 +416,11 @@ html body .cont .glowne .linia {
   animation-delay: 0.3s;
 }
 @media (max-width: 768px) {
-  html body .cont .glowne .linia {
+  html body .container .main-content .divider {
     margin: 50px 0 50px 0;
   }
 }
-html body .cont .glowne .tekst {
+html body .container .main-content .about-text {
   margin-top: 10px;
   margin-bottom: 1rem;
   position: relative;
@@ -431,27 +433,26 @@ html body .cont .glowne .tekst {
   letter-spacing: -0.01em;
   transition: 1s;
 }
-html body .cont .glowne .tekst .comment {
+html body .container .main-content .about-text .comment {
   color: rgba(128, 128, 128, 0.512);
   font-family: "Fira Code", monospace;
   font-size: 17px;
 }
-html body .cont .glowne .tekst .b {
+html body .container .main-content .about-text .b {
   font-family: "Fira Code", monospace;
   color: #09e160;
   font-size: 17px;
 }
-html body .cont .glowne .tekst .tekst_link {
+html body .container .main-content .about-text .text-link {
   transition: 1s;
   text-decoration: none;
   color: #0065ff;
 }
-html body .cont .glowne .tekst .tekst_link:hover {
+html body .container .main-content .about-text .text-link:hover {
   text-decoration: underline;
   cursor: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3174/cursor.png), auto;
 }
-html body .cont .glowne .label {
-  width: -moz-fit-content;
+html body .container .main-content .highlight-box {
   width: fit-content;
   margin-top: 5rem;
   margin-bottom: 0.5rem;
@@ -465,21 +466,21 @@ html body .cont .glowne .label {
   font-size: 0.9em;
 }
 @media (max-width: 768px) {
-  html body .cont .glowne .label {
+  html body .container .main-content .highlight-box {
     display: inline-block;
     margin-top: 50px;
   }
 }
-html body .cont .glowne .label .label_link {
+html body .container .main-content .highlight-box .highlight-link {
   transition: 1s;
   text-decoration: none;
   color: #0065ff;
 }
-html body .cont .glowne .label .label_link:hover {
+html body .container .main-content .highlight-box .highlight-link:hover {
   text-decoration: underline;
   cursor: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3174/cursor.png), auto;
 }
-html body .cont .glowne .linia2 {
+html body .container .main-content .divider-section {
   position: relative;
   margin-top: 80px;
   margin-bottom: 80px;
@@ -488,7 +489,7 @@ html body .cont .glowne .linia2 {
   width: 100%;
   transition: 1s;
 }
-html body .cont .glowne .mywork {
+html body .container .main-content .work-title {
   margin-left: 0;
   margin-right: 0;
   margin-top: 0.5em;
@@ -508,16 +509,16 @@ html body .cont .glowne .mywork {
   transition: 1s;
 }
 @media (max-width: 768px) {
-  html body .cont .glowne .mywork {
+  html body .container .main-content .work-title {
     font-size: 2.2em;
   }
 }
 @media (max-width: 370px) {
-  html body .cont .glowne .mywork {
+  html body .container .main-content .work-title {
     width: 100%;
   }
 }
-html body .cont .glowne .mywork_tekst {
+html body .container .main-content .work-description {
   margin-top: 70px;
   transition: 1s;
   position: relative;
@@ -529,48 +530,57 @@ html body .cont .glowne .mywork_tekst {
   color: #3c3b3a;
   letter-spacing: -0.01em;
 }
-html body .cont .projekty {
+html body .container .projects {
   margin-left: 50px;
   margin-right: 50px;
   margin-top: 60px;
 }
-html body .cont .projekty .b {
+html body .container .projects .b {
   font-family: "Fira Code", monospace;
   color: #09e160;
   font-size: 17px;
 }
-html body .cont .projekty .projekt_1 {
+html body .container .projects .project-1 {
   margin-bottom: 90px;
   display: flex;
 }
-html body .cont .projekty .projekt_1 .czesc_lewa {
+html body .container .projects .project-1 .project-left {
   position: relative;
   width: 65%;
 }
-html body .cont .projekty .projekt_1 .czesc_lewa .saleswizard_white {
+html body .container .projects .project-1 .project-left .saleswizard-light {
   display: block;
 }
-html body .cont .projekty .projekt_1 .czesc_lewa .saleswizard_black {
+html body .container .projects .project-1 .project-left .saleswizard-dark {
   display: none;
 }
-html body .cont .projekty .projekt_1 .czesc_lewa img {
+html body .container .projects .project-1 .project-left img {
   float: right;
   margin-right: 2%;
   width: 100%;
   height: auto;
 }
 @media (max-width: 990px) {
-  html body .cont .projekty .projekt_1 .czesc_lewa {
+  html body .container .projects .project-1 .project-left {
     width: 100%;
   }
 }
-html body .cont .projekty .projekt_1 .czesc_prawa {
+html body .container .projects .project-1 .project-right {
   width: 35%;
   position: relative;
   margin-top: auto;
   margin-bottom: auto;
 }
-html body .cont .projekty .projekt_1 .czesc_prawa .opis_1 {
+html body .container .projects .project-1 .project-right .project-description a {
+  transition: 1s;
+  text-decoration: none;
+  color: #0065ff;
+  cursor: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3174/cursor.png), auto;
+}
+html body .container .projects .project-1 .project-right .project-description a:hover {
+  text-decoration: underline;
+}
+html body .container .projects .project-1 .project-right .project-description {
   transition: 1s;
   font-family: "Be Vietnam Pro", sans-serif;
   font-weight: 400;
@@ -580,16 +590,7 @@ html body .cont .projekty .projekt_1 .czesc_prawa .opis_1 {
   letter-spacing: -0.01em;
   padding-right: 5%;
 }
-html body .cont .projekty .projekt_1 .czesc_prawa .opis_1 a {
-  transition: 1s;
-  text-decoration: none;
-  color: #0065ff;
-  cursor: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3174/cursor.png), auto;
-}
-html body .cont .projekty .projekt_1 .czesc_prawa .opis_1 a:hover {
-  text-decoration: underline;
-}
-html body .cont .projekty .projekt_1 .czesc_prawa .opis_1 .technologie {
+html body .container .projects .project-1 .project-right .project-description .tech-list {
   width: 85%;
   height: 20%;
   display: flex;
@@ -598,7 +599,7 @@ html body .cont .projekty .projekt_1 .czesc_prawa .opis_1 .technologie {
   margin-top: 30px;
   font-size: 13px;
 }
-html body .cont .projekty .projekt_1 .czesc_prawa .opis_1 .technologie .technologia {
+html body .container .projects .project-1 .project-right .project-description .tech-list .tech-tag {
   transition: 1s;
   padding: 4px 8px 4px 8px;
   margin: 0px 8px 8px 0px;
@@ -608,57 +609,66 @@ html body .cont .projekty .projekt_1 .czesc_prawa .opis_1 .technologie .technolo
   line-height: 140%;
 }
 @media (max-width: 990px) {
-  html body .cont .projekty .projekt_1 .czesc_prawa {
+  html body .container .projects .project-1 .project-right {
     width: 80%;
     margin-left: auto;
     margin-right: auto;
   }
 }
 @media (max-width: 769px) {
-  html body .cont .projekty .projekt_1 .czesc_prawa {
+  html body .container .projects .project-1 .project-right {
     width: 95%;
     margin-left: auto;
     margin-right: auto;
   }
 }
 @media (max-width: 990px) {
-  html body .cont .projekty .projekt_1 {
+  html body .container .projects .project-1 {
     flex-direction: column;
   }
 }
-html body .cont .projekty .projekt_2 {
+html body .container .projects .project-2 {
   margin-top: 35px;
   margin-bottom: 100px;
   display: flex;
 }
-html body .cont .projekty .projekt_2 .czesc_lewa {
+html body .container .projects .project-2 .project-left {
   position: relative;
   width: 65%;
 }
-html body .cont .projekty .projekt_2 .czesc_lewa .bookable_white {
+html body .container .projects .project-2 .project-left .bookable-light {
   display: block;
 }
-html body .cont .projekty .projekt_2 .czesc_lewa .bookable_black {
+html body .container .projects .project-2 .project-left .bookable-dark {
   display: none;
 }
-html body .cont .projekty .projekt_2 .czesc_lewa img {
+html body .container .projects .project-2 .project-left img {
   float: right;
   margin-right: 2%;
   width: 100%;
   height: auto;
 }
 @media (max-width: 990px) {
-  html body .cont .projekty .projekt_2 .czesc_lewa {
+  html body .container .projects .project-2 .project-left {
     width: 100%;
   }
 }
-html body .cont .projekty .projekt_2 .czesc_prawa {
+html body .container .projects .project-2 .project-right {
   width: 35%;
   position: relative;
   margin-bottom: auto;
   margin-top: auto;
 }
-html body .cont .projekty .projekt_2 .czesc_prawa .opis_1 {
+html body .container .projects .project-2 .project-right .project-description a {
+  transition: 1s;
+  text-decoration: none;
+  color: #0065ff;
+  cursor: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3174/cursor.png), auto;
+}
+html body .container .projects .project-2 .project-right .project-description a:hover {
+  text-decoration: underline;
+}
+html body .container .projects .project-2 .project-right .project-description {
   transition: 1s;
   font-family: "Be Vietnam Pro", sans-serif;
   font-weight: 400;
@@ -668,16 +678,7 @@ html body .cont .projekty .projekt_2 .czesc_prawa .opis_1 {
   letter-spacing: -0.01em;
   padding-right: 5%;
 }
-html body .cont .projekty .projekt_2 .czesc_prawa .opis_1 a {
-  transition: 1s;
-  text-decoration: none;
-  color: #0065ff;
-  cursor: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3174/cursor.png), auto;
-}
-html body .cont .projekty .projekt_2 .czesc_prawa .opis_1 a:hover {
-  text-decoration: underline;
-}
-html body .cont .projekty .projekt_2 .czesc_prawa .opis_1 .technologie {
+html body .container .projects .project-2 .project-right .project-description .tech-list {
   width: 85%;
   height: 20%;
   display: flex;
@@ -686,7 +687,7 @@ html body .cont .projekty .projekt_2 .czesc_prawa .opis_1 .technologie {
   margin-top: 30px;
   font-size: 13px;
 }
-html body .cont .projekty .projekt_2 .czesc_prawa .opis_1 .technologie .technologia {
+html body .container .projects .project-2 .project-right .project-description .tech-list .tech-tag {
   transition: 1s;
   padding: 4px 8px 4px 8px;
   margin: 0px 8px 8px 0px;
@@ -696,57 +697,66 @@ html body .cont .projekty .projekt_2 .czesc_prawa .opis_1 .technologie .technolo
   line-height: 140%;
 }
 @media (max-width: 990px) {
-  html body .cont .projekty .projekt_2 .czesc_prawa {
+  html body .container .projects .project-2 .project-right {
     width: 80%;
     margin-left: auto;
     margin-right: auto;
   }
 }
 @media (max-width: 769px) {
-  html body .cont .projekty .projekt_2 .czesc_prawa {
+  html body .container .projects .project-2 .project-right {
     width: 95%;
     margin-left: auto;
     margin-right: auto;
   }
 }
 @media (max-width: 990px) {
-  html body .cont .projekty .projekt_2 {
+  html body .container .projects .project-2 {
     flex-direction: column;
   }
 }
-html body .cont .projekty .projekt_3 {
+html body .container .projects .project-3 {
   margin-top: 35px;
   margin-bottom: 100px;
   display: flex;
 }
-html body .cont .projekty .projekt_3 .czesc_lewa {
+html body .container .projects .project-3 .project-left {
   position: relative;
   width: 65%;
 }
-html body .cont .projekty .projekt_3 .czesc_lewa .freedeal_white {
+html body .container .projects .project-3 .project-left .freedeal-light {
   display: block;
 }
-html body .cont .projekty .projekt_3 .czesc_lewa .freedeal_black {
+html body .container .projects .project-3 .project-left .freedeal-dark {
   display: none;
 }
-html body .cont .projekty .projekt_3 .czesc_lewa img {
+html body .container .projects .project-3 .project-left img {
   float: right;
   margin-right: 2%;
   width: 100%;
   height: auto;
 }
 @media (max-width: 990px) {
-  html body .cont .projekty .projekt_3 .czesc_lewa {
+  html body .container .projects .project-3 .project-left {
     width: 100%;
   }
 }
-html body .cont .projekty .projekt_3 .czesc_prawa {
+html body .container .projects .project-3 .project-right {
   width: 35%;
   position: relative;
   margin-bottom: auto;
   margin-top: auto;
 }
-html body .cont .projekty .projekt_3 .czesc_prawa .opis_1 {
+html body .container .projects .project-3 .project-right .project-description a {
+  transition: 1s;
+  text-decoration: none;
+  color: #0065ff;
+  cursor: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3174/cursor.png), auto;
+}
+html body .container .projects .project-3 .project-right .project-description a:hover {
+  text-decoration: underline;
+}
+html body .container .projects .project-3 .project-right .project-description {
   transition: 1s;
   font-family: "Be Vietnam Pro", sans-serif;
   font-weight: 400;
@@ -756,16 +766,7 @@ html body .cont .projekty .projekt_3 .czesc_prawa .opis_1 {
   letter-spacing: -0.01em;
   padding-right: 5%;
 }
-html body .cont .projekty .projekt_3 .czesc_prawa .opis_1 a {
-  transition: 1s;
-  text-decoration: none;
-  color: #0065ff;
-  cursor: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3174/cursor.png), auto;
-}
-html body .cont .projekty .projekt_3 .czesc_prawa .opis_1 a:hover {
-  text-decoration: underline;
-}
-html body .cont .projekty .projekt_3 .czesc_prawa .opis_1 .technologie {
+html body .container .projects .project-3 .project-right .project-description .tech-list {
   width: 85%;
   height: 20%;
   display: flex;
@@ -774,7 +775,7 @@ html body .cont .projekty .projekt_3 .czesc_prawa .opis_1 .technologie {
   margin-top: 30px;
   font-size: 13px;
 }
-html body .cont .projekty .projekt_3 .czesc_prawa .opis_1 .technologie .technologia {
+html body .container .projects .project-3 .project-right .project-description .tech-list .tech-tag {
   transition: 1s;
   padding: 4px 8px 4px 8px;
   margin: 0px 8px 8px 0px;
@@ -784,41 +785,41 @@ html body .cont .projekty .projekt_3 .czesc_prawa .opis_1 .technologie .technolo
   line-height: 140%;
 }
 @media (max-width: 990px) {
-  html body .cont .projekty .projekt_3 .czesc_prawa {
+  html body .container .projects .project-3 .project-right {
     width: 80%;
     margin-left: auto;
     margin-right: auto;
   }
 }
 @media (max-width: 769px) {
-  html body .cont .projekty .projekt_3 .czesc_prawa {
+  html body .container .projects .project-3 .project-right {
     width: 95%;
     margin-left: auto;
     margin-right: auto;
   }
 }
 @media (max-width: 990px) {
-  html body .cont .projekty .projekt_3 {
+  html body .container .projects .project-3 {
     flex-direction: column;
   }
 }
 @media (max-width: 768px) {
-  html body .cont .projekty .projekt_3 {
+  html body .container .projects .project-3 {
     margin-bottom: 80px;
   }
 }
-html body .cont #myProjects {
+html body .container #myProjects {
   position: relative;
   background-color: #f8f9fa;
   display: flex;
   justify-content: center;
 }
-html body .cont #myProjects .projects-wrapper {
+html body .container #myProjects .projects-wrapper {
   max-width: 960px;
   width: 100%;
   margin-bottom: 100px;
 }
-html body .cont #myProjects .projects-wrapper .projects-title h2 {
+html body .container #myProjects .projects-wrapper .projects-title h2 {
   color: #3c3b3a;
   margin: 36px 0;
   font-size: 30px;
@@ -826,7 +827,7 @@ html body .cont #myProjects .projects-wrapper .projects-title h2 {
   font-weight: 800;
   letter-spacing: -0.02em;
 }
-html body .cont #myProjects .projects-wrapper .projects-description {
+html body .container #myProjects .projects-wrapper .projects-description {
   color: #3c3b3a;
   font-size: 17.5px;
   letter-spacing: -0.01em;
@@ -834,18 +835,18 @@ html body .cont #myProjects .projects-wrapper .projects-description {
   margin-bottom: 10px;
   line-height: 160%;
 }
-html body .cont #myProjects .projects-wrapper .project {
+html body .container #myProjects .projects-wrapper .project {
   display: flex;
   margin-top: 30px;
   margin-bottom: 20px;
 }
 @media (max-width: 990px) {
-  html body .cont #myProjects .projects-wrapper .project .project-image {
+  html body .container #myProjects .projects-wrapper .project .project-image {
     display: flex;
     justify-content: center;
   }
 }
-html body .cont #myProjects .projects-wrapper .project .project-image img {
+html body .container #myProjects .projects-wrapper .project .project-image img {
   margin: 15px;
   border-radius: 10px;
   border: 4px solid #F0F0F0;
@@ -853,14 +854,14 @@ html body .cont #myProjects .projects-wrapper .project .project-image img {
   box-shadow: 0px 10px 20px 10px rgba(0, 0, 0, 0.1);
 }
 @media (max-width: 990px) {
-  html body .cont #myProjects .projects-wrapper .project .project-image img {
+  html body .container #myProjects .projects-wrapper .project .project-image img {
     max-width: 600px;
     width: 100%;
     height: auto;
     margin: 0;
   }
 }
-html body .cont #myProjects .projects-wrapper .project .project-description {
+html body .container #myProjects .projects-wrapper .project .project-description {
   margin: 0px 15px 0px 15px;
   width: 100%;
   font-family: "Be Vietnam Pro", sans-serif;
@@ -868,7 +869,7 @@ html body .cont #myProjects .projects-wrapper .project .project-description {
   letter-spacing: -0.01em;
   line-height: 160%;
 }
-html body .cont #myProjects .projects-wrapper .project .project-description h4 {
+html body .container #myProjects .projects-wrapper .project .project-description h4 {
   color: #3c3b3a;
   margin: 15px 0;
   font-size: 20px;
@@ -876,43 +877,43 @@ html body .cont #myProjects .projects-wrapper .project .project-description h4 {
   font-family: "Be Vietnam Pro", sans-serif;
   letter-spacing: -0.01em;
 }
-html body .cont #myProjects .projects-wrapper .project .project-description h4 a {
+html body .container #myProjects .projects-wrapper .project .project-description h4 a {
   color: #3c3b3a;
   text-decoration: none;
 }
-html body .cont #myProjects .projects-wrapper .project .project-description p {
+html body .container #myProjects .projects-wrapper .project .project-description p {
   color: #3c3b3a;
 }
 @media (max-width: 990px) {
-  html body .cont #myProjects .projects-wrapper .project .project-description {
+  html body .container #myProjects .projects-wrapper .project .project-description {
     margin: 0;
   }
 }
 @media (max-width: 990px) {
-  html body .cont #myProjects .projects-wrapper .project {
+  html body .container #myProjects .projects-wrapper .project {
     flex-direction: column;
     margin-top: 40px;
   }
 }
-html body .cont #myProjects .projects-wrapper a {
+html body .container #myProjects .projects-wrapper a {
   transition: 1s;
   text-decoration: none;
   color: #0065ff;
   cursor: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3174/cursor.png), auto;
 }
-html body .cont #myProjects .projects-wrapper a:hover {
+html body .container #myProjects .projects-wrapper a:hover {
   text-decoration: underline;
 }
 @media (max-width: 990px) {
-  html body .cont #myProjects .projects-wrapper {
+  html body .container #myProjects .projects-wrapper {
     width: 80%;
   }
 }
-html body .cont footer {
+html body .container footer {
   background-color: #f8f9fa;
   position: relative;
 }
-html body .cont .glowne_2 {
+html body .container .footer-content {
   max-width: 960px;
   left: 0;
   right: 0;
@@ -920,46 +921,46 @@ html body .cont .glowne_2 {
   margin-right: auto;
 }
 @media (max-width: 992px) {
-  html body .cont .glowne_2 {
+  html body .container .footer-content {
     width: 790px;
   }
 }
 @media (max-width: 830px) {
-  html body .cont .glowne_2 {
+  html body .container .footer-content {
     width: 660px;
   }
 }
 @media (max-width: 768px) {
-  html body .cont .glowne_2 {
+  html body .container .footer-content {
     width: 615px;
   }
 }
 @media (max-width: 645px) {
-  html body .cont .glowne_2 {
+  html body .container .footer-content {
     width: 515px;
   }
 }
 @media (max-width: 540px) {
-  html body .cont .glowne_2 {
+  html body .container .footer-content {
     width: 430px;
   }
 }
 @media (max-width: 450px) {
-  html body .cont .glowne_2 {
+  html body .container .footer-content {
     width: 360px;
   }
 }
 @media (max-width: 370px) {
-  html body .cont .glowne_2 {
+  html body .container .footer-content {
     width: 295px;
   }
 }
 @media (max-width: 360px) {
-  html body .cont .glowne_2 {
+  html body .container .footer-content {
     width: 285px;
   }
 }
-html body .cont .glowne_2 .label_2 {
+html body .container .footer-content .footer-box {
   position: relative;
   font-family: "Be Vietnam Pro", sans-serif;
   margin-bottom: 140px;
@@ -971,27 +972,27 @@ html body .cont .glowne_2 .label_2 {
   line-height: 160%;
   transition: 1s;
 }
-html body .cont .glowne_2 .label_2 a {
+html body .container .footer-content .footer-box a {
   transition: 1s;
   text-decoration: none;
   color: #0065ff;
   cursor: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3174/cursor.png), auto;
 }
-html body .cont .glowne_2 .label_2 a:hover {
+html body .container .footer-content .footer-box a:hover {
   text-decoration: underline;
 }
 @media (max-width: 768px) {
-  html body .cont .glowne_2 .label_2 {
+  html body .container .footer-content .footer-box {
     margin-bottom: 100px;
   }
 }
-html body .cont .glowne_2 .linia3 {
+html body .container .footer-content .divider-footer {
   position: relative;
   width: 40%;
   border: 1px solid #808080;
   margin-bottom: 70px;
 }
-html body .cont .glowne_2 .footer {
+html body .container .footer-content .footer {
   position: relative;
   padding-bottom: 80px;
   font-family: "Be Vietnam Pro", sans-serif;
@@ -1046,7 +1047,7 @@ html .photoVisible_on {
 html .photoInvisible_on {
   display: none !important;
 }
-html .technologie {
+html .tech-list {
   width: 85%;
   height: 20%;
   display: flex;
@@ -1055,7 +1056,7 @@ html .technologie {
   margin-top: 30px;
   font-size: 13px;
 }
-html .technologie .technologia {
+html .tech-list .tech-tag {
   transition: 1s;
   padding: 4px 8px 4px 8px;
   margin: 0px 8px 8px 0px;
@@ -1068,4 +1069,6 @@ html .b {
   font-family: "Fira Code", monospace;
   color: #09e160;
   font-size: 17px;
-}/*# sourceMappingURL=style.css.map */
+}
+
+/*# sourceMappingURL=style.css.map */
