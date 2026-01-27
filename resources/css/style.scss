@@ -3,7 +3,20 @@
 // Animation speed
 $toggle-control-speed: 1s;
 $animation-duration: 10s;
-$primary: #dc5656;
+
+// Luxury color palette - Bottle green, cream, gold
+$bottle-green: #1e3932;
+$bottle-green-light: #2d4a3e;
+$bottle-green-dark: #152a25;
+$warm-cream: #f8f4ed;
+$warm-beige: #f0ebe3;
+$gold-accent: #c4a35a;
+$gold-light: #d4b86a;
+$charcoal: #2a2a2a;
+$warm-gray: #4a4744;
+
+// Legacy variables for compatibility
+$primary: $bottle-green;
 $primary-ultralight: mix(white, $primary, 80%);
 $primary-light: mix(white, $primary, 25%);
 $primary-dark: mix(black, $primary, 25%);
@@ -28,7 +41,7 @@ html {
       top: 0;
       width: 100%;
       height: 70px;
-      box-shadow: 0px 15px 20px -5px rgba(0, 0, 0, 0.08);
+      box-shadow: 0px 4px 20px -4px rgba(0, 0, 0, 0.06);
 
       .navbar-left.show {
         transition: 0s;
@@ -41,14 +54,14 @@ html {
         width: 100%;
         height: 100%;
         left: 0%;
-        background-color: #ffffff;
+        background-color: $warm-cream;
         transition: $toggle-control-speed;
       }
       .navbar-right {
         width: 0%;
         height: 100%;
         right: 0%;
-        background-color: #3c3b3a;
+        background-color: $bottle-green;
         transition: $toggle-control-speed;
       }
       .nav-section {
@@ -103,7 +116,7 @@ html {
             margin-left: 30px;
             transition: $toggle-control-speed;
             text-decoration: none;
-            color: #0065ff;
+            color: $bottle-green;
             cursor: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3174/cursor.png), auto;
 
             @include media("<=tablet") {
@@ -129,7 +142,7 @@ html {
           position: absolute;
           width: 30px;
           height: 2px;
-          background: #0065ff;
+          background: $bottle-green;
           border-radius: 4px;
           transition: 0.5s;
           left: 15px;
@@ -181,7 +194,7 @@ html {
             text-decoration: none;
             margin-right: 30px;
             i {
-              color: #0065ff;
+              color: $bottle-green;
               transition: $toggle-control-speed;
               cursor: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3174/cursor.png), auto;
             }
@@ -214,7 +227,7 @@ html {
               display: flex;
               align-items: center;
 
-              background-color: #ffffff;
+              background-color: $warm-cream;
               box-shadow:
                 inset 0 2px 60px rgba(0, 0, 0, 0.1),
                 inset 0 2px 8px rgba(0, 0, 0, 0.1),
@@ -239,7 +252,7 @@ html {
           }
           .dark-toggle.active {
             .toggle-bg {
-              background-color: #3c3b3a;
+              background-color: $bottle-green;
               box-shadow:
                 inset 0 8px 60px rgba(0, 0, 0, 0.1),
                 inset 0 8px 8px rgba(0, 0, 0, 0.1),
@@ -306,7 +319,7 @@ html {
             margin-right: 15px;
             transition: $toggle-control-speed;
             text-decoration: none;
-            color: #0065ff;
+            color: $bottle-green;
             cursor: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3174/cursor.png), auto;
 
           }
@@ -321,7 +334,7 @@ html {
         bottom: 0;
         position: fixed;
         width: 100%;
-        background-color: #ffffff;
+        background-color: $warm-cream;
         left: 0;
         transition: $toggle-control-speed;
       }
@@ -331,7 +344,7 @@ html {
         bottom: 0;
         position: fixed;
         width: 0%;
-        background-color: #222222;
+        background-color: $bottle-green-dark;
         transition: $toggle-control-speed;
       }
       .main-content {
@@ -370,16 +383,17 @@ html {
 
         .avatar {
           position: relative;
-          background-color: #ffffff;
+          background-color: $warm-beige;
           width: 100px;
           height: 100px;
           left: 0;
           top: 0;
           background-size: cover;
           background-position: center;
-          box-shadow: 0px 15px 20px -5px rgba(0, 0, 0, 0.1);
-          border-radius: 100px;
+          box-shadow: 0px 15px 30px -8px rgba(0, 0, 0, 0.12);
+          border-radius: 8px;
           transition: $toggle-control-speed;
+          border: 2px solid rgba($bottle-green, 0.08);
 
           animation-delay: 0.1s;
 
@@ -394,16 +408,16 @@ html {
           left: 0;
           display: flex;
           align-items: center;
-          color: #0065ff;
+          color: $bottle-green;
           transition: $toggle-control-speed;
           h1 {
             margin-top: 0.5em;
             margin-bottom: 0;
             font-size: 4.1em;
-            line-height: 100%;
-            letter-spacing: -0.02em;
+            line-height: 105%;
+            letter-spacing: -0.01em;
             font-style: normal;
-            font-weight: 800;
+            font-weight: 700;
             font-family: EB Garamond;
 
             @include media("<=tablet") {
@@ -420,7 +434,7 @@ html {
         .divider {
           margin-top: 80px;
           margin-bottom: 80px;
-          border: 1px solid #0065ff;
+          border: 1px solid $gold-accent;
           position: relative;
           left: 0;
           width: 15%;
@@ -440,28 +454,30 @@ html {
           font-weight: 400;
           font-size: 17.5px;
           line-height: 160%;
-          color: #3c3b3a;
+          color: $warm-gray;
           letter-spacing: -0.01em;
           transition: $toggle-control-speed;
 
           .comment {
-            color: rgba(128, 128, 128, 0.512);
+            color: rgba($bottle-green, 0.4);
             font-family: "Fira Code", monospace;
-            font-size: 17px;
+            font-size: 15px;
+            letter-spacing: 0.02em;
           }
           .b {
             font-family: "Fira Code", monospace;
-            color: #09e160;
+            color: $gold-accent;
             font-size: 17px;
           }
 
           .text-link {
-            transition: $toggle-control-speed;
+            transition: 0.3s ease;
             text-decoration: none;
-            color: #0065ff;
+            color: $bottle-green;
+            font-weight: 500;
           }
           .text-link:hover {
-            text-decoration: underline;
+            color: $gold-accent;
             cursor: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3174/cursor.png), auto;
           }
         }
@@ -471,12 +487,14 @@ html {
           margin-bottom: 0.5rem;
           display: flex;
           position: relative;
-          background-color: #f8f9fa;
-          border-radius: 10px;
-          padding: 1.5rem;
+          background-color: $bottle-green-light;
+          border-radius: 4px;
+          padding: 1.5rem 2rem;
           line-height: 140%;
           transition: $toggle-control-speed;
           font-size: 0.9em;
+          color: $warm-cream;
+          border-left: 3px solid $gold-accent;
 
           @include media("<=tablet") {
             display: inline-block;
@@ -485,18 +503,21 @@ html {
           .highlight-link {
             transition: $toggle-control-speed;
             text-decoration: none;
-            color: #0065ff;
+            color: $gold-accent;
           }
           .highlight-link:hover {
             text-decoration: underline;
             cursor: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3174/cursor.png), auto;
+          }
+          .highlight-text {
+            color: $warm-cream;
           }
         }
         .divider-section {
           position: relative;
           margin-top: 80px;
           margin-bottom: 80px;
-          border: 1px solid #0065ff;
+          border: 1px solid $gold-accent;
           left: 0;
           width: 100%;
           transition: $toggle-control-speed;
@@ -511,13 +532,13 @@ html {
           left: 0;
           font-family: EB Garamond;
           font-style: normal;
-          font-weight: 800;
+          font-weight: 700;
           font-size: 4.1em;
-          line-height: 100%;
+          line-height: 105%;
           display: flex;
           align-items: center;
-          letter-spacing: -0.02em;
-          color: #0065ff;
+          letter-spacing: -0.01em;
+          color: $bottle-green;
           transition: $toggle-control-speed;
 
           @include media("<=tablet") {
@@ -537,7 +558,7 @@ html {
           font-weight: 400;
           font-size: 17.5px;
           line-height: 160%;
-          color: #3c3b3a;
+          color: $warm-gray;
           letter-spacing: -0.01em;
         }
       }
@@ -548,7 +569,7 @@ html {
 
         .b {
           font-family: "Fira Code", monospace;
-          color: #09e160;
+          color: $gold-accent;
           font-size: 17px;
         }
 
@@ -581,20 +602,20 @@ html {
             margin-bottom: auto;
             .project-description {
               a {
-                transition: $toggle-control-speed;
+                transition: 0.3s ease;
                 text-decoration: none;
-                color: #0065ff;
+                color: $bottle-green;
                 cursor: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3174/cursor.png), auto;
               }
               a:hover {
-                text-decoration: underline;
+                color: $gold-accent;
               }
               transition: $toggle-control-speed;
               font-family: "Be Vietnam Pro", sans-serif;
               font-weight: 400;
               font-size: 1.1em;
               line-height: 160%;
-              color: #3c3b3a;
+              color: $warm-gray;
               letter-spacing: -0.01em;
               padding-right: 5%;
               .tech-list {
@@ -607,12 +628,15 @@ html {
                 font-size: 13px;
                 .tech-tag {
                   transition: $toggle-control-speed;
-                  padding: 4px 8px 4px 8px;
+                  padding: 4px 12px 4px 12px;
                   margin: 0px 8px 8px 0px;
-                  background-color: #f8f9fa;
-                  border-radius: 20px;
+                  background-color: $warm-beige;
+                  border-radius: 4px;
+                  border: 1px solid rgba($bottle-green, 0.1);
                   height: 20px !important;
                   line-height: 140%;
+                  letter-spacing: 0.02em;
+                  font-weight: 500;
                 }
               }
             }
@@ -663,20 +687,20 @@ html {
 
             .project-description {
               a {
-                transition: $toggle-control-speed;
+                transition: 0.3s ease;
                 text-decoration: none;
-                color: #0065ff;
+                color: $bottle-green;
                 cursor: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3174/cursor.png), auto;
               }
               a:hover {
-                text-decoration: underline;
+                color: $gold-accent;
               }
               transition: $toggle-control-speed;
               font-family: "Be Vietnam Pro", sans-serif;
               font-weight: 400;
               font-size: 1.1em;
               line-height: 160%;
-              color: #3c3b3a;
+              color: $warm-gray;
               letter-spacing: -0.01em;
               padding-right: 5%;
               .tech-list {
@@ -691,8 +715,8 @@ html {
                   transition: $toggle-control-speed;
                   padding: 4px 8px 4px 8px;
                   margin: 0px 8px 8px 0px;
-                  background-color: #f8f9fa;
-                  border-radius: 20px;
+                  background-color: $warm-beige;
+                  border-radius: 4px;
                   height: 20px;
                   line-height: 140%;
                 }
@@ -745,20 +769,20 @@ html {
 
             .project-description {
               a {
-                transition: $toggle-control-speed;
+                transition: 0.3s ease;
                 text-decoration: none;
-                color: #0065ff;
+                color: $bottle-green;
                 cursor: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3174/cursor.png), auto;
               }
               a:hover {
-                text-decoration: underline;
+                color: $gold-accent;
               }
               transition: $toggle-control-speed;
               font-family: "Be Vietnam Pro", sans-serif;
               font-weight: 400;
               font-size: 1.1em;
               line-height: 160%;
-              color: #3c3b3a;
+              color: $warm-gray;
               letter-spacing: -0.01em;
               padding-right: 5%;
 
@@ -775,8 +799,8 @@ html {
                   transition: $toggle-control-speed;
                   padding: 4px 8px 4px 8px;
                   margin: 0px 8px 8px 0px;
-                  background-color: #f8f9fa;
-                  border-radius: 20px;
+                  background-color: $warm-beige;
+                  border-radius: 4px;
                   height: 20px;
                   line-height: 140%;
                 }
@@ -805,7 +829,7 @@ html {
       // My projects section
       #myProjects {
         position: relative;
-        background-color: #f8f9fa;
+        background-color: $warm-beige;
         display: flex;
         justify-content: center;
         .projects-wrapper {
@@ -813,15 +837,15 @@ html {
           width: 100%;
           margin-bottom: 100px;
           .projects-title h2{
-            color: #3c3b3a;
+            color: $bottle-green;
             margin: 36px 0;
-            font-size: 30px;
-            font-family: 'Be Vietnam Pro', sans-serif;
-            font-weight: 800;
-            letter-spacing: -0.02em;
+            font-size: 32px;
+            font-family: 'EB Garamond', serif;
+            font-weight: 700;
+            letter-spacing: -0.01em;
           }
           .projects-description {
-            color: #3c3b3a;
+            color: $warm-gray;
             font-size: 17.5px;
             letter-spacing: -0.01em;
             font-family: "Be Vietnam Pro", sans-serif;
@@ -840,10 +864,10 @@ html {
             }
             .project-image img{
               margin: 15px;
-              border-radius: 10px;
-              border: 4px solid #F0F0F0;
+              border-radius: 4px;
+              border: 1px solid rgba($bottle-green, 0.1);
               max-width: 250px;
-              box-shadow: 0px 10px 20px 10px rgba(0, 0, 0, 0.1);
+              box-shadow: 0px 10px 30px -5px rgba(0, 0, 0, 0.12);
 
               @include media("<=990px") {
                 max-width: 600px;
@@ -860,20 +884,24 @@ html {
               letter-spacing: -0.01em;
               line-height: 160%;
               h4 {
-                color: #3c3b3a;
+                color: $bottle-green;
                 margin: 15px 0;
-                font-size: 20px;
-                font-weight: 600;
-                font-family: "Be Vietnam Pro", sans-serif;
+                font-size: 22px;
+                font-weight: 700;
+                font-family: "EB Garamond", serif;
                 letter-spacing: -0.01em;
 
                 a{
-                  color: #3c3b3a;
+                  color: $bottle-green;
                   text-decoration: none;
+                  transition: color 0.3s ease;
+                }
+                a:hover {
+                  color: $gold-accent;
                 }
               }
               p {
-                color: #3c3b3a;
+                color: $warm-gray;
               }
 
               @include media("<=990px") {
@@ -888,7 +916,7 @@ html {
           a {
             transition: 1s;
             text-decoration: none;
-            color: #0065ff;
+            color: $bottle-green;
             cursor: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3174/cursor.png), auto;
           }
           a:hover {
@@ -900,7 +928,7 @@ html {
         }
       }
       footer {
-        background-color: #f8f9fa;
+        background-color: $warm-beige;
         position: relative;
       }
       .footer-content {
@@ -937,18 +965,20 @@ html {
           position: relative;
           font-family: "Be Vietnam Pro", sans-serif;
           margin-bottom: 140px;
-          background-color: #c5e3f6;
-          border-radius: 15px;
-          box-shadow: 0px 15px 20px -5px rgba(0, 0, 0, 0.1);
+          background-color: $bottle-green;
+          border-radius: 4px;
+          box-shadow: 0px 20px 40px -10px rgba(0, 0, 0, 0.15);
           padding: 50px 50px;
           font-size: 17px;
           line-height: 160%;
           transition: $toggle-control-speed;
+          color: $warm-cream;
+          border-left: 3px solid $gold-accent;
 
           a {
             transition: $toggle-control-speed;
             text-decoration: none;
-            color: #0065ff;
+            color: $gold-accent;
             cursor: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3174/cursor.png), auto;
           }
           a:hover {
@@ -980,23 +1010,23 @@ html {
   // Dark mode classes
   // Background
   .bcToBlack_on {
-    background-color: #222222 !important;
+    background-color: $bottle-green-dark !important;
   }
   .bcToGray_on {
-    background-color: #3c3b3a !important;
+    background-color: $bottle-green !important;
   }
   .bcToWhite_on {
-    background-color: #faf4e6 !important;
+    background-color: $warm-cream !important;
   }
   // Color
   .colToWhite_on {
-    color: #faf4e6 !important;
+    color: $warm-cream !important;
   }
   .decToUnderline_on {
     text-decoration: underline !important;
   }
   .decBorderLine_on {
-    border: 1px solid #faf4e6 !important;
+    border: 1px solid $gold-accent !important;
   }
   // Animations
   .bcAnimation100_on {
@@ -1041,17 +1071,20 @@ html {
     font-size: 13px;
     .tech-tag {
       transition: $toggle-control-speed;
-      padding: 4px 8px 4px 8px;
+      padding: 4px 12px 4px 12px;
       margin: 0px 8px 8px 0px;
-      background-color: #fff;
-      border-radius: 20px;
+      background-color: $warm-cream;
+      border-radius: 4px;
+      border: 1px solid rgba($bottle-green, 0.15);
       height: 20px !important;
       line-height: 140%;
+      letter-spacing: 0.02em;
+      font-weight: 500;
     }
   }
   .b {
     font-family: "Fira Code", monospace;
-    color: #09e160;
+    color: $gold-accent;
     font-size: 17px;
   }
 }

@@ -15,7 +15,7 @@ html body .navbar {
   top: 0;
   width: 100%;
   height: 70px;
-  box-shadow: 0px 15px 20px -5px rgba(0, 0, 0, 0.08);
+  box-shadow: 0px 4px 20px -4px rgba(0, 0, 0, 0.06);
 }
 html body .navbar .navbar-left.show {
   transition: 0s;
@@ -27,14 +27,14 @@ html body .navbar .navbar-left {
   width: 100%;
   height: 100%;
   left: 0%;
-  background-color: #ffffff;
+  background-color: #f8f4ed;
   transition: 1s;
 }
 html body .navbar .navbar-right {
   width: 0%;
   height: 100%;
   right: 0%;
-  background-color: #3c3b3a;
+  background-color: #1e3932;
   transition: 1s;
 }
 html body .navbar .nav-section {
@@ -92,7 +92,7 @@ html body .navbar .nav-section .s a {
   margin-left: 30px;
   transition: 1s;
   text-decoration: none;
-  color: #0065ff;
+  color: #1e3932;
   cursor: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3174/cursor.png), auto;
 }
 @media (max-width: 768px) {
@@ -116,7 +116,7 @@ html body .navbar .navbaricon span {
   position: absolute;
   width: 30px;
   height: 2px;
-  background: #0065ff;
+  background: #1e3932;
   border-radius: 4px;
   transition: 0.5s;
   left: 15px;
@@ -170,7 +170,7 @@ html body .navbar .nav-controls .icons .icon {
   margin-right: 30px;
 }
 html body .navbar .nav-controls .icons .icon i {
-  color: #0065ff;
+  color: #1e3932;
   transition: 1s;
   cursor: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3174/cursor.png), auto;
 }
@@ -201,7 +201,7 @@ html body .navbar .nav-controls .toggle-zone .dark-toggle .toggle-bg {
   border-radius: 160px;
   display: flex;
   align-items: center;
-  background-color: #ffffff;
+  background-color: #f8f4ed;
   box-shadow: inset 0 2px 60px rgba(0, 0, 0, 0.1), inset 0 2px 8px rgba(0, 0, 0, 0.1), inset 0 -4px 8px rgba(0, 0, 0, 0.05);
 }
 html body .navbar .nav-controls .toggle-zone .dark-toggle .toggle-bg .toggle-dot {
@@ -216,7 +216,7 @@ html body .navbar .nav-controls .toggle-zone .dark-toggle .toggle-bg .toggle-dot
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1), inset 0 0.5px 0.5px rgb(225, 225, 225), inset 0 -0.5px 0.5px rgb(225, 225, 225);
 }
 html body .navbar .nav-controls .toggle-zone .dark-toggle.active .toggle-bg {
-  background-color: #3c3b3a;
+  background-color: #1e3932;
   box-shadow: inset 0 8px 60px rgba(0, 0, 0, 0.1), inset 0 8px 8px rgba(0, 0, 0, 0.1), inset 0 -4px 4px rgba(0, 0, 0, 0.1);
 }
 html body .navbar .nav-controls .toggle-zone .dark-toggle.active .toggle-bg .toggle-dot {
@@ -279,7 +279,7 @@ html body .navbar .show .mobile-links a {
   margin-right: 15px;
   transition: 1s;
   text-decoration: none;
-  color: #0065ff;
+  color: #1e3932;
   cursor: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3174/cursor.png), auto;
 }
 html body .container {
@@ -291,7 +291,7 @@ html body .container .bg-left {
   bottom: 0;
   position: fixed;
   width: 100%;
-  background-color: #ffffff;
+  background-color: #f8f4ed;
   left: 0;
   transition: 1s;
 }
@@ -301,7 +301,7 @@ html body .container .bg-right {
   bottom: 0;
   position: fixed;
   width: 0%;
-  background-color: #222222;
+  background-color: #152a25;
   transition: 1s;
 }
 html body .container .main-content {
@@ -355,16 +355,17 @@ html body .container .main-content {
 }
 html body .container .main-content .avatar {
   position: relative;
-  background-color: #ffffff;
+  background-color: #f0ebe3;
   width: 100px;
   height: 100px;
   left: 0;
   top: 0;
   background-size: cover;
   background-position: center;
-  box-shadow: 0px 15px 20px -5px rgba(0, 0, 0, 0.1);
-  border-radius: 100px;
+  box-shadow: 0px 15px 30px -8px rgba(0, 0, 0, 0.12);
+  border-radius: 8px;
   transition: 1s;
+  border: 2px solid rgba(30, 57, 50, 0.08);
   animation-delay: 0.1s;
 }
 @media (max-width: 992px) {
@@ -379,17 +380,17 @@ html body .container .main-content .intro {
   left: 0;
   display: flex;
   align-items: center;
-  color: #0065ff;
+  color: #1e3932;
   transition: 1s;
 }
 html body .container .main-content .intro h1 {
   margin-top: 0.5em;
   margin-bottom: 0;
   font-size: 4.1em;
-  line-height: 100%;
-  letter-spacing: -0.02em;
+  line-height: 105%;
+  letter-spacing: -0.01em;
   font-style: normal;
-  font-weight: 800;
+  font-weight: 700;
   font-family: EB Garamond;
 }
 @media (max-width: 768px) {
@@ -408,7 +409,7 @@ html body .container .main-content .intro {
 html body .container .main-content .divider {
   margin-top: 80px;
   margin-bottom: 80px;
-  border: 1px solid #0065ff;
+  border: 1px solid #c4a35a;
   position: relative;
   left: 0;
   width: 15%;
@@ -429,27 +430,29 @@ html body .container .main-content .about-text {
   font-weight: 400;
   font-size: 17.5px;
   line-height: 160%;
-  color: #3c3b3a;
+  color: #4a4744;
   letter-spacing: -0.01em;
   transition: 1s;
 }
 html body .container .main-content .about-text .comment {
-  color: rgba(128, 128, 128, 0.512);
+  color: rgba(30, 57, 50, 0.4);
   font-family: "Fira Code", monospace;
-  font-size: 17px;
+  font-size: 15px;
+  letter-spacing: 0.02em;
 }
 html body .container .main-content .about-text .b {
   font-family: "Fira Code", monospace;
-  color: #09e160;
+  color: #c4a35a;
   font-size: 17px;
 }
 html body .container .main-content .about-text .text-link {
-  transition: 1s;
+  transition: 0.3s ease;
   text-decoration: none;
-  color: #0065ff;
+  color: #1e3932;
+  font-weight: 500;
 }
 html body .container .main-content .about-text .text-link:hover {
-  text-decoration: underline;
+  color: #c4a35a;
   cursor: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3174/cursor.png), auto;
 }
 html body .container .main-content .highlight-box {
@@ -458,12 +461,14 @@ html body .container .main-content .highlight-box {
   margin-bottom: 0.5rem;
   display: flex;
   position: relative;
-  background-color: #f8f9fa;
-  border-radius: 10px;
-  padding: 1.5rem;
+  background-color: #2d4a3e;
+  border-radius: 4px;
+  padding: 1.5rem 2rem;
   line-height: 140%;
   transition: 1s;
   font-size: 0.9em;
+  color: #f8f4ed;
+  border-left: 3px solid #c4a35a;
 }
 @media (max-width: 768px) {
   html body .container .main-content .highlight-box {
@@ -474,17 +479,20 @@ html body .container .main-content .highlight-box {
 html body .container .main-content .highlight-box .highlight-link {
   transition: 1s;
   text-decoration: none;
-  color: #0065ff;
+  color: #c4a35a;
 }
 html body .container .main-content .highlight-box .highlight-link:hover {
   text-decoration: underline;
   cursor: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3174/cursor.png), auto;
 }
+html body .container .main-content .highlight-box .highlight-text {
+  color: #f8f4ed;
+}
 html body .container .main-content .divider-section {
   position: relative;
   margin-top: 80px;
   margin-bottom: 80px;
-  border: 1px solid #0065ff;
+  border: 1px solid #c4a35a;
   left: 0;
   width: 100%;
   transition: 1s;
@@ -499,13 +507,13 @@ html body .container .main-content .work-title {
   left: 0;
   font-family: EB Garamond;
   font-style: normal;
-  font-weight: 800;
+  font-weight: 700;
   font-size: 4.1em;
-  line-height: 100%;
+  line-height: 105%;
   display: flex;
   align-items: center;
-  letter-spacing: -0.02em;
-  color: #0065ff;
+  letter-spacing: -0.01em;
+  color: #1e3932;
   transition: 1s;
 }
 @media (max-width: 768px) {
@@ -527,7 +535,7 @@ html body .container .main-content .work-description {
   font-weight: 400;
   font-size: 17.5px;
   line-height: 160%;
-  color: #3c3b3a;
+  color: #4a4744;
   letter-spacing: -0.01em;
 }
 html body .container .projects {
@@ -537,7 +545,7 @@ html body .container .projects {
 }
 html body .container .projects .b {
   font-family: "Fira Code", monospace;
-  color: #09e160;
+  color: #c4a35a;
   font-size: 17px;
 }
 html body .container .projects .project-1 {
@@ -572,13 +580,13 @@ html body .container .projects .project-1 .project-right {
   margin-bottom: auto;
 }
 html body .container .projects .project-1 .project-right .project-description a {
-  transition: 1s;
+  transition: 0.3s ease;
   text-decoration: none;
-  color: #0065ff;
+  color: #1e3932;
   cursor: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3174/cursor.png), auto;
 }
 html body .container .projects .project-1 .project-right .project-description a:hover {
-  text-decoration: underline;
+  color: #c4a35a;
 }
 html body .container .projects .project-1 .project-right .project-description {
   transition: 1s;
@@ -586,7 +594,7 @@ html body .container .projects .project-1 .project-right .project-description {
   font-weight: 400;
   font-size: 1.1em;
   line-height: 160%;
-  color: #3c3b3a;
+  color: #4a4744;
   letter-spacing: -0.01em;
   padding-right: 5%;
 }
@@ -601,12 +609,15 @@ html body .container .projects .project-1 .project-right .project-description .t
 }
 html body .container .projects .project-1 .project-right .project-description .tech-list .tech-tag {
   transition: 1s;
-  padding: 4px 8px 4px 8px;
+  padding: 4px 12px 4px 12px;
   margin: 0px 8px 8px 0px;
-  background-color: #f8f9fa;
-  border-radius: 20px;
+  background-color: #f0ebe3;
+  border-radius: 4px;
+  border: 1px solid rgba(30, 57, 50, 0.1);
   height: 20px !important;
   line-height: 140%;
+  letter-spacing: 0.02em;
+  font-weight: 500;
 }
 @media (max-width: 990px) {
   html body .container .projects .project-1 .project-right {
@@ -660,13 +671,13 @@ html body .container .projects .project-2 .project-right {
   margin-top: auto;
 }
 html body .container .projects .project-2 .project-right .project-description a {
-  transition: 1s;
+  transition: 0.3s ease;
   text-decoration: none;
-  color: #0065ff;
+  color: #1e3932;
   cursor: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3174/cursor.png), auto;
 }
 html body .container .projects .project-2 .project-right .project-description a:hover {
-  text-decoration: underline;
+  color: #c4a35a;
 }
 html body .container .projects .project-2 .project-right .project-description {
   transition: 1s;
@@ -674,7 +685,7 @@ html body .container .projects .project-2 .project-right .project-description {
   font-weight: 400;
   font-size: 1.1em;
   line-height: 160%;
-  color: #3c3b3a;
+  color: #4a4744;
   letter-spacing: -0.01em;
   padding-right: 5%;
 }
@@ -691,8 +702,8 @@ html body .container .projects .project-2 .project-right .project-description .t
   transition: 1s;
   padding: 4px 8px 4px 8px;
   margin: 0px 8px 8px 0px;
-  background-color: #f8f9fa;
-  border-radius: 20px;
+  background-color: #f0ebe3;
+  border-radius: 4px;
   height: 20px;
   line-height: 140%;
 }
@@ -748,13 +759,13 @@ html body .container .projects .project-3 .project-right {
   margin-top: auto;
 }
 html body .container .projects .project-3 .project-right .project-description a {
-  transition: 1s;
+  transition: 0.3s ease;
   text-decoration: none;
-  color: #0065ff;
+  color: #1e3932;
   cursor: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3174/cursor.png), auto;
 }
 html body .container .projects .project-3 .project-right .project-description a:hover {
-  text-decoration: underline;
+  color: #c4a35a;
 }
 html body .container .projects .project-3 .project-right .project-description {
   transition: 1s;
@@ -762,7 +773,7 @@ html body .container .projects .project-3 .project-right .project-description {
   font-weight: 400;
   font-size: 1.1em;
   line-height: 160%;
-  color: #3c3b3a;
+  color: #4a4744;
   letter-spacing: -0.01em;
   padding-right: 5%;
 }
@@ -779,8 +790,8 @@ html body .container .projects .project-3 .project-right .project-description .t
   transition: 1s;
   padding: 4px 8px 4px 8px;
   margin: 0px 8px 8px 0px;
-  background-color: #f8f9fa;
-  border-radius: 20px;
+  background-color: #f0ebe3;
+  border-radius: 4px;
   height: 20px;
   line-height: 140%;
 }
@@ -810,7 +821,7 @@ html body .container .projects .project-3 .project-right .project-description .t
 }
 html body .container #myProjects {
   position: relative;
-  background-color: #f8f9fa;
+  background-color: #f0ebe3;
   display: flex;
   justify-content: center;
 }
@@ -820,15 +831,15 @@ html body .container #myProjects .projects-wrapper {
   margin-bottom: 100px;
 }
 html body .container #myProjects .projects-wrapper .projects-title h2 {
-  color: #3c3b3a;
+  color: #1e3932;
   margin: 36px 0;
-  font-size: 30px;
-  font-family: "Be Vietnam Pro", sans-serif;
-  font-weight: 800;
-  letter-spacing: -0.02em;
+  font-size: 32px;
+  font-family: "EB Garamond", serif;
+  font-weight: 700;
+  letter-spacing: -0.01em;
 }
 html body .container #myProjects .projects-wrapper .projects-description {
-  color: #3c3b3a;
+  color: #4a4744;
   font-size: 17.5px;
   letter-spacing: -0.01em;
   font-family: "Be Vietnam Pro", sans-serif;
@@ -848,10 +859,10 @@ html body .container #myProjects .projects-wrapper .project {
 }
 html body .container #myProjects .projects-wrapper .project .project-image img {
   margin: 15px;
-  border-radius: 10px;
-  border: 4px solid #F0F0F0;
+  border-radius: 4px;
+  border: 1px solid rgba(30, 57, 50, 0.1);
   max-width: 250px;
-  box-shadow: 0px 10px 20px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 10px 30px -5px rgba(0, 0, 0, 0.12);
 }
 @media (max-width: 990px) {
   html body .container #myProjects .projects-wrapper .project .project-image img {
@@ -870,19 +881,23 @@ html body .container #myProjects .projects-wrapper .project .project-description
   line-height: 160%;
 }
 html body .container #myProjects .projects-wrapper .project .project-description h4 {
-  color: #3c3b3a;
+  color: #1e3932;
   margin: 15px 0;
-  font-size: 20px;
-  font-weight: 600;
-  font-family: "Be Vietnam Pro", sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  font-family: "EB Garamond", serif;
   letter-spacing: -0.01em;
 }
 html body .container #myProjects .projects-wrapper .project .project-description h4 a {
-  color: #3c3b3a;
+  color: #1e3932;
   text-decoration: none;
+  transition: color 0.3s ease;
+}
+html body .container #myProjects .projects-wrapper .project .project-description h4 a:hover {
+  color: #c4a35a;
 }
 html body .container #myProjects .projects-wrapper .project .project-description p {
-  color: #3c3b3a;
+  color: #4a4744;
 }
 @media (max-width: 990px) {
   html body .container #myProjects .projects-wrapper .project .project-description {
@@ -898,7 +913,7 @@ html body .container #myProjects .projects-wrapper .project .project-description
 html body .container #myProjects .projects-wrapper a {
   transition: 1s;
   text-decoration: none;
-  color: #0065ff;
+  color: #1e3932;
   cursor: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3174/cursor.png), auto;
 }
 html body .container #myProjects .projects-wrapper a:hover {
@@ -910,7 +925,7 @@ html body .container #myProjects .projects-wrapper a:hover {
   }
 }
 html body .container footer {
-  background-color: #f8f9fa;
+  background-color: #f0ebe3;
   position: relative;
 }
 html body .container .footer-content {
@@ -964,18 +979,20 @@ html body .container .footer-content .footer-box {
   position: relative;
   font-family: "Be Vietnam Pro", sans-serif;
   margin-bottom: 140px;
-  background-color: #c5e3f6;
-  border-radius: 15px;
-  box-shadow: 0px 15px 20px -5px rgba(0, 0, 0, 0.1);
+  background-color: #1e3932;
+  border-radius: 4px;
+  box-shadow: 0px 20px 40px -10px rgba(0, 0, 0, 0.15);
   padding: 50px 50px;
   font-size: 17px;
   line-height: 160%;
   transition: 1s;
+  color: #f8f4ed;
+  border-left: 3px solid #c4a35a;
 }
 html body .container .footer-content .footer-box a {
   transition: 1s;
   text-decoration: none;
-  color: #0065ff;
+  color: #c4a35a;
   cursor: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3174/cursor.png), auto;
 }
 html body .container .footer-content .footer-box a:hover {
@@ -1002,22 +1019,22 @@ html body .container .footer-content .footer {
   line-height: 140%;
 }
 html .bcToBlack_on {
-  background-color: #222222 !important;
+  background-color: #152a25 !important;
 }
 html .bcToGray_on {
-  background-color: #3c3b3a !important;
+  background-color: #1e3932 !important;
 }
 html .bcToWhite_on {
-  background-color: #faf4e6 !important;
+  background-color: #f8f4ed !important;
 }
 html .colToWhite_on {
-  color: #faf4e6 !important;
+  color: #f8f4ed !important;
 }
 html .decToUnderline_on {
   text-decoration: underline !important;
 }
 html .decBorderLine_on {
-  border: 1px solid #faf4e6 !important;
+  border: 1px solid #c4a35a !important;
 }
 html .bcAnimation100_on {
   width: 100% !important;
@@ -1058,16 +1075,19 @@ html .tech-list {
 }
 html .tech-list .tech-tag {
   transition: 1s;
-  padding: 4px 8px 4px 8px;
+  padding: 4px 12px 4px 12px;
   margin: 0px 8px 8px 0px;
-  background-color: #fff;
-  border-radius: 20px;
+  background-color: #f8f4ed;
+  border-radius: 4px;
+  border: 1px solid rgba(30, 57, 50, 0.15);
   height: 20px !important;
   line-height: 140%;
+  letter-spacing: 0.02em;
+  font-weight: 500;
 }
 html .b {
   font-family: "Fira Code", monospace;
-  color: #09e160;
+  color: #c4a35a;
   font-size: 17px;
 }
 
