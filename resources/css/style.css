@@ -1,1094 +1,778 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 html {
   scroll-behavior: smooth;
+  font-size: 16px;
 }
-html body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  margin: 0;
-}
-html body a {
-  cursor: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3174/cursor.png), auto;
-}
-html body .navbar {
-  z-index: 1;
-  position: fixed;
-  display: flex;
-  top: 0;
-  width: 100%;
-  height: 70px;
-  box-shadow: 0px 4px 20px -4px rgba(0, 0, 0, 0.06);
-}
-html body .navbar .navbar-left.show {
-  transition: 0s;
-}
-html body .navbar .navbar-right.show {
-  transition: 0s;
-}
-html body .navbar .navbar-left {
-  width: 100%;
-  height: 100%;
-  left: 0%;
+
+body {
+  font-family: "Be Vietnam Pro", -apple-system, BlinkMacSystemFont, sans-serif;
   background-color: #f8f4ed;
-  transition: 1s;
+  color: #2a2a2a;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
-html body .navbar .navbar-right {
-  width: 0%;
-  height: 100%;
-  right: 0%;
-  background-color: #1e3932;
-  transition: 1s;
-}
-html body .navbar .nav-section {
-  top: 0;
-  bottom: 0;
-  position: absolute;
-  margin-left: 20px;
-  display: flex;
-  flex-direction: row;
-  align-items: flex-end;
-  color: #202020;
-}
-html body .navbar .nav-section .logo {
-  padding-top: 5px;
-  margin-top: auto;
-  margin-bottom: auto;
-  transition: 1s;
-  left: 0px;
-}
-html body .navbar .nav-section .logo .logo-dark {
-  display: none;
-  transition: 1s;
-}
-html body .navbar .nav-section .logo .logo-light {
-  display: block;
-  transition: 1s;
-}
-html body .navbar .nav-section .logo a {
-  cursor: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3174/cursor.png), auto;
-}
-html body .navbar .nav-section .logo a img {
-  max-width: 160px;
-  position: relative;
-  top: 2px;
-}
-@media (max-width: 600px) {
-  html body .navbar .nav-section .logo a img {
-    max-width: 150px;
-    margin-left: -15px;
-  }
-}
-html body .navbar .nav-section .s {
-  transition: 1s;
-  font-family: "Be Vietnam Pro";
-  font-style: normal;
-  font-weight: normal;
-  font-size: 15px;
-  text-align: center;
-  margin-top: auto;
-  margin-bottom: auto;
-  position: relative;
-  top: 1px;
-}
-html body .navbar .nav-section .s a {
-  margin-left: 30px;
-  transition: 1s;
+
+a {
+  color: inherit;
   text-decoration: none;
-  color: #1e3932;
-  cursor: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3174/cursor.png), auto;
+  transition: color 0.2s ease;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 1.5rem 0;
+  transition: background-color 0.4s ease, padding 0.4s ease;
+}
+.nav.scrolled {
+  background-color: rgba(248, 244, 237, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 1rem 0;
+  box-shadow: 0 1px 0 rgba(30, 57, 50, 0.08);
+}
+
+.nav-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 @media (max-width: 768px) {
-  html body .navbar .nav-section .s a {
-    margin-left: 20px;
+  .nav-inner {
+    padding: 0 1.5rem;
+  }
+}
+
+.nav-logo {
+  font-family: "Cormorant Garamond", "EB Garamond", Georgia, serif;
+  font-size: 1.25rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: #1e3932;
+}
+
+.nav-links {
+  display: flex;
+  gap: 3rem;
+}
+.nav-links a {
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #5a5652;
+  align-self: center;
+}
+.nav-links a:hover {
+  color: #1e3932;
+}
+.nav-links a.nav-contact {
+  color: #1e3932;
+  padding: 0.5rem 1.25rem;
+  border: 1px solid #1e3932;
+  transition: all 0.2s ease;
+}
+.nav-links a.nav-contact:hover {
+  background-color: #1e3932;
+  color: #f8f4ed;
+}
+@media (max-width: 768px) {
+  .nav-links {
     display: none;
   }
 }
-html body .navbar .navbaricon {
-  transition: 1s;
-  position: absolute;
-  right: 0;
+
+.nav-mobile-toggle {
   display: none;
-  width: 70px;
-  height: 70px;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
+  flex-direction: column;
+  gap: 6px;
+  cursor: pointer;
+  padding: 10px;
+  margin-right: -10px;
 }
-html body .navbar .navbaricon span {
-  position: absolute;
-  width: 30px;
-  height: 2px;
-  background: #1e3932;
-  border-radius: 4px;
-  transition: 0.5s;
-  left: 15px;
-}
-html body .navbar .navbaricon span:nth-child(1) {
-  transform: translateY(-10px);
-  width: 20px;
-  left: 15px;
-}
-html body .navbar .navbaricon span:nth-child(2) {
-  transform: translateY(10px);
-  width: 15px;
-  left: 15px;
+.nav-mobile-toggle span {
+  width: 24px;
+  height: 1.5px;
+  background-color: #1e3932;
+  transition: transform 0.2s ease;
 }
 @media (max-width: 768px) {
-  html body .navbar .navbaricon {
+  .nav-mobile-toggle {
     display: flex;
   }
 }
-html body .navbar .navbaricon.active span:nth-child(1) {
-  width: 30px;
-  transform: translateY(0) rotate(45deg);
-  transition-delay: 0.125s;
-}
-html body .navbar .navbaricon.active span:nth-child(2) {
-  width: 30px;
-  transform: translateY(0) rotate(315deg);
-  transition-delay: 0.25s;
-}
-html body .navbar .navbaricon.active span:nth-child(3) {
-  transform: translateX(60px);
-}
-html body .navbar .nav-controls {
-  position: absolute;
-  right: 0;
-  margin-right: 25px;
-  top: 28.25%;
-  height: 43.5%;
-  display: flex;
-  flex-direction: row;
-}
-html body .navbar .nav-controls .icons {
-  display: flex;
-  height: 100%;
-}
-html body .navbar .nav-controls .icons .icon {
-  font-size: 16px;
-  margin-top: auto;
-  margin-bottom: auto;
-  text-decoration: none;
-  margin-right: 30px;
-}
-html body .navbar .nav-controls .icons .icon i {
-  color: #1e3932;
-  transition: 1s;
-  cursor: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3174/cursor.png), auto;
-}
-html body .navbar .nav-controls .toggle-zone {
-  margin-top: auto;
-  margin-bottom: auto;
-  position: relative;
-  display: flex;
-  color: #212529;
-  font-size: 16px;
-  transition: 1s;
-}
-html body .navbar .nav-controls .toggle-zone .darkmode {
-  transition: 1s;
-  margin-bottom: 3px;
-  font-size: 15px;
-}
-html body .navbar .nav-controls .toggle-zone .dark-toggle {
-  margin-top: auto;
-  margin-bottom: auto;
-  margin-left: 5px;
-  cursor: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3174/cursor.png), auto;
-}
-html body .navbar .nav-controls .toggle-zone .dark-toggle .toggle-bg {
-  position: relative;
-  width: 50px;
-  height: 25px;
-  border-radius: 160px;
-  display: flex;
-  align-items: center;
-  background-color: #f8f4ed;
-  box-shadow: inset 0 2px 60px rgba(0, 0, 0, 0.1), inset 0 2px 8px rgba(0, 0, 0, 0.1), inset 0 -4px 8px rgba(0, 0, 0, 0.05);
-}
-html body .navbar .nav-controls .toggle-zone .dark-toggle .toggle-bg .toggle-dot {
-  position: absolute;
-  border-radius: 50%;
-  width: 25px;
-  height: 25px;
-  left: 0px;
-  transition: 0.3s;
-  transform: scale(0.9);
-  background: linear-gradient(to bottom, #eaeaea, #f9f9f9);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1), inset 0 0.5px 0.5px rgb(225, 225, 225), inset 0 -0.5px 0.5px rgb(225, 225, 225);
-}
-html body .navbar .nav-controls .toggle-zone .dark-toggle.active .toggle-bg {
+
+.hero {
+  min-height: 100vh;
   background-color: #1e3932;
-  box-shadow: inset 0 8px 60px rgba(0, 0, 0, 0.1), inset 0 8px 8px rgba(0, 0, 0, 0.1), inset 0 -4px 4px rgba(0, 0, 0, 0.1);
-}
-html body .navbar .nav-controls .toggle-zone .dark-toggle.active .toggle-bg .toggle-dot {
-  left: 25px;
-  background: linear-gradient(to bottom, #444, #222);
-  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(225, 225, 225, 0.2), inset 0 -1px 1px rgba(225, 225, 225, 0.2);
-}
-@media (max-width: 768px) {
-  html body .navbar .nav-controls {
-    display: none;
-    width: 100%;
-  }
-}
-html body .navbar .nav-controls .mobile-links {
-  display: none;
-}
-@media (max-width: 768px) {
-  html body .navbar .nav-controls .mobile-links {
-    display: block;
-  }
-}
-html body .navbar .show {
-  box-shadow: 0px 70px 65px 10px rgba(0, 0, 0, 0.15);
-  padding: 20px;
-  left: 0;
-  right: 0;
-  width: 100%;
-  margin-top: 43px;
-  height: 150px;
   display: flex;
   flex-direction: column;
-}
-html body .navbar .show .icons {
-  margin-top: 5px;
-  width: 20px;
-  height: 20px;
-}
-html body .navbar .show .icons .link {
-  margin-right: 20px;
-}
-html body .navbar .show .icons .icon-facebook {
-  height: 20px;
-}
-html body .navbar .show .toggle-zone {
-  margin-top: 100px;
-  position: absolute;
-  margin-left: 0;
-  left: 15px;
-}
-html body .navbar .show .mobile-links {
-  transition: 1s;
-  font-family: "Be Vietnam Pro";
-  font-style: normal;
-  font-weight: normal;
-  font-size: 15px;
-  margin-top: 29px;
-  padding-bottom: 4px;
-}
-html body .navbar .show .mobile-links a {
-  margin-right: 15px;
-  transition: 1s;
-  text-decoration: none;
-  color: #1e3932;
-  cursor: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3174/cursor.png), auto;
-}
-html body .container {
-  height: 150vh;
+  justify-content: center;
+  padding: 8rem 4rem 4rem;
   position: relative;
-}
-html body .container .bg-left {
-  top: 0;
-  bottom: 0;
-  position: fixed;
-  width: 100%;
-  background-color: #f8f4ed;
-  left: 0;
-  transition: 1s;
-}
-html body .container .bg-right {
-  top: 0;
-  right: 0%;
-  bottom: 0;
-  position: fixed;
-  width: 0%;
-  background-color: #152a25;
-  transition: 1s;
-}
-html body .container .main-content {
-  margin-top: 120px;
-  width: 960px;
-  left: 0;
-  right: 0;
-  margin-left: auto;
-  margin-right: auto;
-}
-@media (max-width: 992px) {
-  html body .container .main-content {
-    width: 790px;
-  }
-}
-@media (max-width: 830px) {
-  html body .container .main-content {
-    width: 660px;
-  }
 }
 @media (max-width: 768px) {
-  html body .container .main-content {
-    width: 615px;
-    margin-top: 100px;
+  .hero {
+    padding: 6rem 1.5rem 3rem;
+    min-height: 90vh;
   }
 }
-@media (max-width: 645px) {
-  html body .container .main-content {
-    width: 515px;
-  }
+
+.hero-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
 }
-@media (max-width: 540px) {
-  html body .container .main-content {
-    width: 430px;
-  }
+
+.hero-label {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #c4a35a;
+  margin-bottom: 2rem;
 }
-@media (max-width: 450px) {
-  html body .container .main-content {
-    width: 360px;
-  }
+
+.hero-title {
+  font-family: "Cormorant Garamond", "EB Garamond", Georgia, serif;
+  font-size: clamp(3rem, 8vw, 6.5rem);
+  font-weight: 400;
+  line-height: 1.1;
+  color: #f8f4ed;
+  margin-bottom: 2rem;
+  letter-spacing: -0.02em;
 }
-@media (max-width: 370px) {
-  html body .container .main-content {
-    width: 295px;
-  }
+
+.hero-subtitle {
+  font-size: 1.125rem;
+  color: rgba(248, 244, 237, 0.7);
+  max-width: 500px;
+  line-height: 1.7;
+  margin-bottom: 3rem;
 }
-@media (max-width: 360px) {
-  html body .container .main-content {
-    width: 285px;
-  }
+
+.hero-cta {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
 }
-html body .container .main-content .avatar {
-  position: relative;
-  background-color: #f0ebe3;
-  width: 100px;
-  height: 100px;
-  left: 0;
-  top: 0;
-  background-size: cover;
-  background-position: center;
-  box-shadow: 0px 15px 30px -8px rgba(0, 0, 0, 0.12);
-  border-radius: 8px;
-  transition: 1s;
-  border: 2px solid rgba(30, 57, 50, 0.08);
-  animation-delay: 0.1s;
+
+.btn-primary {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  background-color: #c4a35a;
+  color: #152a25;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: all 0.2s ease;
 }
-@media (max-width: 992px) {
-  html body .container .main-content .avatar {
-    width: 70px;
-    height: 70px;
-  }
+.btn-primary:hover {
+  background-color: #d4b86a;
+  transform: translateY(-2px);
 }
-html body .container .main-content .intro {
-  width: 80%;
-  position: relative;
-  left: 0;
+
+.btn-secondary {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  border: 1px solid rgba(248, 244, 237, 0.3);
+  color: #f8f4ed;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: all 0.2s ease;
+}
+.btn-secondary:hover {
+  border-color: #f8f4ed;
+  background-color: rgba(248, 244, 237, 0.1);
+}
+
+.hero-scroll {
+  position: absolute;
+  bottom: 3rem;
+  left: 4rem;
   display: flex;
   align-items: center;
-  color: #1e3932;
-  transition: 1s;
+  gap: 1rem;
 }
-html body .container .main-content .intro h1 {
-  margin-top: 0.5em;
-  margin-bottom: 0;
-  font-size: 4.1em;
-  line-height: 105%;
-  letter-spacing: -0.01em;
-  font-style: normal;
-  font-weight: 700;
-  font-family: EB Garamond;
+.hero-scroll span {
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(248, 244, 237, 0.5);
 }
 @media (max-width: 768px) {
-  html body .container .main-content .intro h1 {
-    font-size: 3em;
+  .hero-scroll {
+    left: 1.5rem;
+    bottom: 2rem;
   }
 }
-html body .container .main-content .intro {
-  animation-delay: 0.2s;
+
+.hero-scroll-line {
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(90deg, #c4a35a, transparent);
+}
+
+.section-label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #c4a35a;
+  margin-bottom: 1rem;
+}
+
+.featured {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  padding: 8rem 4rem;
+  background-color: #f8f4ed;
+}
+@media (max-width: 768px) {
+  .featured {
+    padding: 4rem 1.5rem;
+    gap: 1.5rem;
+  }
+}
+
+.featured-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.featured-header {
+  margin-bottom: 4rem;
+}
+
+.featured-title {
+  font-family: "Cormorant Garamond", "EB Garamond", Georgia, serif;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 400;
+  color: #1e3932;
+  letter-spacing: -0.02em;
+}
+
+.featured-subtitle {
+  font-size: 1rem;
+  color: #5a5652;
+  margin-top: 0.5rem;
+}
+
+.featured-alt {
+  background-color: #f0ebe3;
+  padding-top: 6rem;
+}
+
+.featured-content {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+@media (max-width: 992px) {
+  .featured-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+.featured-image {
+  position: relative;
+  overflow: hidden;
+  background-color: #f0ebe3;
+  border-radius: 4px;
+}
+.featured-image img {
+  width: 100%;
+  transition: transform 0.6s ease;
+}
+.featured-image:hover img {
+  transform: scale(1.02);
+}
+
+.featured-info {
+  padding: 2rem 0;
+}
+
+.featured-description {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: #5a5652;
+  margin-bottom: 2rem;
+}
+
+.featured-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.featured-tech {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+.featured-tech span {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.5rem 1rem;
+  background-color: #f0ebe3;
+  color: #5a5652;
+  border-radius: 2px;
+}
+
+.featured-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #1e3932;
+  padding-bottom: 0.25rem;
+  border-bottom: 1px solid #1e3932;
+  transition: all 0.2s ease;
+}
+.featured-link svg {
+  transition: transform 0.2s ease;
+}
+.featured-link:hover {
+  color: #c4a35a;
+  border-color: #c4a35a;
+}
+.featured-link:hover svg {
+  transform: translate(3px, -3px);
+}
+
+.work {
+  padding: 8rem 4rem;
+  background-color: #f0ebe3;
+}
+@media (max-width: 768px) {
+  .work {
+    padding: 4rem 1.5rem;
+  }
+}
+
+.work-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.work-header {
+  margin-bottom: 4rem;
+}
+
+.work-title {
+  font-family: "Cormorant Garamond", "EB Garamond", Georgia, serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 400;
+  color: #1e3932;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.5rem;
+}
+
+.work-subtitle {
+  font-size: 1rem;
+  color: #5a5652;
+}
+
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3rem;
+}
+@media (max-width: 992px) {
+  .work-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+.work-item {
+  background-color: #f8f4ed;
+  border-radius: 4px;
+  overflow: hidden;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.work-item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 60px -20px rgba(30, 57, 50, 0.2);
+}
+
+.work-item-link {
+  display: block;
+}
+
+.work-item-image {
+  position: relative;
+  overflow: hidden;
+  background-color: #f0ebe3;
+  aspect-ratio: 16/10;
+}
+.work-item-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+.work-item:hover .work-item-image img {
+  transform: scale(1.05);
+}
+
+.work-item-content {
+  padding: 2rem;
+}
+.work-item-content h3 {
+  font-family: "Cormorant Garamond", "EB Garamond", Georgia, serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #1e3932;
+  margin-bottom: 0.75rem;
+}
+.work-item-content p {
+  font-size: 0.9375rem;
+  color: #5a5652;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.work-item-tech {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+.work-item-tech span {
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.375rem 0.75rem;
+  background-color: #f0ebe3;
+  color: #5a5652;
+  border-radius: 2px;
+}
+
+.experiments {
+  padding: 8rem 4rem;
+  background-color: #1e3932;
+}
+@media (max-width: 768px) {
+  .experiments {
+    padding: 4rem 1.5rem;
+  }
+}
+
+.experiments-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.experiments-header {
+  margin-bottom: 4rem;
+}
+.experiments-header .section-label {
+  color: #c4a35a;
+}
+
+.experiments-title {
+  font-family: "Cormorant Garamond", "EB Garamond", Georgia, serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 400;
+  color: #f8f4ed;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.5rem;
+}
+
+.experiments-subtitle {
+  font-size: 1rem;
+  color: rgba(248, 244, 237, 0.6);
+}
+
+.experiments-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+@media (max-width: 1200px) {
+  .experiments-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 @media (max-width: 600px) {
-  html body .container .main-content .intro {
-    width: 100%;
+  .experiments-grid {
+    grid-template-columns: 1fr;
   }
 }
-html body .container .main-content .divider {
-  margin-top: 80px;
-  margin-bottom: 80px;
-  border: 1px solid #c4a35a;
-  position: relative;
-  left: 0;
-  width: 15%;
-  transition: 1s;
-  animation-delay: 0.3s;
-}
-@media (max-width: 768px) {
-  html body .container .main-content .divider {
-    margin: 50px 0 50px 0;
-  }
-}
-html body .container .main-content .about-text {
-  margin-top: 10px;
-  margin-bottom: 1rem;
-  position: relative;
-  left: 0;
-  font-family: "Be Vietnam Pro", sans-serif;
-  font-weight: 400;
-  font-size: 17.5px;
-  line-height: 160%;
-  color: #4a4744;
-  letter-spacing: -0.01em;
-  transition: 1s;
-}
-html body .container .main-content .about-text .comment {
-  color: rgba(30, 57, 50, 0.4);
-  font-family: "Fira Code", monospace;
-  font-size: 15px;
-  letter-spacing: 0.02em;
-}
-html body .container .main-content .about-text .b {
-  font-family: "Fira Code", monospace;
-  color: #c4a35a;
-  font-size: 17px;
-}
-html body .container .main-content .about-text .text-link {
-  transition: 0.3s ease;
-  text-decoration: none;
-  color: #1e3932;
-  font-weight: 500;
-}
-html body .container .main-content .about-text .text-link:hover {
-  color: #c4a35a;
-  cursor: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3174/cursor.png), auto;
-}
-html body .container .main-content .highlight-box {
-  width: fit-content;
-  margin-top: 5rem;
-  margin-bottom: 0.5rem;
-  display: flex;
-  position: relative;
-  background-color: #2d4a3e;
+
+.experiment-item {
+  padding: 2.5rem 2rem;
+  border: 1px solid rgba(248, 244, 237, 0.15);
   border-radius: 4px;
-  padding: 1.5rem 2rem;
-  line-height: 140%;
-  transition: 1s;
-  font-size: 0.9em;
+  transition: all 0.4s ease;
+}
+.experiment-item:hover {
+  background-color: rgba(248, 244, 237, 0.05);
+  border-color: #c4a35a;
+  transform: translateY(-4px);
+}
+.experiment-item .experiment-number {
+  font-family: "Cormorant Garamond", "EB Garamond", Georgia, serif;
+  font-size: 0.875rem;
+  color: #c4a35a;
+  display: block;
+  margin-bottom: 1.5rem;
+}
+.experiment-item h3 {
+  font-family: "Cormorant Garamond", "EB Garamond", Georgia, serif;
+  font-size: 1.375rem;
+  font-weight: 500;
   color: #f8f4ed;
-  border-left: 3px solid #c4a35a;
+  margin-bottom: 0.75rem;
+}
+.experiment-item p {
+  font-size: 0.875rem;
+  color: rgba(248, 244, 237, 0.6);
+  line-height: 1.6;
+}
+
+.about {
+  padding: 8rem 4rem;
+  background-color: #f8f4ed;
 }
 @media (max-width: 768px) {
-  html body .container .main-content .highlight-box {
-    display: inline-block;
-    margin-top: 50px;
+  .about {
+    padding: 4rem 1.5rem;
   }
 }
-html body .container .main-content .highlight-box .highlight-link {
-  transition: 1s;
-  text-decoration: none;
-  color: #c4a35a;
-}
-html body .container .main-content .highlight-box .highlight-link:hover {
-  text-decoration: underline;
-  cursor: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3174/cursor.png), auto;
-}
-html body .container .main-content .highlight-box .highlight-text {
-  color: #f8f4ed;
-}
-html body .container .main-content .divider-section {
-  position: relative;
-  margin-top: 80px;
-  margin-bottom: 80px;
-  border: 1px solid #c4a35a;
-  left: 0;
-  width: 100%;
-  transition: 1s;
-}
-html body .container .main-content .work-title {
-  margin-left: 0;
-  margin-right: 0;
-  margin-top: 0.5em;
-  margin-bottom: 0.3em;
-  width: 80%;
-  position: relative;
-  left: 0;
-  font-family: EB Garamond;
-  font-style: normal;
-  font-weight: 700;
-  font-size: 4.1em;
-  line-height: 105%;
-  display: flex;
+
+.about-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
   align-items: center;
-  letter-spacing: -0.01em;
-  color: #1e3932;
-  transition: 1s;
-}
-@media (max-width: 768px) {
-  html body .container .main-content .work-title {
-    font-size: 2.2em;
-  }
-}
-@media (max-width: 370px) {
-  html body .container .main-content .work-title {
-    width: 100%;
-  }
-}
-html body .container .main-content .work-description {
-  margin-top: 70px;
-  transition: 1s;
-  position: relative;
-  left: 0;
-  font-family: "Be Vietnam Pro", sans-serif;
-  font-weight: 400;
-  font-size: 17.5px;
-  line-height: 160%;
-  color: #4a4744;
-  letter-spacing: -0.01em;
-}
-html body .container .projects {
-  margin-left: 50px;
-  margin-right: 50px;
-  margin-top: 60px;
-}
-html body .container .projects .b {
-  font-family: "Fira Code", monospace;
-  color: #c4a35a;
-  font-size: 17px;
-}
-html body .container .projects .project-1 {
-  margin-bottom: 90px;
-  display: flex;
-}
-html body .container .projects .project-1 .project-left {
-  position: relative;
-  width: 65%;
-}
-html body .container .projects .project-1 .project-left .saleswizard-light {
-  display: block;
-}
-html body .container .projects .project-1 .project-left .saleswizard-dark {
-  display: none;
-}
-html body .container .projects .project-1 .project-left img {
-  float: right;
-  margin-right: 2%;
-  width: 100%;
-  height: auto;
-}
-@media (max-width: 990px) {
-  html body .container .projects .project-1 .project-left {
-    width: 100%;
-  }
-}
-html body .container .projects .project-1 .project-right {
-  width: 35%;
-  position: relative;
-  margin-top: auto;
-  margin-bottom: auto;
-}
-html body .container .projects .project-1 .project-right .project-description a {
-  transition: 0.3s ease;
-  text-decoration: none;
-  color: #1e3932;
-  cursor: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3174/cursor.png), auto;
-}
-html body .container .projects .project-1 .project-right .project-description a:hover {
-  color: #c4a35a;
-}
-html body .container .projects .project-1 .project-right .project-description {
-  transition: 1s;
-  font-family: "Be Vietnam Pro", sans-serif;
-  font-weight: 400;
-  font-size: 1.1em;
-  line-height: 160%;
-  color: #4a4744;
-  letter-spacing: -0.01em;
-  padding-right: 5%;
-}
-html body .container .projects .project-1 .project-right .project-description .tech-list {
-  width: 85%;
-  height: 20%;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  margin-top: 30px;
-  font-size: 13px;
-}
-html body .container .projects .project-1 .project-right .project-description .tech-list .tech-tag {
-  transition: 1s;
-  padding: 4px 12px 4px 12px;
-  margin: 0px 8px 8px 0px;
-  background-color: #f0ebe3;
-  border-radius: 4px;
-  border: 1px solid rgba(30, 57, 50, 0.1);
-  height: 20px !important;
-  line-height: 140%;
-  letter-spacing: 0.02em;
-  font-weight: 500;
-}
-@media (max-width: 990px) {
-  html body .container .projects .project-1 .project-right {
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
-@media (max-width: 769px) {
-  html body .container .projects .project-1 .project-right {
-    width: 95%;
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
-@media (max-width: 990px) {
-  html body .container .projects .project-1 {
-    flex-direction: column;
-  }
-}
-html body .container .projects .project-2 {
-  margin-top: 35px;
-  margin-bottom: 100px;
-  display: flex;
-}
-html body .container .projects .project-2 .project-left {
-  position: relative;
-  width: 65%;
-}
-html body .container .projects .project-2 .project-left .bookable-light {
-  display: block;
-}
-html body .container .projects .project-2 .project-left .bookable-dark {
-  display: none;
-}
-html body .container .projects .project-2 .project-left img {
-  float: right;
-  margin-right: 2%;
-  width: 100%;
-  height: auto;
-}
-@media (max-width: 990px) {
-  html body .container .projects .project-2 .project-left {
-    width: 100%;
-  }
-}
-html body .container .projects .project-2 .project-right {
-  width: 35%;
-  position: relative;
-  margin-bottom: auto;
-  margin-top: auto;
-}
-html body .container .projects .project-2 .project-right .project-description a {
-  transition: 0.3s ease;
-  text-decoration: none;
-  color: #1e3932;
-  cursor: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3174/cursor.png), auto;
-}
-html body .container .projects .project-2 .project-right .project-description a:hover {
-  color: #c4a35a;
-}
-html body .container .projects .project-2 .project-right .project-description {
-  transition: 1s;
-  font-family: "Be Vietnam Pro", sans-serif;
-  font-weight: 400;
-  font-size: 1.1em;
-  line-height: 160%;
-  color: #4a4744;
-  letter-spacing: -0.01em;
-  padding-right: 5%;
-}
-html body .container .projects .project-2 .project-right .project-description .tech-list {
-  width: 85%;
-  height: 20%;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  margin-top: 30px;
-  font-size: 13px;
-}
-html body .container .projects .project-2 .project-right .project-description .tech-list .tech-tag {
-  transition: 1s;
-  padding: 4px 8px 4px 8px;
-  margin: 0px 8px 8px 0px;
-  background-color: #f0ebe3;
-  border-radius: 4px;
-  height: 20px;
-  line-height: 140%;
-}
-@media (max-width: 990px) {
-  html body .container .projects .project-2 .project-right {
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
-@media (max-width: 769px) {
-  html body .container .projects .project-2 .project-right {
-    width: 95%;
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
-@media (max-width: 990px) {
-  html body .container .projects .project-2 {
-    flex-direction: column;
-  }
-}
-html body .container .projects .project-3 {
-  margin-top: 35px;
-  margin-bottom: 100px;
-  display: flex;
-}
-html body .container .projects .project-3 .project-left {
-  position: relative;
-  width: 65%;
-}
-html body .container .projects .project-3 .project-left .freedeal-light {
-  display: block;
-}
-html body .container .projects .project-3 .project-left .freedeal-dark {
-  display: none;
-}
-html body .container .projects .project-3 .project-left img {
-  float: right;
-  margin-right: 2%;
-  width: 100%;
-  height: auto;
-}
-@media (max-width: 990px) {
-  html body .container .projects .project-3 .project-left {
-    width: 100%;
-  }
-}
-html body .container .projects .project-3 .project-right {
-  width: 35%;
-  position: relative;
-  margin-bottom: auto;
-  margin-top: auto;
-}
-html body .container .projects .project-3 .project-right .project-description a {
-  transition: 0.3s ease;
-  text-decoration: none;
-  color: #1e3932;
-  cursor: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3174/cursor.png), auto;
-}
-html body .container .projects .project-3 .project-right .project-description a:hover {
-  color: #c4a35a;
-}
-html body .container .projects .project-3 .project-right .project-description {
-  transition: 1s;
-  font-family: "Be Vietnam Pro", sans-serif;
-  font-weight: 400;
-  font-size: 1.1em;
-  line-height: 160%;
-  color: #4a4744;
-  letter-spacing: -0.01em;
-  padding-right: 5%;
-}
-html body .container .projects .project-3 .project-right .project-description .tech-list {
-  width: 85%;
-  height: 20%;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  margin-top: 30px;
-  font-size: 13px;
-}
-html body .container .projects .project-3 .project-right .project-description .tech-list .tech-tag {
-  transition: 1s;
-  padding: 4px 8px 4px 8px;
-  margin: 0px 8px 8px 0px;
-  background-color: #f0ebe3;
-  border-radius: 4px;
-  height: 20px;
-  line-height: 140%;
-}
-@media (max-width: 990px) {
-  html body .container .projects .project-3 .project-right {
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
-@media (max-width: 769px) {
-  html body .container .projects .project-3 .project-right {
-    width: 95%;
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
-@media (max-width: 990px) {
-  html body .container .projects .project-3 {
-    flex-direction: column;
-  }
-}
-@media (max-width: 768px) {
-  html body .container .projects .project-3 {
-    margin-bottom: 80px;
-  }
-}
-html body .container #myProjects {
-  position: relative;
-  background-color: #f0ebe3;
-  display: flex;
-  justify-content: center;
-}
-html body .container #myProjects .projects-wrapper {
-  max-width: 960px;
-  width: 100%;
-  margin-bottom: 100px;
-}
-html body .container #myProjects .projects-wrapper .projects-title h2 {
-  color: #1e3932;
-  margin: 36px 0;
-  font-size: 32px;
-  font-family: "EB Garamond", serif;
-  font-weight: 700;
-  letter-spacing: -0.01em;
-}
-html body .container #myProjects .projects-wrapper .projects-description {
-  color: #4a4744;
-  font-size: 17.5px;
-  letter-spacing: -0.01em;
-  font-family: "Be Vietnam Pro", sans-serif;
-  margin-bottom: 10px;
-  line-height: 160%;
-}
-html body .container #myProjects .projects-wrapper .project {
-  display: flex;
-  margin-top: 30px;
-  margin-bottom: 20px;
-}
-@media (max-width: 990px) {
-  html body .container #myProjects .projects-wrapper .project .project-image {
-    display: flex;
-    justify-content: center;
-  }
-}
-html body .container #myProjects .projects-wrapper .project .project-image img {
-  margin: 15px;
-  border-radius: 4px;
-  border: 1px solid rgba(30, 57, 50, 0.1);
-  max-width: 250px;
-  box-shadow: 0px 10px 30px -5px rgba(0, 0, 0, 0.12);
-}
-@media (max-width: 990px) {
-  html body .container #myProjects .projects-wrapper .project .project-image img {
-    max-width: 600px;
-    width: 100%;
-    height: auto;
-    margin: 0;
-  }
-}
-html body .container #myProjects .projects-wrapper .project .project-description {
-  margin: 0px 15px 0px 15px;
-  width: 100%;
-  font-family: "Be Vietnam Pro", sans-serif;
-  font-size: 1.1em;
-  letter-spacing: -0.01em;
-  line-height: 160%;
-}
-html body .container #myProjects .projects-wrapper .project .project-description h4 {
-  color: #1e3932;
-  margin: 15px 0;
-  font-size: 22px;
-  font-weight: 700;
-  font-family: "EB Garamond", serif;
-  letter-spacing: -0.01em;
-}
-html body .container #myProjects .projects-wrapper .project .project-description h4 a {
-  color: #1e3932;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-html body .container #myProjects .projects-wrapper .project .project-description h4 a:hover {
-  color: #c4a35a;
-}
-html body .container #myProjects .projects-wrapper .project .project-description p {
-  color: #4a4744;
-}
-@media (max-width: 990px) {
-  html body .container #myProjects .projects-wrapper .project .project-description {
-    margin: 0;
-  }
-}
-@media (max-width: 990px) {
-  html body .container #myProjects .projects-wrapper .project {
-    flex-direction: column;
-    margin-top: 40px;
-  }
-}
-html body .container #myProjects .projects-wrapper a {
-  transition: 1s;
-  text-decoration: none;
-  color: #1e3932;
-  cursor: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3174/cursor.png), auto;
-}
-html body .container #myProjects .projects-wrapper a:hover {
-  text-decoration: underline;
-}
-@media (max-width: 990px) {
-  html body .container #myProjects .projects-wrapper {
-    width: 80%;
-  }
-}
-html body .container footer {
-  background-color: #f0ebe3;
-  position: relative;
-}
-html body .container .footer-content {
-  max-width: 960px;
-  left: 0;
-  right: 0;
-  margin-left: auto;
-  margin-right: auto;
 }
 @media (max-width: 992px) {
-  html body .container .footer-content {
-    width: 790px;
+  .about-inner {
+    grid-template-columns: 1fr;
+    gap: 3rem;
   }
 }
-@media (max-width: 830px) {
-  html body .container .footer-content {
-    width: 660px;
-  }
+
+.about-content {
+  max-width: 500px;
 }
-@media (max-width: 768px) {
-  html body .container .footer-content {
-    width: 615px;
-  }
+
+.about-title {
+  font-family: "Cormorant Garamond", "EB Garamond", Georgia, serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 400;
+  color: #1e3932;
+  letter-spacing: -0.02em;
+  margin-bottom: 2rem;
 }
-@media (max-width: 645px) {
-  html body .container .footer-content {
-    width: 515px;
-  }
+
+.about-text p {
+  font-size: 1rem;
+  color: #5a5652;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
 }
-@media (max-width: 540px) {
-  html body .container .footer-content {
-    width: 430px;
-  }
+.about-text p strong {
+  color: #1e3932;
+  font-weight: 600;
 }
-@media (max-width: 450px) {
-  html body .container .footer-content {
-    width: 360px;
-  }
-}
-@media (max-width: 370px) {
-  html body .container .footer-content {
-    width: 295px;
-  }
-}
-@media (max-width: 360px) {
-  html body .container .footer-content {
-    width: 285px;
-  }
-}
-html body .container .footer-content .footer-box {
-  position: relative;
-  font-family: "Be Vietnam Pro", sans-serif;
-  margin-bottom: 140px;
-  background-color: #1e3932;
-  border-radius: 4px;
-  box-shadow: 0px 20px 40px -10px rgba(0, 0, 0, 0.15);
-  padding: 50px 50px;
-  font-size: 17px;
-  line-height: 160%;
-  transition: 1s;
-  color: #f8f4ed;
-  border-left: 3px solid #c4a35a;
-}
-html body .container .footer-content .footer-box a {
-  transition: 1s;
-  text-decoration: none;
-  color: #c4a35a;
-  cursor: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3174/cursor.png), auto;
-}
-html body .container .footer-content .footer-box a:hover {
-  text-decoration: underline;
-}
-@media (max-width: 768px) {
-  html body .container .footer-content .footer-box {
-    margin-bottom: 100px;
-  }
-}
-html body .container .footer-content .divider-footer {
-  position: relative;
-  width: 40%;
-  border: 1px solid #808080;
-  margin-bottom: 70px;
-}
-html body .container .footer-content .footer {
-  position: relative;
-  padding-bottom: 80px;
-  font-family: "Be Vietnam Pro", sans-serif;
-  letter-spacing: -0.01em;
-  font-size: 0.9em;
-  color: #808080;
-  line-height: 140%;
-}
-html .bcToBlack_on {
-  background-color: #152a25 !important;
-}
-html .bcToGray_on {
-  background-color: #1e3932 !important;
-}
-html .bcToWhite_on {
-  background-color: #f8f4ed !important;
-}
-html .colToWhite_on {
-  color: #f8f4ed !important;
-}
-html .decToUnderline_on {
-  text-decoration: underline !important;
-}
-html .decBorderLine_on {
-  border: 1px solid #c4a35a !important;
-}
-html .bcAnimation100_on {
-  width: 100% !important;
-}
-html .bcAnimation0_on {
-  width: 0% !important;
-}
-html .dotAnimation_on {
-  right: 0px !important;
-}
-html .newHeight_on {
-  height: 360% !important;
-  transition: 0s !important;
-}
-html .reveal {
-  transform: translateY(50px);
-  opacity: 0;
-  transition: 0.4s all ease;
-}
-html .reveal.active {
-  transform: translateY(0);
-  opacity: 1;
-}
-html .photoVisible_on {
-  display: block !important;
-}
-html .photoInvisible_on {
-  display: none !important;
-}
-html .tech-list {
-  width: 85%;
-  height: 20%;
+
+.about-links {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  margin-top: 30px;
-  font-size: 13px;
+  gap: 2rem;
+  margin-top: 2.5rem;
 }
-html .tech-list .tech-tag {
-  transition: 1s;
-  padding: 4px 12px 4px 12px;
-  margin: 0px 8px 8px 0px;
-  background-color: #f8f4ed;
-  border-radius: 4px;
-  border: 1px solid rgba(30, 57, 50, 0.15);
-  height: 20px !important;
-  line-height: 140%;
-  letter-spacing: 0.02em;
+.about-links a {
+  font-size: 0.875rem;
   font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #1e3932;
+  padding-bottom: 0.25rem;
+  border-bottom: 1px solid transparent;
+  transition: all 0.2s ease;
 }
-html .b {
-  font-family: "Fira Code", monospace;
+.about-links a:hover {
+  border-color: #c4a35a;
   color: #c4a35a;
-  font-size: 17px;
+}
+
+.about-image {
+  position: relative;
+}
+.about-image img {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 4px;
+  filter: grayscale(20%);
+  transition: filter 0.4s ease;
+}
+.about-image img:hover {
+  filter: grayscale(0%);
+}
+@media (max-width: 992px) {
+  .about-image {
+    order: -1;
+  }
+  .about-image img {
+    max-width: 300px;
+  }
+}
+
+.footer {
+  padding: 6rem 4rem 3rem;
+  background-color: #152a25;
+}
+@media (max-width: 768px) {
+  .footer {
+    padding: 4rem 1.5rem 2rem;
+  }
+}
+
+.footer-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.footer-cta {
+  text-align: center;
+  padding-bottom: 4rem;
+  border-bottom: 1px solid rgba(248, 244, 237, 0.1);
+  margin-bottom: 2rem;
+}
+.footer-cta h2 {
+  font-family: "Cormorant Garamond", "EB Garamond", Georgia, serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 400;
+  color: #f8f4ed;
+  margin-bottom: 1rem;
+}
+.footer-cta p {
+  font-size: 1rem;
+  color: rgba(248, 244, 237, 0.6);
+  margin-bottom: 2rem;
+}
+
+.footer-email {
+  display: inline-block;
+  font-size: 1.125rem;
+  color: #c4a35a;
+  padding-bottom: 0.25rem;
+  border-bottom: 1px solid transparent;
+  transition: all 0.2s ease;
+}
+.footer-email:hover {
+  border-color: #c4a35a;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1rem;
+}
+.footer-bottom span {
+  font-size: 0.8125rem;
+  color: rgba(248, 244, 237, 0.4);
+}
+@media (max-width: 600px) {
+  .footer-bottom {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+}
+
+.footer-social {
+  display: flex;
+  gap: 2rem;
+}
+.footer-social a {
+  font-size: 0.8125rem;
+  color: rgba(248, 244, 237, 0.6);
+  transition: color 0.2s ease;
+}
+.footer-social a:hover {
+  color: #f8f4ed;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.hero-label,
+.hero-title,
+.hero-subtitle,
+.hero-cta {
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+.hero-label {
+  animation-delay: 0.1s;
+}
+
+.hero-title {
+  animation-delay: 0.2s;
+}
+
+.hero-subtitle {
+  animation-delay: 0.3s;
+}
+
+.hero-cta {
+  animation-delay: 0.4s;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /*# sourceMappingURL=style.css.map */

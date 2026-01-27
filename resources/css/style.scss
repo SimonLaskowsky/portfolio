@@ -1,10 +1,5 @@
-@import "breakpoints.scss";
-
-// Animation speed
-$toggle-control-speed: 1s;
-$animation-duration: 10s;
-
-// Luxury color palette - Bottle green, cream, gold
+// Luxury Portfolio Styles
+// Color Palette
 $bottle-green: #1e3932;
 $bottle-green-light: #2d4a3e;
 $bottle-green-dark: #152a25;
@@ -13,1078 +8,815 @@ $warm-beige: #f0ebe3;
 $gold-accent: #c4a35a;
 $gold-light: #d4b86a;
 $charcoal: #2a2a2a;
-$warm-gray: #4a4744;
+$warm-gray: #5a5652;
+$light-gray: #9a958f;
 
-// Legacy variables for compatibility
-$primary: $bottle-green;
-$primary-ultralight: mix(white, $primary, 80%);
-$primary-light: mix(white, $primary, 25%);
-$primary-dark: mix(black, $primary, 25%);
-$primary-ultradark: mix(black, $primary, 80%);
-$black: #333333;
-$white: #eeeeee;
+// Typography
+$font-serif: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+$font-sans: 'Be Vietnam Pro', -apple-system, BlinkMacSystemFont, sans-serif;
+
+// Transitions
+$transition-fast: 0.2s ease;
+$transition-medium: 0.4s ease;
+$transition-slow: 0.6s ease;
+
+// Reset & Base
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 html {
   scroll-behavior: smooth;
+  font-size: 16px;
+}
 
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
-      "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-    margin: 0;
-    a {
-      cursor: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3174/cursor.png), auto;
+body {
+  font-family: $font-sans;
+  background-color: $warm-cream;
+  color: $charcoal;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color $transition-fast;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+// Navigation
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 1.5rem 0;
+  transition: background-color $transition-medium, padding $transition-medium;
+
+  &.scrolled {
+    background-color: rgba($warm-cream, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 1rem 0;
+    box-shadow: 0 1px 0 rgba($bottle-green, 0.08);
+  }
+}
+
+.nav-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @media (max-width: 768px) {
+    padding: 0 1.5rem;
+  }
+}
+
+.nav-logo {
+  font-family: $font-serif;
+  font-size: 1.25rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: $bottle-green;
+}
+
+.nav-links {
+  display: flex;
+  gap: 3rem;
+
+  a {
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: $warm-gray;
+    align-self: center;
+
+    &:hover {
+      color: $bottle-green;
     }
 
-    .navbar {
-      z-index: 1;
-      position: fixed;
-      display: flex;
-      top: 0;
-      width: 100%;
-      height: 70px;
-      box-shadow: 0px 4px 20px -4px rgba(0, 0, 0, 0.06);
+    &.nav-contact {
+      color: $bottle-green;
+      padding: 0.5rem 1.25rem;
+      border: 1px solid $bottle-green;
+      transition: all $transition-fast;
 
-      .navbar-left.show {
-        transition: 0s;
-      }
-      .navbar-right.show {
-        transition: 0s;
-      }
-
-      .navbar-left {
-        width: 100%;
-        height: 100%;
-        left: 0%;
-        background-color: $warm-cream;
-        transition: $toggle-control-speed;
-      }
-      .navbar-right {
-        width: 0%;
-        height: 100%;
-        right: 0%;
+      &:hover {
         background-color: $bottle-green;
-        transition: $toggle-control-speed;
-      }
-      .nav-section {
-        top: 0;
-        bottom: 0;
-        position: absolute;
-        margin-left: 20px;
-        display: flex;
-        flex-direction: row;
-        align-items: flex-end;
-        color: #202020;
-
-        .logo {
-          padding-top: 5px;
-          margin-top: auto;
-          margin-bottom: auto;
-          transition: $toggle-control-speed;
-          left: 0px;
-          .logo-dark {
-            display: none;
-            transition: $toggle-control-speed;
-          }
-          .logo-light {
-            display: block;
-            transition: $toggle-control-speed;
-          }
-          a {
-            cursor: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3174/cursor.png), auto;
-            img {
-              max-width: 160px;
-              position: relative;
-              top: 2px;
-              @include media("<=600px") {
-                max-width: 150px;
-                margin-left: -15px;
-              }
-            }
-          }
-        }
-        .s {
-          transition: $toggle-control-speed;
-          font-family: "Be Vietnam Pro";
-          font-style: normal;
-          font-weight: normal;
-          font-size: 15px;
-          text-align: center;
-          margin-top: auto;
-          margin-bottom: auto;
-          position: relative;
-          top: 1px;
-          a {
-            margin-left: 30px;
-            transition: $toggle-control-speed;
-            text-decoration: none;
-            color: $bottle-green;
-            cursor: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3174/cursor.png), auto;
-
-            @include media("<=tablet") {
-              margin-left: 20px;
-              display: none;
-            }
-          }
-        }
-      }
-
-      .navbaricon {
-        transition: $toggle-control-speed;
-        position: absolute;
-        right: 0;
-        display: none;
-        width: 70px;
-        height: 70px;
-        justify-content: center;
-        align-items: center;
-        overflow: hidden;
-
-        span {
-          position: absolute;
-          width: 30px;
-          height: 2px;
-          background: $bottle-green;
-          border-radius: 4px;
-          transition: 0.5s;
-          left: 15px;
-        }
-        span:nth-child(1) {
-          transform: translateY(-10px);
-          width: 20px;
-          left: 15px;
-        }
-        span:nth-child(2) {
-          transform: translateY(10px);
-          width: 15px;
-          left: 15px;
-        }
-        @include media("<=tablet") {
-          display: flex;
-        }
-      }
-      .navbaricon.active {
-        span:nth-child(1) {
-          width: 30px;
-          transform: translateY(0) rotate(45deg);
-          transition-delay: 0.125s;
-        }
-        span:nth-child(2) {
-          width: 30px;
-          transform: translateY(0) rotate(315deg);
-          transition-delay: 0.25s;
-        }
-        span:nth-child(3) {
-          transform: translateX(60px);
-        }
-      }
-      .nav-controls {
-        position: absolute;
-        right: 0;
-        margin-right: 25px;
-        top: 28.25%;
-        height: 43.5%;
-        display: flex;
-        flex-direction: row;
-        .icons {
-          display: flex;
-          height: 100%;
-          .icon {
-            font-size: 16px;
-            margin-top: auto;
-            margin-bottom: auto;
-            text-decoration: none;
-            margin-right: 30px;
-            i {
-              color: $bottle-green;
-              transition: $toggle-control-speed;
-              cursor: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3174/cursor.png), auto;
-            }
-          }
-        }
-        .toggle-zone {
-          margin-top: auto;
-          margin-bottom: auto;
-          position: relative;
-          display: flex;
-          color: #212529;
-          font-size: 16px;
-          transition: $toggle-control-speed;
-
-          .darkmode {
-            transition: $toggle-control-speed;
-            margin-bottom: 3px;
-            font-size: 15px;
-          }
-          .dark-toggle {
-            margin-top: auto;
-            margin-bottom: auto;
-            margin-left: 5px;
-            cursor: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3174/cursor.png), auto;
-            .toggle-bg {
-              position: relative;
-              width: 50px;
-              height: 25px;
-              border-radius: 160px;
-              display: flex;
-              align-items: center;
-
-              background-color: $warm-cream;
-              box-shadow:
-                inset 0 2px 60px rgba(0, 0, 0, 0.1),
-                inset 0 2px 8px rgba(0, 0, 0, 0.1),
-                inset 0 -4px 8px rgba(0, 0, 0, 0.05);
-
-              .toggle-dot {
-                position: absolute;
-                border-radius: 50%;
-                width: 25px;
-                height: 25px;
-                left: 0px;
-                transition: 0.3s;
-                transform: scale(0.9);
-
-                background: linear-gradient(to bottom, #eaeaea, #f9f9f9);
-                box-shadow:
-                  0 8px 20px rgba(0, 0, 0, 0.1),
-                  inset 0 0.5px 0.5px rgba(225, 225, 225, 1),
-                  inset 0 -0.5px 0.5px rgba(225, 225, 225, 1);
-              }
-            }
-          }
-          .dark-toggle.active {
-            .toggle-bg {
-              background-color: $bottle-green;
-              box-shadow:
-                inset 0 8px 60px rgba(0, 0, 0, 0.1),
-                inset 0 8px 8px rgba(0, 0, 0, 0.1),
-                inset 0 -4px 4px rgba(0, 0, 0, 0.1);
-              .toggle-dot {
-                left: 25px;
-                background: linear-gradient(to bottom, #444, #222);
-                box-shadow:
-                  0 8px 40px rgba(0, 0, 0, 0.5),
-                  inset 0 1px 1px rgba(225, 225, 225, 0.2),
-                  inset 0 -1px 1px rgba(225, 225, 225, 0.2);
-              }
-            }
-          }
-        }
-
-        @include media("<=tablet") {
-          display: none;
-          width: 100%;
-        }
-        .mobile-links {
-          display: none;
-          @include media("<=tablet") {
-            display: block;
-          }
-        }
-      }
-      .show {
-        box-shadow: 0px 70px 65px 10px rgba(0, 0, 0, 0.15);
-        padding: 20px;
-        left: 0;
-        right: 0;
-        width: 100%;
-        margin-top: 43px;
-        height: 150px;
-        display: flex;
-        flex-direction: column;
-        .icons {
-          margin-top: 5px;
-          width: 20px;
-          height: 20px;
-          .link {
-            margin-right: 20px;
-          }
-          .icon-facebook {
-            height: 20px;
-          }
-        }
-        .toggle-zone {
-          margin-top: 100px;
-          position: absolute;
-          margin-left: 0;
-          left: 15px;
-        }
-        .mobile-links {
-          transition: $toggle-control-speed;
-          font-family: "Be Vietnam Pro";
-          font-style: normal;
-          font-weight: normal;
-          font-size: 15px;
-          margin-top: 29px;
-          padding-bottom: 4px;
-          a {
-            margin-right: 15px;
-            transition: $toggle-control-speed;
-            text-decoration: none;
-            color: $bottle-green;
-            cursor: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3174/cursor.png), auto;
-
-          }
-        }
-      }
-    }
-    .container {
-      height: 150vh;
-      position: relative;
-      .bg-left {
-        top: 0;
-        bottom: 0;
-        position: fixed;
-        width: 100%;
-        background-color: $warm-cream;
-        left: 0;
-        transition: $toggle-control-speed;
-      }
-      .bg-right {
-        top: 0;
-        right: 0%;
-        bottom: 0;
-        position: fixed;
-        width: 0%;
-        background-color: $bottle-green-dark;
-        transition: $toggle-control-speed;
-      }
-      .main-content {
-        margin-top: 120px;
-        width: 960px;
-        left: 0;
-        right: 0;
-        margin-left: auto;
-        margin-right: auto;
-
-        @include media("<=992px") {
-          width: 790px;
-        }
-        @include media("<=830px") {
-          width: 660px;
-        }
-        @include media("<=tablet") {
-          width: 615px;
-          margin-top: 100px;
-        }
-        @include media("<=645px") {
-          width: 515px;
-        }
-        @include media("<=540px") {
-          width: 430px;
-        }
-        @include media("<=450px") {
-          width: 360px;
-        }
-        @include media("<=370px") {
-          width: 295px;
-        }
-        @include media("<=phone") {
-          width: 285px;
-        }
-
-        .avatar {
-          position: relative;
-          background-color: $warm-beige;
-          width: 100px;
-          height: 100px;
-          left: 0;
-          top: 0;
-          background-size: cover;
-          background-position: center;
-          box-shadow: 0px 15px 30px -8px rgba(0, 0, 0, 0.12);
-          border-radius: 8px;
-          transition: $toggle-control-speed;
-          border: 2px solid rgba($bottle-green, 0.08);
-
-          animation-delay: 0.1s;
-
-          @include media("<=992px") {
-            width: 70px;
-            height: 70px;
-          }
-        }
-        .intro {
-          width: 80%;
-          position: relative;
-          left: 0;
-          display: flex;
-          align-items: center;
-          color: $bottle-green;
-          transition: $toggle-control-speed;
-          h1 {
-            margin-top: 0.5em;
-            margin-bottom: 0;
-            font-size: 4.1em;
-            line-height: 105%;
-            letter-spacing: -0.01em;
-            font-style: normal;
-            font-weight: 700;
-            font-family: EB Garamond;
-
-            @include media("<=tablet") {
-              font-size: 3em;
-            }
-          }
-
-          animation-delay: 0.2s;
-
-          @include media("<=600px") {
-            width: 100%;
-          }
-        }
-        .divider {
-          margin-top: 80px;
-          margin-bottom: 80px;
-          border: 1px solid $gold-accent;
-          position: relative;
-          left: 0;
-          width: 15%;
-          transition: $toggle-control-speed;
-
-          animation-delay: 0.3s;
-          @include media("<=tablet") {
-            margin: 50px 0 50px 0;
-          }
-        }
-        .about-text {
-          margin-top: 10px;
-          margin-bottom: 1rem;
-          position: relative;
-          left: 0;
-          font-family: "Be Vietnam Pro", sans-serif;
-          font-weight: 400;
-          font-size: 17.5px;
-          line-height: 160%;
-          color: $warm-gray;
-          letter-spacing: -0.01em;
-          transition: $toggle-control-speed;
-
-          .comment {
-            color: rgba($bottle-green, 0.4);
-            font-family: "Fira Code", monospace;
-            font-size: 15px;
-            letter-spacing: 0.02em;
-          }
-          .b {
-            font-family: "Fira Code", monospace;
-            color: $gold-accent;
-            font-size: 17px;
-          }
-
-          .text-link {
-            transition: 0.3s ease;
-            text-decoration: none;
-            color: $bottle-green;
-            font-weight: 500;
-          }
-          .text-link:hover {
-            color: $gold-accent;
-            cursor: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3174/cursor.png), auto;
-          }
-        }
-        .highlight-box {
-          width: fit-content;
-          margin-top: 5rem;
-          margin-bottom: 0.5rem;
-          display: flex;
-          position: relative;
-          background-color: $bottle-green-light;
-          border-radius: 4px;
-          padding: 1.5rem 2rem;
-          line-height: 140%;
-          transition: $toggle-control-speed;
-          font-size: 0.9em;
-          color: $warm-cream;
-          border-left: 3px solid $gold-accent;
-
-          @include media("<=tablet") {
-            display: inline-block;
-            margin-top: 50px;
-          }
-          .highlight-link {
-            transition: $toggle-control-speed;
-            text-decoration: none;
-            color: $gold-accent;
-          }
-          .highlight-link:hover {
-            text-decoration: underline;
-            cursor: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3174/cursor.png), auto;
-          }
-          .highlight-text {
-            color: $warm-cream;
-          }
-        }
-        .divider-section {
-          position: relative;
-          margin-top: 80px;
-          margin-bottom: 80px;
-          border: 1px solid $gold-accent;
-          left: 0;
-          width: 100%;
-          transition: $toggle-control-speed;
-        }
-        .work-title {
-          margin-left: 0;
-          margin-right: 0;
-          margin-top: 0.5em;
-          margin-bottom: 0.3em;
-          width: 80%;
-          position: relative;
-          left: 0;
-          font-family: EB Garamond;
-          font-style: normal;
-          font-weight: 700;
-          font-size: 4.1em;
-          line-height: 105%;
-          display: flex;
-          align-items: center;
-          letter-spacing: -0.01em;
-          color: $bottle-green;
-          transition: $toggle-control-speed;
-
-          @include media("<=tablet") {
-            font-size: 2.2em;
-          }
-          @include media("<=370px") {
-            width: 100%;
-          }
-        }
-
-        .work-description {
-          margin-top: 70px;
-          transition: $toggle-control-speed;
-          position: relative;
-          left: 0;
-          font-family: "Be Vietnam Pro", sans-serif;
-          font-weight: 400;
-          font-size: 17.5px;
-          line-height: 160%;
-          color: $warm-gray;
-          letter-spacing: -0.01em;
-        }
-      }
-      .projects {
-        margin-left: 50px;
-        margin-right: 50px;
-        margin-top: 60px;
-
-        .b {
-          font-family: "Fira Code", monospace;
-          color: $gold-accent;
-          font-size: 17px;
-        }
-
-        .project-1 {
-          margin-bottom: 90px;
-          display: flex;
-          .project-left {
-            position: relative;
-            width: 65%;
-            .saleswizard-light {
-              display: block;
-            }
-            .saleswizard-dark {
-              display: none;
-            }
-            img {
-              float: right;
-              margin-right: 2%;
-              width: 100%;
-              height: auto;
-            }
-            @include media("<=990px") {
-              width: 100%;
-            }
-          }
-          .project-right {
-            width: 35%;
-            position: relative;
-            margin-top: auto;
-            margin-bottom: auto;
-            .project-description {
-              a {
-                transition: 0.3s ease;
-                text-decoration: none;
-                color: $bottle-green;
-                cursor: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3174/cursor.png), auto;
-              }
-              a:hover {
-                color: $gold-accent;
-              }
-              transition: $toggle-control-speed;
-              font-family: "Be Vietnam Pro", sans-serif;
-              font-weight: 400;
-              font-size: 1.1em;
-              line-height: 160%;
-              color: $warm-gray;
-              letter-spacing: -0.01em;
-              padding-right: 5%;
-              .tech-list {
-                width: 85%;
-                height: 20%;
-                display: flex;
-                flex-direction: row;
-                flex-wrap: wrap;
-                margin-top: 30px;
-                font-size: 13px;
-                .tech-tag {
-                  transition: $toggle-control-speed;
-                  padding: 4px 12px 4px 12px;
-                  margin: 0px 8px 8px 0px;
-                  background-color: $warm-beige;
-                  border-radius: 4px;
-                  border: 1px solid rgba($bottle-green, 0.1);
-                  height: 20px !important;
-                  line-height: 140%;
-                  letter-spacing: 0.02em;
-                  font-weight: 500;
-                }
-              }
-            }
-            @include media("<=990px") {
-              width: 80%;
-              margin-left: auto;
-              margin-right: auto;
-            }
-            @include media("<=769px") {
-              width: 95%;
-              margin-left: auto;
-              margin-right: auto;
-            }
-          }
-          @include media("<=990px") {
-            flex-direction: column;
-          }
-        }
-        .project-2 {
-          margin-top: 35px;
-          margin-bottom: 100px;
-          display: flex;
-          .project-left {
-            position: relative;
-            width: 65%;
-            .bookable-light {
-              display: block;
-            }
-            .bookable-dark {
-              display: none;
-            }
-            img {
-              float: right;
-              margin-right: 2%;
-              width: 100%;
-              height: auto;
-            }
-
-            @include media("<=990px") {
-              width: 100%;
-            }
-          }
-          .project-right {
-            width: 35%;
-            position: relative;
-            margin-bottom: auto;
-            margin-top: auto;
-
-            .project-description {
-              a {
-                transition: 0.3s ease;
-                text-decoration: none;
-                color: $bottle-green;
-                cursor: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3174/cursor.png), auto;
-              }
-              a:hover {
-                color: $gold-accent;
-              }
-              transition: $toggle-control-speed;
-              font-family: "Be Vietnam Pro", sans-serif;
-              font-weight: 400;
-              font-size: 1.1em;
-              line-height: 160%;
-              color: $warm-gray;
-              letter-spacing: -0.01em;
-              padding-right: 5%;
-              .tech-list {
-                width: 85%;
-                height: 20%;
-                display: flex;
-                flex-direction: row;
-                flex-wrap: wrap;
-                margin-top: 30px;
-                font-size: 13px;
-                .tech-tag {
-                  transition: $toggle-control-speed;
-                  padding: 4px 8px 4px 8px;
-                  margin: 0px 8px 8px 0px;
-                  background-color: $warm-beige;
-                  border-radius: 4px;
-                  height: 20px;
-                  line-height: 140%;
-                }
-              }
-            }
-            @include media("<=990px") {
-              width: 80%;
-              margin-left: auto;
-              margin-right: auto;
-            }
-            @include media("<=769px") {
-              width: 95%;
-              margin-left: auto;
-              margin-right: auto;
-            }
-          }
-          @include media("<=990px") {
-            flex-direction: column;
-          }
-        }
-        .project-3 {
-          margin-top: 35px;
-          margin-bottom: 100px;
-          display: flex;
-          .project-left {
-            position: relative;
-            width: 65%;
-            .freedeal-light {
-              display: block;
-            }
-            .freedeal-dark {
-              display: none;
-            }
-            img {
-              float: right;
-              margin-right: 2%;
-              width: 100%;
-              height: auto;
-            }
-
-            @include media("<=990px") {
-              width: 100%;
-            }
-          }
-          .project-right {
-            width: 35%;
-            position: relative;
-            margin-bottom: auto;
-            margin-top: auto;
-
-            .project-description {
-              a {
-                transition: 0.3s ease;
-                text-decoration: none;
-                color: $bottle-green;
-                cursor: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3174/cursor.png), auto;
-              }
-              a:hover {
-                color: $gold-accent;
-              }
-              transition: $toggle-control-speed;
-              font-family: "Be Vietnam Pro", sans-serif;
-              font-weight: 400;
-              font-size: 1.1em;
-              line-height: 160%;
-              color: $warm-gray;
-              letter-spacing: -0.01em;
-              padding-right: 5%;
-
-              .tech-list {
-                width: 85%;
-                height: 20%;
-                display: flex;
-                flex-direction: row;
-                flex-wrap: wrap;
-                margin-top: 30px;
-                font-size: 13px;
-
-                .tech-tag {
-                  transition: $toggle-control-speed;
-                  padding: 4px 8px 4px 8px;
-                  margin: 0px 8px 8px 0px;
-                  background-color: $warm-beige;
-                  border-radius: 4px;
-                  height: 20px;
-                  line-height: 140%;
-                }
-              }
-            }
-
-            @include media("<=990px") {
-              width: 80%;
-              margin-left: auto;
-              margin-right: auto;
-            }
-            @include media("<=769px") {
-              width: 95%;
-              margin-left: auto;
-              margin-right: auto;
-            }
-          }
-          @include media("<=990px") {
-            flex-direction: column;
-          }
-          @include media("<=tablet") {
-            margin-bottom: 80px;
-          }
-        }
-      }
-      // My projects section
-      #myProjects {
-        position: relative;
-        background-color: $warm-beige;
-        display: flex;
-        justify-content: center;
-        .projects-wrapper {
-          max-width: 960px;
-          width: 100%;
-          margin-bottom: 100px;
-          .projects-title h2{
-            color: $bottle-green;
-            margin: 36px 0;
-            font-size: 32px;
-            font-family: 'EB Garamond', serif;
-            font-weight: 700;
-            letter-spacing: -0.01em;
-          }
-          .projects-description {
-            color: $warm-gray;
-            font-size: 17.5px;
-            letter-spacing: -0.01em;
-            font-family: "Be Vietnam Pro", sans-serif;
-            margin-bottom: 10px;
-            line-height: 160%;
-          }
-          .project {
-            display: flex;
-            margin-top: 30px;
-            margin-bottom: 20px;
-            .project-image {
-              @include media("<=990px") {
-                display: flex;
-                justify-content: center;
-              }
-            }
-            .project-image img{
-              margin: 15px;
-              border-radius: 4px;
-              border: 1px solid rgba($bottle-green, 0.1);
-              max-width: 250px;
-              box-shadow: 0px 10px 30px -5px rgba(0, 0, 0, 0.12);
-
-              @include media("<=990px") {
-                max-width: 600px;
-                width: 100%;
-                height: auto;
-                margin: 0;
-              }
-            }
-            .project-description {
-              margin: 0px 15px 0px 15px;
-              width: 100%;
-              font-family: "Be Vietnam Pro", sans-serif;
-              font-size: 1.1em;
-              letter-spacing: -0.01em;
-              line-height: 160%;
-              h4 {
-                color: $bottle-green;
-                margin: 15px 0;
-                font-size: 22px;
-                font-weight: 700;
-                font-family: "EB Garamond", serif;
-                letter-spacing: -0.01em;
-
-                a{
-                  color: $bottle-green;
-                  text-decoration: none;
-                  transition: color 0.3s ease;
-                }
-                a:hover {
-                  color: $gold-accent;
-                }
-              }
-              p {
-                color: $warm-gray;
-              }
-
-              @include media("<=990px") {
-                margin: 0;
-              }
-            }
-            @include media("<=990px") {
-              flex-direction: column;
-              margin-top: 40px;
-            }
-          }
-          a {
-            transition: 1s;
-            text-decoration: none;
-            color: $bottle-green;
-            cursor: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3174/cursor.png), auto;
-          }
-          a:hover {
-            text-decoration: underline;
-          }
-          @include media("<=990px") {
-            width: 80%;
-          }
-        }
-      }
-      footer {
-        background-color: $warm-beige;
-        position: relative;
-      }
-      .footer-content {
-        max-width: 960px;
-        left: 0;
-        right: 0;
-        margin-left: auto;
-        margin-right: auto;
-        @include media("<=992px") {
-          width: 790px;
-        }
-        @include media("<=830px") {
-          width: 660px;
-        }
-        @include media("<=tablet") {
-          width: 615px;
-        }
-        @include media("<=645px") {
-          width: 515px;
-        }
-        @include media("<=540px") {
-          width: 430px;
-        }
-        @include media("<=450px") {
-          width: 360px;
-        }
-        @include media("<=370px") {
-          width: 295px;
-        }
-        @include media("<=phone") {
-          width: 285px;
-        }
-        .footer-box {
-          position: relative;
-          font-family: "Be Vietnam Pro", sans-serif;
-          margin-bottom: 140px;
-          background-color: $bottle-green;
-          border-radius: 4px;
-          box-shadow: 0px 20px 40px -10px rgba(0, 0, 0, 0.15);
-          padding: 50px 50px;
-          font-size: 17px;
-          line-height: 160%;
-          transition: $toggle-control-speed;
-          color: $warm-cream;
-          border-left: 3px solid $gold-accent;
-
-          a {
-            transition: $toggle-control-speed;
-            text-decoration: none;
-            color: $gold-accent;
-            cursor: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3174/cursor.png), auto;
-          }
-          a:hover {
-            text-decoration: underline;
-          }
-          @include media("<=tablet") {
-            margin-bottom: 100px;
-          }
-        }
-        .divider-footer {
-          position: relative;
-          width: 40%;
-          border: 1px solid #808080;
-          margin-bottom: 70px;
-        }
-        .footer {
-          position: relative;
-          padding-bottom: 80px;
-          font-family: "Be Vietnam Pro", sans-serif;
-          letter-spacing: -0.01em;
-          font-size: 0.9em;
-          color: #808080;
-          line-height: 140%;
-        }
+        color: $warm-cream;
       }
     }
   }
 
-  // Dark mode classes
-  // Background
-  .bcToBlack_on {
-    background-color: $bottle-green-dark !important;
+  @media (max-width: 768px) {
+    display: none;
   }
-  .bcToGray_on {
-    background-color: $bottle-green !important;
-  }
-  .bcToWhite_on {
-    background-color: $warm-cream !important;
-  }
-  // Color
-  .colToWhite_on {
-    color: $warm-cream !important;
-  }
-  .decToUnderline_on {
-    text-decoration: underline !important;
-  }
-  .decBorderLine_on {
-    border: 1px solid $gold-accent !important;
-  }
-  // Animations
-  .bcAnimation100_on {
-    width: 100% !important;
-  }
-  .bcAnimation0_on {
-    width: 0% !important;
-  }
-  .dotAnimation_on {
-    right: 0px !important;
-  }
-  .newHeight_on {
-    height: 360% !important;
-    transition: 0s !important;
-  }
-  // Reveal animation
-  .reveal {
-    transform: translateY(50px);
-    opacity: 0;
-    transition: 0.4s all ease;
-  }
-  .reveal.active {
-    transform: translateY(0);
-    opacity: 1;
+}
+
+.nav-mobile-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  cursor: pointer;
+  padding: 10px;
+  margin-right: -10px;
+
+  span {
+    width: 24px;
+    height: 1.5px;
+    background-color: $bottle-green;
+    transition: transform $transition-fast;
   }
 
-  // Photo visibility toggle
-  .photoVisible_on {
-    display: block !important;
-  }
-  .photoInvisible_on {
-    display: none !important;
-  }
-
-  .tech-list {
-    width: 85%;
-    height: 20%;
+  @media (max-width: 768px) {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    margin-top: 30px;
-    font-size: 13px;
-    .tech-tag {
-      transition: $toggle-control-speed;
-      padding: 4px 12px 4px 12px;
-      margin: 0px 8px 8px 0px;
-      background-color: $warm-cream;
-      border-radius: 4px;
-      border: 1px solid rgba($bottle-green, 0.15);
-      height: 20px !important;
-      line-height: 140%;
-      letter-spacing: 0.02em;
-      font-weight: 500;
+  }
+}
+
+// Hero Section
+.hero {
+  min-height: 100vh;
+  background-color: $bottle-green;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 8rem 4rem 4rem;
+  position: relative;
+
+  @media (max-width: 768px) {
+    padding: 6rem 1.5rem 3rem;
+    min-height: 90vh;
+  }
+}
+
+.hero-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.hero-label {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: $gold-accent;
+  margin-bottom: 2rem;
+}
+
+.hero-title {
+  font-family: $font-serif;
+  font-size: clamp(3rem, 8vw, 6.5rem);
+  font-weight: 400;
+  line-height: 1.1;
+  color: $warm-cream;
+  margin-bottom: 2rem;
+  letter-spacing: -0.02em;
+}
+
+.hero-subtitle {
+  font-size: 1.125rem;
+  color: rgba($warm-cream, 0.7);
+  max-width: 500px;
+  line-height: 1.7;
+  margin-bottom: 3rem;
+}
+
+.hero-cta {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  background-color: $gold-accent;
+  color: $bottle-green-dark;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: all $transition-fast;
+
+  &:hover {
+    background-color: $gold-light;
+    transform: translateY(-2px);
+  }
+}
+
+.btn-secondary {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  border: 1px solid rgba($warm-cream, 0.3);
+  color: $warm-cream;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: all $transition-fast;
+
+  &:hover {
+    border-color: $warm-cream;
+    background-color: rgba($warm-cream, 0.1);
+  }
+}
+
+.hero-scroll {
+  position: absolute;
+  bottom: 3rem;
+  left: 4rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  span {
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba($warm-cream, 0.5);
+  }
+
+  @media (max-width: 768px) {
+    left: 1.5rem;
+    bottom: 2rem;
+  }
+}
+
+.hero-scroll-line {
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(90deg, $gold-accent, transparent);
+}
+
+// Section Label
+.section-label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: $gold-accent;
+  margin-bottom: 1rem;
+}
+
+// Featured Section
+.featured {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  padding: 8rem 4rem;
+  background-color: $warm-cream;
+
+  @media (max-width: 768px) {
+    padding: 4rem 1.5rem;
+    gap: 1.5rem;
+  }
+}
+
+.featured-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.featured-header {
+  margin-bottom: 4rem;
+}
+
+.featured-title {
+  font-family: $font-serif;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 400;
+  color: $bottle-green;
+  letter-spacing: -0.02em;
+}
+
+.featured-subtitle {
+  font-size: 1rem;
+  color: $warm-gray;
+  margin-top: 0.5rem;
+}
+
+.featured-alt {
+  background-color: $warm-beige;
+  padding-top: 6rem;
+}
+
+.featured-content {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 4rem;
+  align-items: center;
+
+  @media (max-width: 992px) {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+.featured-image {
+  position: relative;
+  overflow: hidden;
+  background-color: $warm-beige;
+  border-radius: 4px;
+
+  img {
+    width: 100%;
+    transition: transform $transition-slow;
+  }
+
+  &:hover img {
+    transform: scale(1.02);
+  }
+}
+
+.featured-info {
+  padding: 2rem 0;
+}
+
+.featured-description {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: $warm-gray;
+  margin-bottom: 2rem;
+}
+
+.featured-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.featured-tech {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+
+  span {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 0.5rem 1rem;
+    background-color: $warm-beige;
+    color: $warm-gray;
+    border-radius: 2px;
+  }
+}
+
+.featured-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: $bottle-green;
+  padding-bottom: 0.25rem;
+  border-bottom: 1px solid $bottle-green;
+  transition: all $transition-fast;
+
+  svg {
+    transition: transform $transition-fast;
+  }
+
+  &:hover {
+    color: $gold-accent;
+    border-color: $gold-accent;
+
+    svg {
+      transform: translate(3px, -3px);
     }
   }
-  .b {
-    font-family: "Fira Code", monospace;
-    color: $gold-accent;
-    font-size: 17px;
+}
+
+// Work Section
+.work {
+  padding: 8rem 4rem;
+  background-color: $warm-beige;
+
+  @media (max-width: 768px) {
+    padding: 4rem 1.5rem;
   }
+}
+
+.work-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.work-header {
+  margin-bottom: 4rem;
+}
+
+.work-title {
+  font-family: $font-serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 400;
+  color: $bottle-green;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.5rem;
+}
+
+.work-subtitle {
+  font-size: 1rem;
+  color: $warm-gray;
+}
+
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3rem;
+
+  @media (max-width: 992px) {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+.work-item {
+  background-color: $warm-cream;
+  border-radius: 4px;
+  overflow: hidden;
+  transition: transform $transition-medium, box-shadow $transition-medium;
+
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 60px -20px rgba($bottle-green, 0.2);
+  }
+}
+
+.work-item-link {
+  display: block;
+}
+
+.work-item-image {
+  position: relative;
+  overflow: hidden;
+  background-color: $warm-beige;
+  aspect-ratio: 16/10;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform $transition-slow;
+  }
+
+  .work-item:hover & img {
+    transform: scale(1.05);
+  }
+}
+
+.work-item-content {
+  padding: 2rem;
+
+  h3 {
+    font-family: $font-serif;
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: $bottle-green;
+    margin-bottom: 0.75rem;
+  }
+
+  p {
+    font-size: 0.9375rem;
+    color: $warm-gray;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+  }
+}
+
+.work-item-tech {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+
+  span {
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 0.375rem 0.75rem;
+    background-color: $warm-beige;
+    color: $warm-gray;
+    border-radius: 2px;
+  }
+}
+
+// Experiments Section
+.experiments {
+  padding: 8rem 4rem;
+  background-color: $bottle-green;
+
+  @media (max-width: 768px) {
+    padding: 4rem 1.5rem;
+  }
+}
+
+.experiments-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.experiments-header {
+  margin-bottom: 4rem;
+
+  .section-label {
+    color: $gold-accent;
+  }
+}
+
+.experiments-title {
+  font-family: $font-serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 400;
+  color: $warm-cream;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.5rem;
+}
+
+.experiments-subtitle {
+  font-size: 1rem;
+  color: rgba($warm-cream, 0.6);
+}
+
+.experiments-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+
+  @media (max-width: 1200px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.experiment-item {
+  padding: 2.5rem 2rem;
+  border: 1px solid rgba($warm-cream, 0.15);
+  border-radius: 4px;
+  transition: all $transition-medium;
+
+  &:hover {
+    background-color: rgba($warm-cream, 0.05);
+    border-color: $gold-accent;
+    transform: translateY(-4px);
+  }
+
+  .experiment-number {
+    font-family: $font-serif;
+    font-size: 0.875rem;
+    color: $gold-accent;
+    display: block;
+    margin-bottom: 1.5rem;
+  }
+
+  h3 {
+    font-family: $font-serif;
+    font-size: 1.375rem;
+    font-weight: 500;
+    color: $warm-cream;
+    margin-bottom: 0.75rem;
+  }
+
+  p {
+    font-size: 0.875rem;
+    color: rgba($warm-cream, 0.6);
+    line-height: 1.6;
+  }
+}
+
+// About Section
+.about {
+  padding: 8rem 4rem;
+  background-color: $warm-cream;
+
+  @media (max-width: 768px) {
+    padding: 4rem 1.5rem;
+  }
+}
+
+.about-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+  align-items: center;
+
+  @media (max-width: 992px) {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}
+
+.about-content {
+  max-width: 500px;
+}
+
+.about-title {
+  font-family: $font-serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 400;
+  color: $bottle-green;
+  letter-spacing: -0.02em;
+  margin-bottom: 2rem;
+}
+
+.about-text {
+  p {
+    font-size: 1rem;
+    color: $warm-gray;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+
+    strong {
+      color: $bottle-green;
+      font-weight: 600;
+    }
+  }
+}
+
+.about-links {
+  display: flex;
+  gap: 2rem;
+  margin-top: 2.5rem;
+
+  a {
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: $bottle-green;
+    padding-bottom: 0.25rem;
+    border-bottom: 1px solid transparent;
+    transition: all $transition-fast;
+
+    &:hover {
+      border-color: $gold-accent;
+      color: $gold-accent;
+    }
+  }
+}
+
+.about-image {
+  position: relative;
+
+  img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 4px;
+    filter: grayscale(20%);
+    transition: filter $transition-medium;
+
+    &:hover {
+      filter: grayscale(0%);
+    }
+  }
+
+  @media (max-width: 992px) {
+    order: -1;
+
+    img {
+      max-width: 300px;
+    }
+  }
+}
+
+// Footer
+.footer {
+  padding: 6rem 4rem 3rem;
+  background-color: $bottle-green-dark;
+
+  @media (max-width: 768px) {
+    padding: 4rem 1.5rem 2rem;
+  }
+}
+
+.footer-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.footer-cta {
+  text-align: center;
+  padding-bottom: 4rem;
+  border-bottom: 1px solid rgba($warm-cream, 0.1);
+  margin-bottom: 2rem;
+
+  h2 {
+    font-family: $font-serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 400;
+    color: $warm-cream;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    font-size: 1rem;
+    color: rgba($warm-cream, 0.6);
+    margin-bottom: 2rem;
+  }
+}
+
+.footer-email {
+  display: inline-block;
+  font-size: 1.125rem;
+  color: $gold-accent;
+  padding-bottom: 0.25rem;
+  border-bottom: 1px solid transparent;
+  transition: all $transition-fast;
+
+  &:hover {
+    border-color: $gold-accent;
+  }
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1rem;
+
+  span {
+    font-size: 0.8125rem;
+    color: rgba($warm-cream, 0.4);
+  }
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+}
+
+.footer-social {
+  display: flex;
+  gap: 2rem;
+
+  a {
+    font-size: 0.8125rem;
+    color: rgba($warm-cream, 0.6);
+    transition: color $transition-fast;
+
+    &:hover {
+      color: $warm-cream;
+    }
+  }
+}
+
+// Animations
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-label,
+.hero-title,
+.hero-subtitle,
+.hero-cta {
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+.hero-label { animation-delay: 0.1s; }
+.hero-title { animation-delay: 0.2s; }
+.hero-subtitle { animation-delay: 0.3s; }
+.hero-cta { animation-delay: 0.4s; }
+
+// Reveal Animation (for scroll)
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
 }
