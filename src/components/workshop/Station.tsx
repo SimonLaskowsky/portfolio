@@ -28,21 +28,14 @@ export default function Station({ project, number, total }: Props) {
             className="absolute inset-0 w-full h-full object-cover"
             style={{ objectPosition: project.wall.objectPosition ?? "50% 50%" }}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-ink/65 via-transparent to-ink/10 pointer-events-none" />
-
-          {/* Number marker */}
-          <div
-            className="absolute top-6 left-6 tracking-brutal text-[10px] uppercase"
-            style={{ mixBlendMode: "difference", color: "#fff" }}
-          >
-            Station {number} / {total}
-          </div>
+          {/* Title-zone scrim: stronger near bottom so the h2 stays readable */}
+          <div className="absolute inset-x-0 bottom-0 h-[55%] bg-gradient-to-t from-ink/90 via-ink/40 to-transparent pointer-events-none" />
 
           {/* Wall-mounted title */}
-          <div className="absolute left-6 right-6 bottom-8">
+          <div className="absolute left-6 right-6 bottom-7">
             <div
               className="tracking-brutal text-[10px] uppercase text-moss-glow mb-3"
-              style={{ textShadow: "0 2px 14px rgba(0,0,0,0.7)" }}
+              style={{ textShadow: "0 2px 10px rgba(0,0,0,0.85)" }}
             >
               {project.year} · {project.role}
             </div>
@@ -50,15 +43,16 @@ export default function Station({ project, number, total }: Props) {
               className="font-serif leading-[0.95] font-normal"
               style={{
                 color: "#fff",
-                mixBlendMode: "difference",
-                fontSize: "clamp(2.5rem, 6vw, 5.5rem)",
+                fontSize: "clamp(2.25rem, 4.5vw, 4rem)",
+                textShadow:
+                  "0 2px 24px rgba(0,0,0,0.85), 0 1px 2px rgba(0,0,0,0.9)",
               }}
             >
               {project.name}
             </h2>
             <div
-              className="font-serif italic text-concrete/90 mt-2 max-w-lg text-[clamp(1rem,1.4vw,1.2rem)]"
-              style={{ textShadow: "0 2px 12px rgba(0,0,0,0.7)" }}
+              className="font-serif italic text-concrete mt-3 max-w-lg text-[clamp(1rem,1.3vw,1.15rem)]"
+              style={{ textShadow: "0 2px 12px rgba(0,0,0,0.85)" }}
             >
               {project.tagline}
             </div>
@@ -76,8 +70,13 @@ export default function Station({ project, number, total }: Props) {
             label={project.link.label}
           />
           <div className="flex-1 bg-concrete-dark/40 border border-concrete/15 p-6 flex flex-col gap-5 overflow-hidden">
-            <div className="tracking-brutal text-[10px] uppercase text-moss-glow">
-              Pinboard
+            <div className="flex items-baseline justify-between">
+              <div className="tracking-brutal text-[10px] uppercase text-moss-glow">
+                Pinboard
+              </div>
+              <div className="font-mono text-[10px] tracking-brutal text-concrete/40 tabular-nums">
+                Station {number} / {total}
+              </div>
             </div>
             <p className="text-sm text-concrete/85 leading-relaxed">
               {project.summary}
