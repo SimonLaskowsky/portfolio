@@ -10,9 +10,10 @@ type Props = {
     title: string;
     detail: string;
   };
+  index: number;
 };
 
-export default function DeskItem({ data }: Props) {
+export default function DeskItem({ data, index }: Props) {
   const [open, setOpen] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
 
@@ -42,21 +43,26 @@ export default function DeskItem({ data }: Props) {
         onClick={() => setOpen((v) => !v)}
         aria-label={data.title}
         data-cursor="hover"
-        className="hotspot-pulse relative h-3.5 w-3.5 rounded-full bg-moss-glow ring-2 ring-moss-glow/40"
-      />
+        className="hotspot-chip hotspot-pulse"
+      >
+        <span className="tabular-nums">
+          {String(index + 1).padStart(2, "0")}
+        </span>
+        <span className="ml-2 opacity-60">+</span>
+      </button>
       {open && (
-        <div className="fade-in absolute left-6 top-1/2 -translate-y-1/2 w-60 z-20 bg-ink/95 backdrop-blur border border-moss-glow/30 p-4 text-concrete">
-          <div className="tracking-brutal text-[10px] uppercase text-moss-glow mb-1">
-            On the desk
+        <div className="fade-in glass-strong absolute left-[calc(100%+12px)] top-1/2 -translate-y-1/2 w-60 z-20 p-4 text-bone">
+          <div className="font-mono text-[10px] uppercase tracking-brutal text-bone/55 mb-2">
+            On the desk · {String(index + 1).padStart(2, "0")}
           </div>
-          <div className="text-sm font-medium mb-2">{data.title}</div>
-          <p className="text-xs text-concrete/70 leading-relaxed">
+          <div className="text-[15px] leading-tight mb-2">{data.title}</div>
+          <p className="text-xs text-bone/65 leading-relaxed font-body">
             {data.detail}
           </p>
           <button
             onClick={() => setOpen(false)}
             data-cursor="hover"
-            className="mt-3 text-[10px] uppercase tracking-brutal text-concrete/50 hover:text-concrete"
+            className="mt-4 font-mono text-[10px] uppercase tracking-brutal text-bone/50 hover:text-bone"
           >
             Close
           </button>

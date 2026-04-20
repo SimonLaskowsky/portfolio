@@ -9,24 +9,28 @@ export default function ArchiveWall() {
       className="relative flex-none w-screen md:w-[min(120vw,80rem)] md:h-full flex flex-col justify-center px-6 md:px-14 py-20 md:py-[14vh] bg-ink"
     >
       <div className="mb-8">
-        <div className="tracking-brutal text-[11px] uppercase text-moss-glow mb-3">
+        <div className="font-mono text-[10px] uppercase tracking-brutal text-bone/60 mb-4">
           05 — Archive
         </div>
         <h2
-          className="font-serif leading-[0.92] font-normal"
-          style={{ fontSize: "clamp(2.5rem, 5.5vw, 4.5rem)" }}
+          className="font-display leading-[0.88]"
+          style={{
+            fontSize: "clamp(2.5rem, 5.5vw, 5rem)",
+            fontWeight: 800,
+            letterSpacing: "-0.04em",
+          }}
         >
           Commercial work,
           <br />
-          <span className="italic text-moss-glow">in service of a team.</span>
+          <span className="font-light text-bone/55">in service of a team.</span>
         </h2>
-        <p className="font-serif italic text-concrete/70 mt-4 max-w-xl text-lg">
+        <p className="font-body font-light text-bone/65 mt-5 max-w-xl leading-relaxed">
           Projects delivered with the SoftwareThings team for clients across
           industries. Selected pieces.
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:flex-1 md:min-h-0">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:flex-1 md:min-h-0">
         {archive.map((item) => (
           <a
             key={item.id}
@@ -34,7 +38,7 @@ export default function ArchiveWall() {
             target="_blank"
             rel="noopener noreferrer"
             data-cursor="hover"
-            className="group relative bg-concrete-dark border border-concrete/10 hover:border-moss-glow/60 transition-colors overflow-hidden flex flex-col"
+            className="group relative bg-char border border-bone/8 hover:border-bone/40 transition-colors overflow-hidden flex flex-col"
           >
             <div className="relative md:flex-1 md:min-h-0 overflow-hidden bg-ink aspect-[16/10] md:aspect-auto">
               {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -46,24 +50,26 @@ export default function ArchiveWall() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-transparent" />
             </div>
-            <div className="shrink-0 p-4 flex items-start justify-between gap-4 bg-ink/80">
+            <div className="shrink-0 p-4 flex items-start justify-between gap-4 bg-ink/80 backdrop-blur">
               <div>
-                <div className="font-serif text-xl">{item.name}</div>
-                <div className="text-xs text-concrete/60 mt-1 line-clamp-2">
+                <div className="font-display font-bold text-xl tracking-tight">
+                  {item.name}
+                </div>
+                <div className="font-body text-xs text-bone/60 mt-1 line-clamp-2">
                   {item.summary}
                 </div>
                 <div className="flex flex-wrap gap-1.5 mt-3">
                   {item.tech.map((t) => (
                     <span
                       key={t}
-                      className="font-mono text-[9px] uppercase tracking-brutal text-concrete/50"
+                      className="font-mono text-[9px] uppercase tracking-brutal text-bone/50"
                     >
                       {t}
                     </span>
                   ))}
                 </div>
               </div>
-              <span className="text-concrete/50 group-hover:text-moss-glow transition-colors">
+              <span className="text-bone/40 group-hover:text-bone transition-colors font-mono">
                 ↗
               </span>
             </div>

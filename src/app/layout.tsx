@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
+import { Geist, Geist_Mono, Inter } from "next/font/google";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -12,11 +12,10 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const instrumentSerif = Instrument_Serif({
-  variable: "--font-serif",
+const interDisplay = Inter({
+  variable: "--font-display",
   subsets: ["latin"],
-  weight: "400",
-  style: ["normal", "italic"],
+  weight: ["300", "400", "500", "700", "800", "900"],
 });
 
 export const metadata: Metadata = {
@@ -26,11 +25,11 @@ export const metadata: Metadata = {
     template: "%s · Laskowski.studio",
   },
   description:
-    "Studio by Szymon Laskowski. Editorial web, brutalist detail. Walk the floor.",
+    "Studio by Szymon Laskowski. Editorial web, quiet detail. Walk the floor.",
   openGraph: {
     title: "Laskowski.studio — Szymon Laskowski",
     description:
-      "Studio by Szymon Laskowski. Editorial web, brutalist detail. Walk the floor.",
+      "Studio by Szymon Laskowski. Editorial web, quiet detail. Walk the floor.",
     url: "https://laskowski.studio",
     siteName: "Laskowski.studio",
     locale: "en_US",
@@ -40,7 +39,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Laskowski.studio — Szymon Laskowski",
     description:
-      "Editorial web, brutalist detail. A studio of one, run by Szymon Laskowski.",
+      "Editorial web, quiet detail. A studio of one, run by Szymon Laskowski.",
   },
   keywords: [
     "Szymon Laskowski",
@@ -65,7 +64,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} ${instrumentSerif.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} ${interDisplay.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">{children}</body>
     </html>

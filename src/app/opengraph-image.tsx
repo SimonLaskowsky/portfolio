@@ -15,53 +15,54 @@ export default function OpengraphImage() {
           flexDirection: "column",
           justifyContent: "space-between",
           padding: "72px",
-          backgroundColor: "#0b0d0a",
-          color: "#c7c2b6",
-          fontFamily: "serif",
+          backgroundColor: "#0a0a0a",
+          color: "#f2f0ec",
+          fontFamily: "sans-serif",
         }}
       >
         <div
           style={{
             display: "flex",
             justifyContent: "space-between",
-            fontSize: 20,
-            letterSpacing: "0.08em",
+            fontSize: 18,
+            letterSpacing: "0.12em",
             textTransform: "uppercase",
-            color: "#9cd07a",
+            color: "#f2f0ec",
+            opacity: 0.7,
+            fontFamily: "monospace",
           }}
         >
           <span>Laskowski.studio</span>
-          <span style={{ color: "#c7c2b6", opacity: 0.55 }}>
-            Portfolio · 2026
-          </span>
+          <span style={{ opacity: 0.6 }}>Portfolio · 2026</span>
         </div>
 
         <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
           <div
             style={{
-              fontSize: 112,
-              lineHeight: 1,
-              color: "#e8e3d5",
+              fontSize: 128,
+              lineHeight: 0.9,
+              color: "#ffffff",
               display: "flex",
               flexDirection: "column",
+              fontWeight: 900,
+              letterSpacing: "-0.045em",
             }}
           >
-            <span>Editorial web,</span>
-            <span style={{ fontStyle: "italic", color: "#9cd07a" }}>
-              brutalist detail.
-            </span>
+            <span>A studio</span>
+            <span style={{ fontWeight: 300, opacity: 0.55 }}>of one.</span>
           </div>
           <div
             style={{
               fontSize: 28,
-              fontStyle: "italic",
-              color: "#c7c2b6",
-              opacity: 0.85,
+              fontWeight: 300,
+              color: "#f2f0ec",
+              opacity: 0.75,
               maxWidth: 820,
+              letterSpacing: "-0.01em",
             }}
           >
-            A studio of one, run by Szymon Laskowski. Selected works, walked
-            as a floor plan.
+            Szymon Laskowski — editorial web, quiet detail. Selected works,
+            walked as a floor plan.
           </div>
         </div>
 
@@ -69,11 +70,12 @@ export default function OpengraphImage() {
           style={{
             display: "flex",
             justifyContent: "space-between",
-            fontSize: 18,
-            letterSpacing: "0.08em",
+            fontSize: 16,
+            letterSpacing: "0.12em",
             textTransform: "uppercase",
-            color: "#c7c2b6",
+            color: "#f2f0ec",
             opacity: 0.55,
+            fontFamily: "monospace",
           }}
         >
           <span>laskowski.studio</span>

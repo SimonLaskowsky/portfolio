@@ -18,7 +18,7 @@ export default function Station({ project, number, total }: Props) {
     >
       <div className="relative w-full md:h-full flex flex-col md:flex-row gap-6 px-6 md:px-10 md:py-[14vh]">
         {/* Wall */}
-        <div className="relative flex-1 md:h-full min-h-[60vh] md:min-h-0 aspect-[4/3] md:aspect-auto overflow-hidden bg-concrete-dark">
+        <div className="relative flex-1 md:h-full min-h-[60vh] md:min-h-0 aspect-[4/3] md:aspect-auto overflow-hidden bg-graphite">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={project.wall.src}
@@ -27,28 +27,43 @@ export default function Station({ project, number, total }: Props) {
             className="absolute inset-0 w-full h-full object-cover"
             style={{ objectPosition: project.wall.objectPosition ?? "50% 50%" }}
           />
-          <div className="absolute inset-x-0 bottom-0 h-[55%] bg-gradient-to-t from-ink/90 via-ink/40 to-transparent pointer-events-none" />
+          <div className="absolute inset-x-0 bottom-0 h-[65%] bg-gradient-to-t from-ink/95 via-ink/40 to-transparent pointer-events-none" />
 
-          <div className="absolute left-6 right-6 bottom-7">
-            <div
-              className="tracking-brutal text-[10px] uppercase text-moss-glow mb-3"
-              style={{ textShadow: "0 2px 10px rgba(0,0,0,0.85)" }}
-            >
+          {/* Huge watermark station number — top-right, mix-blend difference */}
+          <div
+            className="absolute -top-[0.18em] right-[2%] font-display leading-none pointer-events-none select-none"
+            style={{
+              fontSize: "clamp(12rem, 28vw, 26rem)",
+              fontWeight: 900,
+              letterSpacing: "-0.06em",
+              color: "#ffffff",
+              mixBlendMode: "difference",
+              opacity: 0.95,
+            }}
+          >
+            {number}
+          </div>
+
+          {/* Wall-mounted title */}
+          <div className="absolute left-6 right-6 bottom-7 md:bottom-10">
+            <div className="font-mono text-[10px] uppercase tracking-brutal text-bone/70 mb-3">
               {project.year} · {project.role}
             </div>
             <h2
-              className="font-serif leading-[0.95] font-normal"
+              className="font-display leading-[0.9]"
               style={{
+                fontSize: "clamp(2.5rem, 5vw, 4.5rem)",
+                fontWeight: 800,
+                letterSpacing: "-0.04em",
                 color: "#fff",
-                fontSize: "clamp(2.25rem, 4.5vw, 4rem)",
                 textShadow:
-                  "0 2px 24px rgba(0,0,0,0.85), 0 1px 2px rgba(0,0,0,0.9)",
+                  "0 2px 28px rgba(0,0,0,0.9), 0 1px 2px rgba(0,0,0,0.95)",
               }}
             >
               {project.name}
             </h2>
             <div
-              className="font-serif italic text-concrete mt-3 max-w-lg text-[clamp(1rem,1.3vw,1.15rem)]"
+              className="font-body font-light text-bone mt-4 max-w-lg text-[clamp(0.95rem,1.2vw,1.1rem)] leading-relaxed"
               style={{ textShadow: "0 2px 12px rgba(0,0,0,0.85)" }}
             >
               {project.tagline}
@@ -56,30 +71,30 @@ export default function Station({ project, number, total }: Props) {
           </div>
 
           {project.hotspots?.map((h, i) => (
-            <StationHotspot key={i} data={h} />
+            <StationHotspot key={i} data={h} index={i} />
           ))}
         </div>
 
-        {/* Right column: monitor + pinboard */}
+        {/* Right column: monitor + glass pinboard */}
         <div className="w-full md:w-[32rem] md:max-w-[38vw] md:h-full flex flex-col gap-6">
           <Monitor monitor={project.monitor} label={project.link.label} />
-          <div className="md:flex-1 bg-concrete-dark/40 border border-concrete/15 p-6 flex flex-col gap-5 overflow-hidden">
+          <div className="md:flex-1 glass p-6 flex flex-col gap-5 overflow-hidden">
             <div className="flex items-baseline justify-between">
-              <div className="tracking-brutal text-[10px] uppercase text-moss-glow">
+              <div className="font-mono text-[10px] uppercase tracking-brutal text-bone/70">
                 Pinboard
               </div>
-              <div className="font-mono text-[10px] tracking-brutal text-concrete/40 tabular-nums">
-                Station {number} / {total}
+              <div className="font-mono text-[10px] tracking-brutal text-bone/40 tabular-nums">
+                {number} / {total}
               </div>
             </div>
-            <p className="text-sm text-concrete/85 leading-relaxed">
+            <p className="font-body text-sm text-bone/85 leading-relaxed">
               {project.summary}
             </p>
             <div className="flex flex-wrap gap-2 md:mt-auto">
               {project.tech.map((t) => (
                 <span
                   key={t}
-                  className="font-mono text-[10px] uppercase tracking-brutal border border-concrete/20 px-2 py-1 text-concrete/70"
+                  className="font-mono text-[10px] uppercase tracking-brutal border border-bone/15 px-2 py-1 text-bone/70"
                 >
                   {t}
                 </span>
@@ -90,7 +105,7 @@ export default function Station({ project, number, total }: Props) {
               target="_blank"
               rel="noopener noreferrer"
               data-cursor="hover"
-              className="flex items-center justify-between border border-concrete/30 hover:border-moss-glow px-4 py-3 text-[10px] uppercase tracking-brutal text-concrete hover:text-moss-glow transition-colors"
+              className="flex items-center justify-between border border-bone/25 hover:border-bone hover:bg-white/5 px-4 py-3 font-mono text-[10px] uppercase tracking-brutal text-bone transition-colors"
             >
               <span>Visit {project.link.label}</span>
               <span>↗</span>

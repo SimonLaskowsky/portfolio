@@ -12,13 +12,20 @@ export default function SerifSpine({ activeId }: Props) {
 
   return (
     <div
-      className="pointer-events-none absolute left-0 right-0 bottom-20 z-10 text-center overflow-hidden"
+      className="pointer-events-none absolute left-0 right-0 bottom-20 z-0 text-center overflow-hidden"
       aria-hidden
     >
       <div
         key={current.id}
-        className="fade-in font-serif italic font-normal whitespace-nowrap text-concrete/5 leading-none tracking-tight"
-        style={{ fontSize: "clamp(6rem, 22vw, 20rem)" }}
+        className="fade-in font-display whitespace-nowrap leading-none"
+        style={{
+          fontSize: "clamp(6rem, 22vw, 20rem)",
+          fontWeight: 900,
+          letterSpacing: "-0.06em",
+          color: "#ffffff",
+          opacity: 0.035,
+          textTransform: "uppercase",
+        }}
       >
         {current.label}
       </div>

@@ -1,17 +1,37 @@
 @import "tailwindcss";
 
 :root {
-  --concrete: #c7c2b6;
-  --concrete-dark: #3a3a38;
-  --ink: #0b0d0a;
-  --moss: #4a6b3a;
-  --moss-glow: #9cd07a;
+  /* Monochrome system — value does the work, no accent color. */
+  --ink: #0a0a0a;
+  --char: #141414;
+  --graphite: #1f1f1f;
+  --iron: #3a3a3a;
+  --silver: #8a8a8a;
+  --concrete: #d6d2c9;
+  --bone: #f2f0ec;
+  --white: #ffffff;
+
+  /* Back-compat aliases (legacy class names map here without churn). */
+  --concrete-dark: var(--graphite);
+  --moss: var(--iron);
+  --moss-glow: var(--bone);
+
+  /* Glass */
+  --glass-tint-dark: rgba(255, 255, 255, 0.06);
+  --glass-tint-light: rgba(255, 255, 255, 0.14);
+  --glass-border: rgba(255, 255, 255, 0.14);
+  --glass-border-strong: rgba(255, 255, 255, 0.28);
 }
 
 @theme inline {
+  --color-ink: var(--ink);
+  --color-char: var(--char);
+  --color-graphite: var(--graphite);
+  --color-iron: var(--iron);
+  --color-silver: var(--silver);
   --color-concrete: var(--concrete);
   --color-concrete-dark: var(--concrete-dark);
-  --color-ink: var(--ink);
+  --color-bone: var(--bone);
   --color-moss: var(--moss);
   --color-moss-glow: var(--moss-glow);
   --font-sans: var(--font-geist-sans);
@@ -21,7 +41,7 @@
 html,
 body {
   background: var(--ink);
-  color: var(--concrete);
+  color: var(--bone);
   overscroll-behavior: none;
 }
 
@@ -34,8 +54,9 @@ html::-webkit-scrollbar {
 }
 
 body {
-  font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
-  letter-spacing: -0.01em;
+  font-family: var(--font-display), var(--font-geist-sans), ui-sans-serif,
+    system-ui, sans-serif;
+  letter-spacing: -0.015em;
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -46,38 +67,113 @@ body {
   }
 }
 
-.font-serif {
-  font-family: var(--font-serif), "Times New Roman", serif;
+/* Typography utilities — one family does display and body, weight + size
+   varies. Mono reserved for technical detail. */
+.font-display {
+  font-family: var(--font-display), var(--font-geist-sans), ui-sans-serif,
+    system-ui, sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.035em;
+}
+
+.font-body {
+  font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  letter-spacing: -0.01em;
 }
 
 .font-mono {
   font-family: var(--font-geist-mono), ui-monospace, monospace;
 }
 
-.tracking-brutal {
-  letter-spacing: 0.08em;
+/* Legacy alias — existing components still reference .font-serif. Map it
+   to display so nothing breaks while the visual language flips. */
+.font-serif {
+  font-family: var(--font-display), var(--font-geist-sans), ui-sans-serif,
+    system-ui, sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.035em;
 }
 
-@keyframes pulse-glow {
+.font-serif.italic,
+.font-serif[class*="italic"] {
+  /* "Italic" in the JSX now just means lighter + slightly tracked — keeps
+     the editorial rhythm without a serif italic face. */
+  font-style: normal;
+  font-weight: 300;
+  letter-spacing: -0.005em;
+}
+
+.tracking-brutal {
+  letter-spacing: 0.12em;
+}
+
+/* Glass panels — frosted with a hairline border. */
+.glass {
+  background: var(--glass-tint-dark);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  border: 1px solid var(--glass-border);
+}
+
+.glass-strong {
+  background: rgba(255, 255, 255, 0.09);
+  backdrop-filter: blur(22px) saturate(160%);
+  -webkit-backdrop-filter: blur(22px) saturate(160%);
+  border: 1px solid var(--glass-border-strong);
+}
+
+/* Hotspot — glass chip, not a dot. Expands horizontally on hover. */
+.hotspot-chip {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  height: 24px;
+  padding: 0 8px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px) saturate(140%);
+  -webkit-backdrop-filter: blur(12px) saturate(140%);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: var(--bone);
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.hotspot-chip:hover {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.65);
+}
+
+.hotspot-chip::before {
+  content: "";
+  position: absolute;
+  inset: -7px;
+  border-radius: 2px;
+  pointer-events: none;
+}
+
+@keyframes chip-pulse {
   0%,
   100% {
-    box-shadow: 0 0 0 0 rgba(156, 208, 122, 0.55),
-      0 0 24px 2px rgba(156, 208, 122, 0.35);
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.35),
+      0 0 18px 0 rgba(255, 255, 255, 0.12);
   }
   50% {
-    box-shadow: 0 0 0 10px rgba(156, 208, 122, 0),
-      0 0 28px 4px rgba(156, 208, 122, 0.55);
+    box-shadow: 0 0 0 6px rgba(255, 255, 255, 0),
+      0 0 26px 2px rgba(255, 255, 255, 0.25);
   }
 }
 
 .hotspot-pulse {
-  animation: pulse-glow 2.2s ease-out infinite;
+  animation: chip-pulse 2.6s ease-out infinite;
 }
 
 @keyframes fade-in {
   from {
     opacity: 0;
-    transform: translateY(8px);
+    transform: translateY(6px);
   }
   to {
     opacity: 1;
@@ -86,15 +182,16 @@ body {
 }
 
 .fade-in {
-  animation: fade-in 0.6s ease-out both;
+  animation: fade-in 0.55s ease-out both;
 }
 
+/* Film grain retained — works on greyscale, adds texture. */
 .film-grain {
   position: fixed;
   inset: 0;
   pointer-events: none;
   z-index: 60;
-  opacity: 0.07;
+  opacity: 0.05;
   mix-blend-mode: overlay;
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
   background-size: 220px 220px;
@@ -113,11 +210,30 @@ body {
   100% { background-position: 0 0; }
 }
 
+/* Signature move: a soft radial glow that tracks the cursor. Low opacity,
+   mix-blend-mode adds luminance without color. */
+.cursor-glow {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 5;
+  opacity: 0.55;
+  mix-blend-mode: plus-lighter;
+  background: radial-gradient(
+    600px 600px at var(--mx, 50%) var(--my, 50%),
+    rgba(255, 255, 255, 0.14),
+    rgba(255, 255, 255, 0.05) 35%,
+    transparent 65%
+  );
+  transition: opacity 0.4s ease;
+}
+
 .char {
   display: inline-block;
   will-change: transform, opacity;
 }
 
+/* Custom cursor — white dot, ring softens with blur on hover. */
 .cursor-dot {
   position: fixed;
   top: 0;
@@ -125,10 +241,10 @@ body {
   z-index: 80;
   pointer-events: none;
   mix-blend-mode: difference;
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
   border-radius: 9999px;
-  background: #e8e3d5;
+  background: #ffffff;
   transform: translate3d(-50%, -50%, 0);
   transition: width 0.25s ease, height 0.25s ease, opacity 0.2s ease;
 }
@@ -139,20 +255,24 @@ body {
   left: 0;
   z-index: 79;
   pointer-events: none;
-  width: 40px;
-  height: 40px;
-  border: 1px solid rgba(199, 194, 182, 0.55);
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 9999px;
   transform: translate3d(-50%, -50%, 0);
   transition: width 0.35s cubic-bezier(0.33, 1, 0.68, 1),
     height 0.35s cubic-bezier(0.33, 1, 0.68, 1),
-    border-color 0.2s ease, opacity 0.2s ease;
+    border-color 0.2s ease,
+    backdrop-filter 0.25s ease,
+    opacity 0.2s ease;
 }
 
 .cursor-ring.is-over {
-  width: 72px;
-  height: 72px;
-  border-color: rgba(156, 208, 122, 0.9);
+  width: 88px;
+  height: 88px;
+  border-color: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(4px) saturate(140%);
+  -webkit-backdrop-filter: blur(4px) saturate(140%);
 }
 
 .cursor-dot.is-hidden,
