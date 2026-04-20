@@ -8,7 +8,7 @@ export default function Entrance({ onEnter }: Props) {
   return (
     <div
       data-plate="entrance"
-      className="relative flex-none h-full w-screen flex flex-col justify-center pl-6 pr-[8vw] md:pl-14 bg-ink"
+      className="relative flex-none min-h-screen md:h-full w-screen flex flex-col justify-center py-24 md:py-0 pl-6 pr-[8vw] md:pl-14 bg-ink"
     >
       <div className="max-w-[44rem]">
         <div className="tracking-brutal text-[11px] uppercase text-moss-glow mb-6">

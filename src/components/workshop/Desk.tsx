@@ -7,11 +7,10 @@ export default function Desk() {
   return (
     <div
       data-plate="desk"
-      className="relative flex-none h-full flex items-center gap-8 px-10 md:px-14 py-[14vh] bg-ink"
-      style={{ width: "min(120vw, 80rem)" }}
+      className="relative flex-none w-screen md:w-[min(120vw,80rem)] md:h-full flex flex-col md:flex-row md:items-center gap-8 px-6 md:px-14 py-20 md:py-[14vh] bg-ink"
     >
-      {/* Left: photo frame */}
-      <div className="relative w-[22rem] max-w-[30vw] aspect-[4/5] overflow-hidden border border-concrete/15 bg-concrete-dark shrink-0">
+      {/* Photo frame */}
+      <div className="relative w-full md:w-[22rem] md:max-w-[30vw] aspect-[4/5] overflow-hidden border border-concrete/15 bg-concrete-dark shrink-0">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={about.photo}

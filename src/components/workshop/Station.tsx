@@ -14,12 +14,11 @@ export default function Station({ project, number, total }: Props) {
   return (
     <div
       data-plate={project.id}
-      className="relative flex-none h-full flex items-center"
-      style={{ width: "min(140vw, 90rem)" }}
+      className="relative flex-none w-screen h-auto min-h-screen py-20 md:py-0 md:h-full md:flex md:items-center md:w-[min(140vw,90rem)]"
     >
-      <div className="relative w-full h-full flex gap-6 px-6 md:px-10 py-[14vh]">
-        {/* Wall — big atmospheric image, slight scale-up on hover */}
-        <div className="relative flex-1 h-full min-h-0 overflow-hidden bg-concrete-dark">
+      <div className="relative w-full md:h-full flex flex-col md:flex-row gap-6 px-6 md:px-10 md:py-[14vh]">
+        {/* Wall */}
+        <div className="relative flex-1 md:h-full min-h-[60vh] md:min-h-0 aspect-[4/3] md:aspect-auto overflow-hidden bg-concrete-dark">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={project.wall.src}
@@ -28,10 +27,8 @@ export default function Station({ project, number, total }: Props) {
             className="absolute inset-0 w-full h-full object-cover"
             style={{ objectPosition: project.wall.objectPosition ?? "50% 50%" }}
           />
-          {/* Title-zone scrim: stronger near bottom so the h2 stays readable */}
           <div className="absolute inset-x-0 bottom-0 h-[55%] bg-gradient-to-t from-ink/90 via-ink/40 to-transparent pointer-events-none" />
 
-          {/* Wall-mounted title */}
           <div className="absolute left-6 right-6 bottom-7">
             <div
               className="tracking-brutal text-[10px] uppercase text-moss-glow mb-3"
@@ -64,12 +61,9 @@ export default function Station({ project, number, total }: Props) {
         </div>
 
         {/* Right column: monitor + pinboard */}
-        <div className="w-[32rem] max-w-[38vw] h-full flex flex-col gap-6">
-          <Monitor
-            monitor={project.monitor}
-            label={project.link.label}
-          />
-          <div className="flex-1 bg-concrete-dark/40 border border-concrete/15 p-6 flex flex-col gap-5 overflow-hidden">
+        <div className="w-full md:w-[32rem] md:max-w-[38vw] md:h-full flex flex-col gap-6">
+          <Monitor monitor={project.monitor} label={project.link.label} />
+          <div className="md:flex-1 bg-concrete-dark/40 border border-concrete/15 p-6 flex flex-col gap-5 overflow-hidden">
             <div className="flex items-baseline justify-between">
               <div className="tracking-brutal text-[10px] uppercase text-moss-glow">
                 Pinboard
@@ -81,7 +75,7 @@ export default function Station({ project, number, total }: Props) {
             <p className="text-sm text-concrete/85 leading-relaxed">
               {project.summary}
             </p>
-            <div className="flex flex-wrap gap-2 mt-auto">
+            <div className="flex flex-wrap gap-2 md:mt-auto">
               {project.tech.map((t) => (
                 <span
                   key={t}

@@ -20,9 +20,41 @@ const instrumentSerif = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
-  title: "Laskowski.studio — Szymon Laskowski",
+  metadataBase: new URL("https://laskowski.studio"),
+  title: {
+    default: "Laskowski.studio — Szymon Laskowski",
+    template: "%s · Laskowski.studio",
+  },
   description:
     "Studio by Szymon Laskowski. Editorial web, brutalist detail. Walk the floor.",
+  openGraph: {
+    title: "Laskowski.studio — Szymon Laskowski",
+    description:
+      "Studio by Szymon Laskowski. Editorial web, brutalist detail. Walk the floor.",
+    url: "https://laskowski.studio",
+    siteName: "Laskowski.studio",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Laskowski.studio — Szymon Laskowski",
+    description:
+      "Editorial web, brutalist detail. A studio of one, run by Szymon Laskowski.",
+  },
+  keywords: [
+    "Szymon Laskowski",
+    "Simon Laskowski",
+    "Laskowski.studio",
+    "front-end developer",
+    "web design Poland",
+    "Next.js developer",
+    "editorial web",
+    "brutalist web design",
+  ],
+  authors: [{ name: "Szymon Laskowski" }],
+  creator: "Szymon Laskowski",
+  robots: { index: true, follow: true },
 };
 
 export default function RootLayout({

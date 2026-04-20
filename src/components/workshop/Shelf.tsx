@@ -6,8 +6,7 @@ export default function Shelf() {
   return (
     <div
       data-plate="shelf"
-      className="relative flex-none h-full flex flex-col justify-center px-10 md:px-14 py-[14vh] bg-ink"
-      style={{ width: "min(90vw, 60rem)" }}
+      className="relative flex-none w-screen md:w-[min(90vw,60rem)] md:h-full flex flex-col justify-center px-6 md:px-14 py-20 md:py-[14vh] bg-ink"
     >
       <div className="mb-8">
         <div className="tracking-brutal text-[11px] uppercase text-moss-glow mb-3">
@@ -27,7 +26,7 @@ export default function Shelf() {
         </p>
       </div>
 
-      <ul className="flex-1 min-h-0 grid grid-cols-1 md:grid-cols-2 gap-px bg-concrete/15 border border-concrete/15">
+      <ul className="md:flex-1 md:min-h-0 grid grid-cols-1 md:grid-cols-2 gap-px bg-concrete/15 border border-concrete/15">
         {experiments.map((e) => (
           <li key={e.id} className="bg-ink">
             <a

@@ -4,8 +4,7 @@ export default function Exit() {
   return (
     <div
       data-plate="exit"
-      className="relative flex-none h-full flex flex-col justify-center px-10 md:px-14 py-[14vh] bg-ink"
-      style={{ width: "min(80vw, 52rem)" }}
+      className="relative flex-none w-screen md:w-[min(80vw,52rem)] min-h-screen md:h-full flex flex-col justify-center px-6 md:px-14 py-20 md:py-[14vh] bg-ink"
     >
       <div className="tracking-brutal text-[11px] uppercase text-moss-glow mb-3">
         08 — Let&apos;s build

@@ -6,8 +6,7 @@ export default function ArchiveWall() {
   return (
     <div
       data-plate="archive"
-      className="relative flex-none h-full flex flex-col justify-center px-10 md:px-14 py-[14vh] bg-ink"
-      style={{ width: "min(120vw, 80rem)" }}
+      className="relative flex-none w-screen md:w-[min(120vw,80rem)] md:h-full flex flex-col justify-center px-6 md:px-14 py-20 md:py-[14vh] bg-ink"
     >
       <div className="mb-8">
         <div className="tracking-brutal text-[11px] uppercase text-moss-glow mb-3">
@@ -27,7 +26,7 @@ export default function ArchiveWall() {
         </p>
       </div>
 
-      <div className="grid grid-cols-2 gap-5 flex-1 min-h-0">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:flex-1 md:min-h-0">
         {archive.map((item) => (
           <a
             key={item.id}
@@ -37,7 +36,7 @@ export default function ArchiveWall() {
             data-cursor="hover"
             className="group relative bg-concrete-dark border border-concrete/10 hover:border-moss-glow/60 transition-colors overflow-hidden flex flex-col"
           >
-            <div className="relative flex-1 min-h-0 overflow-hidden bg-ink">
+            <div className="relative md:flex-1 md:min-h-0 overflow-hidden bg-ink aspect-[16/10] md:aspect-auto">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={item.thumbnail}
