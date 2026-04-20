@@ -185,6 +185,25 @@ body {
   animation: fade-in 0.55s ease-out both;
 }
 
+/* Spine fade — fades in TO the watermark opacity, not to 1.
+   Without this, any fade-in animation on the spine would override the
+   inline opacity and the giant section name would scream across the
+   viewport. */
+@keyframes spine-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 0.045;
+    transform: translateY(0);
+  }
+}
+
+.spine-fade {
+  animation: spine-in 0.7s ease-out both;
+}
+
 /* Film grain retained — works on greyscale, adds texture. */
 .film-grain {
   position: fixed;
