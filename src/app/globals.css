@@ -13,11 +13,21 @@
   --bone: #f2efe8;
   --white: #fdfcf9;
 
-  /* Per-station tints — imperceptible in isolation, unmistakable when
-     you scroll from one station to the next. */
-  --tint-cool: #0a0b0d;
-  --tint-warm: #0e0c09;
-  --tint-olive: #0c0d0a;
+  /* Tonal rooms — the floor walks through deliberately different
+     atmospheres. Each tint is paired with a directional light in the
+     plate itself. Forest especially matters: deep wet-concrete green,
+     not an accent — a whole room painted that color. */
+  --tint-concrete: #0e0c0a; /* cool cement, neutral */
+  --tint-warm:     #120f0a; /* warm poured concrete */
+  --tint-stone:    #100e0a; /* dry stone, mid-warm */
+  --tint-forest:   #121a14; /* dark wet-concrete green — the one */
+  --tint-slate:    #0c0e11; /* cold blue-grey */
+  --tint-ash:      #14120e; /* smoky warm, late-afternoon */
+  --tint-abyss:    #080706; /* near-black, floor fades out */
+
+  /* Legacy aliases — old class refs still resolve. */
+  --tint-cool:  var(--tint-slate);
+  --tint-olive: var(--tint-forest);
 
   /* Back-compat aliases (legacy class names map here without churn). */
   --concrete-dark: var(--graphite);
@@ -166,7 +176,7 @@ body {
 .plate-seam {
   position: relative;
 }
-.plate-seam::before {
+.plate-seam::after {
   content: "";
   position: absolute;
   top: 0;
@@ -176,6 +186,7 @@ body {
   background: var(--bone);
   opacity: 0.15;
   z-index: 5;
+  pointer-events: none;
 }
 
 /* Inverted plate — bone surface, ink type. Used for the Desk so the
@@ -192,8 +203,8 @@ body {
     transparent 1px
   );
 }
-.plate-inverted .plate-seam::before,
-.plate-inverted.plate-seam::before {
+.plate-inverted .plate-seam::after,
+.plate-inverted.plate-seam::after {
   background: var(--ink);
   opacity: 0.2;
 }
