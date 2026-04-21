@@ -6,7 +6,7 @@ export default function Exit() {
   return (
     <div
       data-plate="exit"
-      className="concrete-base concrete-wash plate-seam ruling-grid relative flex-none w-screen md:w-[min(80vw,52rem)] min-h-screen md:h-full flex flex-col justify-center px-6 md:px-14 py-20 md:py-[14vh] overflow-hidden"
+      className="concrete-base plate-seam ruling-grid relative flex-none w-screen md:w-[min(80vw,52rem)] min-h-screen md:h-full flex flex-col justify-center px-6 md:px-14 py-20 md:py-[14vh] overflow-hidden"
       style={{ "--plate-tint": "rgba(4, 3, 2, 0.94)" } as React.CSSProperties}
     >
       <Spotlight x={50} y={100} size={85} color="rgba(180, 200, 220, 0.09)" />

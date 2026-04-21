@@ -127,22 +127,35 @@ body {
   letter-spacing: 0.12em;
 }
 
-/* Concrete material base — a real concrete photo tiled under every
-   plate, blended with the tint. Gives every surface actual material
-   rather than flat color. Pair with .concrete-wash for the
-   micro-gradient on top. */
+/* Concrete material base — a real concrete photo underneath every plate,
+   overlaid with a tint using multiply so the luminance of the texture
+   survives instead of being flat-covered. The plate-tint CSS var sets
+   the room color. */
 .concrete-base {
-  background-image:
-    linear-gradient(var(--plate-tint, rgba(0, 0, 0, 0.65)), var(--plate-tint, rgba(0, 0, 0, 0.65))),
-    url("/img/concrete-texture.jpg");
-  background-size: cover, 900px auto;
-  background-position: center, center;
-  background-blend-mode: normal, normal;
+  background-color: #0b0a09;
+  background-image: url("/img/concrete-texture.jpg");
+  background-size: cover;
+  background-position: center;
+}
+.concrete-base > * {
+  position: relative;
+  z-index: 1;
+}
+.concrete-base::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: var(--plate-tint, rgba(11, 10, 9, 0.82));
+  mix-blend-mode: multiply;
+  z-index: 0;
 }
 .plate-inverted.concrete-base {
-  background-image:
-    linear-gradient(rgba(242, 239, 232, 0.88), rgba(242, 239, 232, 0.88)),
-    url("/img/concrete-texture.jpg");
+  background-color: var(--bone);
+}
+.plate-inverted.concrete-base::before {
+  background: var(--plate-tint, rgba(242, 239, 232, 0.92));
+  mix-blend-mode: screen;
 }
 
 /* Concrete wash — a warm micro-gradient that sits on top of the ink base

@@ -1,6 +1,13 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import Spotlight from "./Spotlight";
+
+// WebGL sculpture — skip SSR so three.js doesn't try to touch window.
+const EntranceSculpture = dynamic(() => import("./EntranceSculpture"), {
+  ssr: false,
+  loading: () => null,
+});
 
 type Props = {
   onEnter: () => void;
@@ -10,41 +17,33 @@ export default function Entrance({ onEnter }: Props) {
   return (
     <div
       data-plate="entrance"
-      className="plate-seam ruling-grid relative flex-none min-h-screen md:h-full w-screen flex flex-col justify-center py-24 md:py-28 pl-6 pr-[8vw] md:pl-14 overflow-hidden bg-black"
+      className="plate-seam ruling-grid relative flex-none min-h-screen md:h-full w-screen flex flex-col justify-center py-24 md:py-28 pl-6 pr-[8vw] md:pl-14 overflow-hidden"
+      style={{ background: "#070605" }}
     >
-      {/* Full-bleed brutalist interior photograph — a concrete stair in
-          dramatic side light. This is the moment you walk into the villa. */}
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src="/img/entrance-hero.jpg"
-        alt=""
-        aria-hidden
-        className="absolute inset-0 w-full h-full object-cover"
-        style={{ objectPosition: "50% 40%" }}
-      />
-      {/* Darkening wash — asymmetric so the left reads as content space
-          and the right keeps the architectural depth readable. */}
+      {/* Faint concrete base under everything for material cohesion */}
       <div
         aria-hidden
-        className="absolute inset-0"
+        className="absolute inset-0 pointer-events-none"
         style={{
-          background:
-            "linear-gradient(100deg, rgba(4,3,2,0.88) 0%, rgba(4,3,2,0.72) 42%, rgba(4,3,2,0.3) 82%, rgba(4,3,2,0.05) 100%)",
-        }}
-      />
-      {/* Bottom vignette for the scroll-hint strip */}
-      <div
-        aria-hidden
-        className="absolute inset-x-0 bottom-0 h-[30%] pointer-events-none"
-        style={{
-          background:
-            "linear-gradient(to top, rgba(4,3,2,0.7), transparent)",
+          backgroundImage: "url('/img/concrete-texture.jpg')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          opacity: 0.18,
+          filter: "grayscale(0.3) contrast(0.9)",
         }}
       />
 
-      <Spotlight x={15} y={10} size={72} color="rgba(220, 230, 245, 0.15)" />
+      {/* The 3D monolith fills the right 60% of the viewport. pointer-
+          events are off on the canvas so hover/scroll stay native. */}
+      <div className="absolute inset-y-0 right-0 w-full md:w-[62vw] pointer-events-none">
+        <EntranceSculpture />
+      </div>
 
-      <div className="relative max-w-[65rem] z-10">
+      {/* Directional light cue from upper-left, matches the Canvas key light */}
+      <Spotlight x={12} y={18} size={70} color="rgba(255, 240, 210, 0.08)" />
+
+      {/* Content column — sits above the canvas on the left */}
+      <div className="relative max-w-[42rem] z-10">
         <div className="font-mono text-[10px] uppercase tracking-brutal text-bone/70 mb-6 flex items-center gap-3">
           <span className="h-px w-6 bg-bone/40" />
           <span>PLT.01 / ENT</span>
@@ -54,7 +53,7 @@ export default function Entrance({ onEnter }: Props) {
         <h1
           className="font-display leading-[0.88]"
           style={{
-            fontSize: "clamp(3rem, 9vw, 8rem)",
+            fontSize: "clamp(3rem, 8vw, 7rem)",
             fontWeight: 800,
             letterSpacing: "-0.045em",
             color: "#ffffff",
@@ -73,7 +72,7 @@ export default function Entrance({ onEnter }: Props) {
           className="font-body font-light mt-10 max-w-xl text-[clamp(0.95rem,1.3vw,1.15rem)] leading-relaxed"
           style={{
             color: "rgba(242, 239, 232, 0.85)",
-            textShadow: "0 2px 16px rgba(0,0,0,0.6)",
+            textShadow: "0 2px 16px rgba(0,0,0,0.55)",
           }}
         >
           Laskowski.studio is Szymon Laskowski, building web experiences that
@@ -102,7 +101,7 @@ export default function Entrance({ onEnter }: Props) {
       <div className="absolute bottom-8 left-6 md:left-14 flex items-center gap-3 font-mono text-[10px] uppercase tracking-brutal text-bone/60 z-10">
         <span>Scroll down</span>
         <div className="h-px w-10 bg-bone/40" />
-        <span>Travel right</span>
+        <span>Travel right · Sculpture rotates</span>
       </div>
     </div>
   );

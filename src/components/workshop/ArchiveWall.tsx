@@ -8,7 +8,7 @@ export default function ArchiveWall() {
   return (
     <div
       data-plate="archive"
-      className="concrete-base concrete-wash plate-seam ruling-grid relative flex-none w-screen md:w-[min(120vw,80rem)] md:h-full flex flex-col justify-center px-6 md:px-14 py-20 md:py-[14vh]"
+      className="concrete-base plate-seam ruling-grid relative flex-none w-screen md:w-[min(120vw,80rem)] md:h-full flex flex-col justify-center px-6 md:px-14 py-20 md:py-[14vh]"
       style={{ "--plate-tint": "rgba(11, 21, 34, 0.82)" } as React.CSSProperties}
     >
       <Spotlight x={88} y={32} size={62} color="rgba(200, 215, 235, 0.11)" />

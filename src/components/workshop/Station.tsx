@@ -40,7 +40,7 @@ export default function Station({ project, number, total, index }: Props) {
   return (
     <div
       data-plate={project.id}
-      className="concrete-base concrete-wash plate-seam ruling-grid relative flex-none w-screen h-auto min-h-screen py-20 md:py-0 md:h-full md:flex md:items-center md:w-[min(140vw,90rem)]"
+      className="concrete-base plate-seam ruling-grid relative flex-none w-screen h-auto min-h-screen py-20 md:py-0 md:h-full md:flex md:items-center md:w-[min(140vw,90rem)]"
       style={{ "--plate-tint": room.tint } as React.CSSProperties}
     >
       <Spotlight {...room.light} />
