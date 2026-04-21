@@ -4,7 +4,6 @@ import type { HeroProject } from "@/content";
 import StationHotspot from "./StationHotspot";
 import Monitor from "./Monitor";
 import RegistrationMarks from "./RegistrationMarks";
-import Spotlight from "./Spotlight";
 
 type Props = {
   project: HeroProject;
@@ -13,37 +12,19 @@ type Props = {
   index: number;
 };
 
-// Deliberate tonal rooms per station: warm concrete for Co Przeszło,
-// stone for Ile Zostanie, deep forest-green for Brutalist Interiors
-// (a sly nod to that project's own palette). Each room has its own
-// directional light color + origin — you feel where the "window" is
-// the moment you enter the plate. Tint alpha leaves some concrete
-// texture showing through under the tint.
-const ROOMS = [
-  {
-    tint: "#1e1609",
-    light: { x: 78, y: 18, size: 75, color: "rgba(255, 215, 170, 0.2)" },
-  },
-  {
-    tint: "#1a1712",
-    light: { x: 22, y: 82, size: 70, color: "rgba(235, 220, 195, 0.16)" },
-  },
-  {
-    tint: "#0c2218",
-    light: { x: 50, y: 12, size: 68, color: "rgba(185, 220, 195, 0.22)" },
-  },
-];
+// Subtle per-station tint — cycles cool / warm / olive so each station
+// reads as its own room when you scroll in from the next.
+const TINTS = ["var(--tint-cool)", "var(--tint-warm)", "var(--tint-olive)"];
 
 export default function Station({ project, number, total, index }: Props) {
-  const room = ROOMS[index % ROOMS.length];
+  const tint = TINTS[index % TINTS.length];
 
   return (
     <div
       data-plate={project.id}
-      className="room-tint plate-seam ruling-grid relative flex-none w-screen h-auto min-h-screen py-20 md:py-0 md:h-full md:flex md:items-center md:w-[min(140vw,90rem)]"
-      style={{ "--plate-tint": room.tint } as React.CSSProperties}
+      className="concrete-wash plate-seam ruling-grid relative flex-none w-screen h-auto min-h-screen py-20 md:py-0 md:h-full md:flex md:items-center md:w-[min(140vw,90rem)]"
+      style={{ background: tint }}
     >
-      <Spotlight {...room.light} />
       <div className="relative z-[1] w-full md:h-full flex flex-col md:flex-row gap-6 px-6 md:px-10 md:py-[9vh]">
         {/* Wall */}
         <div className="relative flex-1 md:h-full min-h-[60vh] md:min-h-0 aspect-[4/3] md:aspect-auto overflow-hidden bg-graphite">

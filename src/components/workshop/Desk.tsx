@@ -3,7 +3,6 @@
 import { about } from "@/content";
 import DeskItem from "./DeskItem";
 import RegistrationMarks from "./RegistrationMarks";
-import Spotlight from "./Spotlight";
 
 // The only plate on the floor that inverts: bone surface, ink type.
 // Creates a room-change feeling as you scroll into the About section.
@@ -12,9 +11,8 @@ export default function Desk() {
   return (
     <div
       data-plate="desk"
-      className="plate-inverted room-tint plate-seam ruling-grid relative flex-none w-screen md:w-[min(120vw,80rem)] md:h-full flex flex-col md:flex-row md:items-center gap-10 px-6 md:px-14 py-20 md:py-[14vh]"
+      className="plate-inverted concrete-wash plate-seam ruling-grid relative flex-none w-screen md:w-[min(120vw,80rem)] md:h-full flex flex-col md:flex-row md:items-center gap-10 px-6 md:px-14 py-20 md:py-[14vh]"
     >
-      <Spotlight x={78} y={22} size={65} color="rgba(140, 115, 75, 0.18)" />
       {/* Photo frame */}
       <div className="relative w-full md:w-[22rem] md:max-w-[30vw] aspect-[4/5] overflow-hidden border border-ink/20 bg-graphite shrink-0">
         <RegistrationMarks color="rgba(11, 10, 9, 0.35)" />

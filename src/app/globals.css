@@ -13,20 +13,11 @@
   --bone: #f2efe8;
   --white: #fdfcf9;
 
-  /* Tonal rooms — cranked up so each plate actually reads as its own
-     atmosphere when you scroll in from the next. Still dark enough for
-     white type; no longer imperceptible. */
-  --tint-concrete: #181513; /* cool cement, visibly warm */
-  --tint-warm:     #1e1609; /* amber concrete */
-  --tint-stone:    #1a1712; /* dry warm stone */
-  --tint-forest:   #0c2218; /* deep wet-concrete green — obvious now */
-  --tint-slate:    #0b1522; /* cold blue-grey */
-  --tint-ash:      #1f1a13; /* smoky late-afternoon */
-  --tint-abyss:    #040302; /* true black, floor fades out */
-
-  /* Legacy aliases — old class refs still resolve. */
-  --tint-cool:  var(--tint-slate);
-  --tint-olive: var(--tint-forest);
+  /* Per-station tints — imperceptible in isolation, unmistakable when
+     you scroll from one station to the next. */
+  --tint-cool: #0a0b0d;
+  --tint-warm: #0e0c09;
+  --tint-olive: #0c0d0a;
 
   /* Back-compat aliases (legacy class names map here without churn). */
   --concrete-dark: var(--graphite);
@@ -127,17 +118,6 @@ body {
   letter-spacing: 0.12em;
 }
 
-/* Room tint — just a solid plate color set via --plate-tint. Simpler
-   than the photo-backed version and lets the 3D sculpture carry all
-   the "material" weight on the Entrance; everywhere else gets a quiet
-   backdrop so the projects breathe. */
-.room-tint {
-  background: var(--plate-tint, var(--ink));
-}
-.plate-inverted.room-tint {
-  background: var(--plate-tint, var(--bone));
-}
-
 /* Concrete wash — a warm micro-gradient that sits on top of the ink base
    and gives sections material rather than pixel flatness. Combined with
    film-grain, reads as poured concrete rather than black paint. */
@@ -186,7 +166,7 @@ body {
 .plate-seam {
   position: relative;
 }
-.plate-seam::after {
+.plate-seam::before {
   content: "";
   position: absolute;
   top: 0;
@@ -196,7 +176,6 @@ body {
   background: var(--bone);
   opacity: 0.15;
   z-index: 5;
-  pointer-events: none;
 }
 
 /* Inverted plate — bone surface, ink type. Used for the Desk so the
@@ -213,8 +192,8 @@ body {
     transparent 1px
   );
 }
-.plate-inverted .plate-seam::after,
-.plate-inverted.plate-seam::after {
+.plate-inverted .plate-seam::before,
+.plate-inverted.plate-seam::before {
   background: var(--ink);
   opacity: 0.2;
 }

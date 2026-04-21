@@ -1,16 +1,14 @@
 "use client";
 
 import { experiments } from "@/content";
-import Spotlight from "./Spotlight";
 
 export default function Shelf() {
   return (
     <div
       data-plate="shelf"
-      className="room-tint plate-seam ruling-grid relative flex-none w-screen md:w-[min(90vw,60rem)] md:h-full flex flex-col justify-center px-6 md:px-14 py-20 md:py-[14vh]"
-      style={{ "--plate-tint": "#1f1a13" } as React.CSSProperties}
+      className="concrete-wash plate-seam ruling-grid relative flex-none w-screen md:w-[min(90vw,60rem)] md:h-full flex flex-col justify-center px-6 md:px-14 py-20 md:py-[14vh]"
+      style={{ background: "var(--tint-warm)" }}
     >
-      <Spotlight x={18} y={88} size={60} color="rgba(255, 220, 185, 0.12)" />
       <div className="mb-8">
         <div className="font-mono text-[10px] uppercase tracking-brutal text-bone/60 mb-4 flex items-center gap-3">
           <span className="h-px w-6 bg-bone/30" />
