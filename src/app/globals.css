@@ -13,17 +13,16 @@
   --bone: #f2efe8;
   --white: #fdfcf9;
 
-  /* Tonal rooms — the floor walks through deliberately different
-     atmospheres. Each tint is paired with a directional light in the
-     plate itself. Forest especially matters: deep wet-concrete green,
-     not an accent — a whole room painted that color. */
-  --tint-concrete: #0e0c0a; /* cool cement, neutral */
-  --tint-warm:     #120f0a; /* warm poured concrete */
-  --tint-stone:    #100e0a; /* dry stone, mid-warm */
-  --tint-forest:   #121a14; /* dark wet-concrete green — the one */
-  --tint-slate:    #0c0e11; /* cold blue-grey */
-  --tint-ash:      #14120e; /* smoky warm, late-afternoon */
-  --tint-abyss:    #080706; /* near-black, floor fades out */
+  /* Tonal rooms — cranked up so each plate actually reads as its own
+     atmosphere when you scroll in from the next. Still dark enough for
+     white type; no longer imperceptible. */
+  --tint-concrete: #181513; /* cool cement, visibly warm */
+  --tint-warm:     #1e1609; /* amber concrete */
+  --tint-stone:    #1a1712; /* dry warm stone */
+  --tint-forest:   #0c2218; /* deep wet-concrete green — obvious now */
+  --tint-slate:    #0b1522; /* cold blue-grey */
+  --tint-ash:      #1f1a13; /* smoky late-afternoon */
+  --tint-abyss:    #040302; /* true black, floor fades out */
 
   /* Legacy aliases — old class refs still resolve. */
   --tint-cool:  var(--tint-slate);
@@ -126,6 +125,24 @@ body {
 
 .tracking-brutal {
   letter-spacing: 0.12em;
+}
+
+/* Concrete material base — a real concrete photo tiled under every
+   plate, blended with the tint. Gives every surface actual material
+   rather than flat color. Pair with .concrete-wash for the
+   micro-gradient on top. */
+.concrete-base {
+  background-image:
+    linear-gradient(var(--plate-tint, rgba(0, 0, 0, 0.65)), var(--plate-tint, rgba(0, 0, 0, 0.65))),
+    url("/img/concrete-texture.jpg");
+  background-size: cover, 900px auto;
+  background-position: center, center;
+  background-blend-mode: normal, normal;
+}
+.plate-inverted.concrete-base {
+  background-image:
+    linear-gradient(rgba(242, 239, 232, 0.88), rgba(242, 239, 232, 0.88)),
+    url("/img/concrete-texture.jpg");
 }
 
 /* Concrete wash — a warm micro-gradient that sits on top of the ink base

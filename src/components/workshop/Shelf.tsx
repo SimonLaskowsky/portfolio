@@ -7,8 +7,8 @@ export default function Shelf() {
   return (
     <div
       data-plate="shelf"
-      className="concrete-wash plate-seam ruling-grid relative flex-none w-screen md:w-[min(90vw,60rem)] md:h-full flex flex-col justify-center px-6 md:px-14 py-20 md:py-[14vh]"
-      style={{ background: "var(--tint-ash)" }}
+      className="concrete-base concrete-wash plate-seam ruling-grid relative flex-none w-screen md:w-[min(90vw,60rem)] md:h-full flex flex-col justify-center px-6 md:px-14 py-20 md:py-[14vh]"
+      style={{ "--plate-tint": "rgba(31, 26, 19, 0.82)" } as React.CSSProperties}
     >
       <Spotlight x={18} y={88} size={60} color="rgba(255, 220, 185, 0.12)" />
       <div className="mb-8">
