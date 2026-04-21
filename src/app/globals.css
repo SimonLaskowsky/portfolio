@@ -74,17 +74,12 @@ body {
   }
 }
 
-/* Typography utilities — one family does display and body, weight + size
-   varies. Mono reserved for technical detail. */
+/* Typography utilities — Bodoni Moda as the editorial display face,
+   Geist Sans for body, Geist Mono for technical detail. */
 .font-display {
-  font-family: var(--font-display), var(--font-geist-sans), ui-sans-serif,
-    system-ui, sans-serif;
-  font-weight: 800;
-  letter-spacing: -0.04em;
-  /* Subtle embossed cast — like type pressed into concrete. */
-  text-shadow:
-    0 1px 0 rgba(0, 0, 0, 0.35),
-    0 0 1px rgba(0, 0, 0, 0.15);
+  font-family: var(--font-display), "Didot", "Bodoni 72", Georgia, serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
 }
 
 .font-body {
@@ -96,22 +91,12 @@ body {
   font-family: var(--font-geist-mono), ui-monospace, monospace;
 }
 
-/* Legacy alias — existing components still reference .font-serif. Map it
-   to display so nothing breaks while the visual language flips. */
+/* Legacy alias — some components reference .font-serif; it maps to
+   the same display face. */
 .font-serif {
-  font-family: var(--font-display), var(--font-geist-sans), ui-sans-serif,
-    system-ui, sans-serif;
-  font-weight: 800;
-  letter-spacing: -0.04em;
-}
-
-.font-serif.italic,
-.font-serif[class*="italic"] {
-  /* "Italic" in the JSX now just means lighter + slightly tracked — keeps
-     the editorial rhythm without a serif italic face. */
-  font-style: normal;
-  font-weight: 300;
-  letter-spacing: -0.005em;
+  font-family: var(--font-display), "Didot", "Bodoni 72", Georgia, serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
 }
 
 .tracking-brutal {
