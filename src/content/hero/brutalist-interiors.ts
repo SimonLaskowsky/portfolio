@@ -8,7 +8,7 @@ const brutalistInteriors: HeroProject = {
   role: "Concept · Design · Engineering",
   wall: {
     src: "/img/brutalist-interiors.jpg",
-    alt: "Brutalist Interiors — editorial landing experience",
+    alt: "Brutalist Interiors — Residence 04 hero capture",
     objectPosition: "50% 50%",
   },
   monitor: { kind: "image", src: "/img/brutalist-interiors.jpg" },
@@ -21,15 +21,15 @@ const brutalistInteriors: HeroProject = {
   },
   hotspots: [
     {
-      x: 0.54,
-      y: 0.59,
+      x: 0.47,
+      y: 0.5,
       title: "The door",
       detail:
         "A magnetic hotspot that pulls toward the cursor. Click triggers a circular clip-path reveal — the interior is born out of the doorway.",
     },
     {
-      x: 0.22,
-      y: 0.3,
+      x: 0.2,
+      y: 0.4,
       title: "Editorial type",
       detail:
         "Instrument Serif set huge, with mix-blend-mode: difference so it's always legible on variable imagery.",
