@@ -10,7 +10,7 @@ export default function Entrance({ onEnter }: Props) {
       data-plate="entrance"
       className="relative flex-none min-h-screen md:h-full w-screen flex flex-col justify-center py-24 md:py-28 pl-6 pr-[8vw] md:pl-14 bg-ink overflow-hidden"
     >
-      <div className="relative max-w-[46rem] z-10">
+      <div className="relative max-w-[50rem] z-10">
         <div className="font-mono text-[10px] uppercase tracking-brutal text-bone/60 mb-6">
           01 — Enter the workshop
         </div>

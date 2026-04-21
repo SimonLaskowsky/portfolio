@@ -180,24 +180,6 @@ export const archive: ArchiveItem[] = [
     thumbnail: "/img/bielsko-biala.png",
     href: "https://bielsko-biala.pl/",
   },
-  {
-    id: "power2future",
-    name: "Power 2 Future",
-    summary:
-      "Corporate site for an energy-sector company. Sustainability narrative, modern design.",
-    tech: ["WordPress", "Bedrock", "JavaScript"],
-    thumbnail: "/img/power2future.png",
-    href: "https://power2future.pl",
-  },
-  {
-    id: "saleswizard",
-    name: "Sales Wizard",
-    summary:
-      "CRM and sales pipeline platform. Leads, stages, and deal flow in one view.",
-    tech: ["HTML", "SASS", "JavaScript"],
-    thumbnail: "/img/saleswizard.png",
-    href: "https://saleswizard.pl",
-  },
 ];
 
 export const experiments: Experiment[] = [
