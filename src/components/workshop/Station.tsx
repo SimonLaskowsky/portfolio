@@ -21,16 +21,16 @@ type Props = {
 // texture showing through under the tint.
 const ROOMS = [
   {
-    tint: "rgba(30, 22, 9, 0.8)",
-    light: { x: 78, y: 18, size: 75, color: "rgba(255, 215, 170, 0.16)" },
+    tint: "#1e1609",
+    light: { x: 78, y: 18, size: 75, color: "rgba(255, 215, 170, 0.2)" },
   },
   {
-    tint: "rgba(26, 23, 18, 0.82)",
-    light: { x: 22, y: 82, size: 70, color: "rgba(235, 220, 195, 0.14)" },
+    tint: "#1a1712",
+    light: { x: 22, y: 82, size: 70, color: "rgba(235, 220, 195, 0.16)" },
   },
   {
-    tint: "rgba(12, 34, 24, 0.78)",
-    light: { x: 50, y: 12, size: 68, color: "rgba(185, 220, 195, 0.17)" },
+    tint: "#0c2218",
+    light: { x: 50, y: 12, size: 68, color: "rgba(185, 220, 195, 0.22)" },
   },
 ];
 
@@ -40,7 +40,7 @@ export default function Station({ project, number, total, index }: Props) {
   return (
     <div
       data-plate={project.id}
-      className="concrete-base plate-seam ruling-grid relative flex-none w-screen h-auto min-h-screen py-20 md:py-0 md:h-full md:flex md:items-center md:w-[min(140vw,90rem)]"
+      className="room-tint plate-seam ruling-grid relative flex-none w-screen h-auto min-h-screen py-20 md:py-0 md:h-full md:flex md:items-center md:w-[min(140vw,90rem)]"
       style={{ "--plate-tint": room.tint } as React.CSSProperties}
     >
       <Spotlight {...room.light} />

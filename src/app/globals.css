@@ -127,35 +127,15 @@ body {
   letter-spacing: 0.12em;
 }
 
-/* Concrete material base — a real concrete photo underneath every plate,
-   overlaid with a tint using multiply so the luminance of the texture
-   survives instead of being flat-covered. The plate-tint CSS var sets
-   the room color. */
-.concrete-base {
-  background-color: #0b0a09;
-  background-image: url("/img/concrete-texture.jpg");
-  background-size: cover;
-  background-position: center;
+/* Room tint — just a solid plate color set via --plate-tint. Simpler
+   than the photo-backed version and lets the 3D sculpture carry all
+   the "material" weight on the Entrance; everywhere else gets a quiet
+   backdrop so the projects breathe. */
+.room-tint {
+  background: var(--plate-tint, var(--ink));
 }
-.concrete-base > * {
-  position: relative;
-  z-index: 1;
-}
-.concrete-base::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background: var(--plate-tint, rgba(11, 10, 9, 0.82));
-  mix-blend-mode: multiply;
-  z-index: 0;
-}
-.plate-inverted.concrete-base {
-  background-color: var(--bone);
-}
-.plate-inverted.concrete-base::before {
-  background: var(--plate-tint, rgba(242, 239, 232, 0.92));
-  mix-blend-mode: screen;
+.plate-inverted.room-tint {
+  background: var(--plate-tint, var(--bone));
 }
 
 /* Concrete wash — a warm micro-gradient that sits on top of the ink base

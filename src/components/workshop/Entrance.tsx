@@ -18,29 +18,18 @@ export default function Entrance({ onEnter }: Props) {
     <div
       data-plate="entrance"
       className="plate-seam ruling-grid relative flex-none min-h-screen md:h-full w-screen flex flex-col justify-center py-24 md:py-28 pl-6 pr-[8vw] md:pl-14 overflow-hidden"
-      style={{ background: "#070605" }}
+      style={{
+        background:
+          "radial-gradient(120% 100% at 75% 50%, #1a1713 0%, #0a0907 55%, #050403 100%)",
+      }}
     >
-      {/* Faint concrete base under everything for material cohesion */}
-      <div
-        aria-hidden
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          backgroundImage: "url('/img/concrete-texture.jpg')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          opacity: 0.18,
-          filter: "grayscale(0.3) contrast(0.9)",
-        }}
-      />
-
-      {/* The 3D monolith fills the right 60% of the viewport. pointer-
-          events are off on the canvas so hover/scroll stay native. */}
+      {/* The 3D sculpture lives on the right side of the plate */}
       <div className="absolute inset-y-0 right-0 w-full md:w-[62vw] pointer-events-none">
         <EntranceSculpture />
       </div>
 
-      {/* Directional light cue from upper-left, matches the Canvas key light */}
-      <Spotlight x={12} y={18} size={70} color="rgba(255, 240, 210, 0.08)" />
+      {/* Subtle directional ambience from upper-left */}
+      <Spotlight x={12} y={18} size={70} color="rgba(255, 240, 210, 0.06)" />
 
       {/* Content column — sits above the canvas on the left */}
       <div className="relative max-w-[42rem] z-10">

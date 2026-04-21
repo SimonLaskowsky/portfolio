@@ -12,7 +12,7 @@ export default function Desk() {
   return (
     <div
       data-plate="desk"
-      className="plate-inverted concrete-base plate-seam ruling-grid relative flex-none w-screen md:w-[min(120vw,80rem)] md:h-full flex flex-col md:flex-row md:items-center gap-10 px-6 md:px-14 py-20 md:py-[14vh]"
+      className="plate-inverted room-tint plate-seam ruling-grid relative flex-none w-screen md:w-[min(120vw,80rem)] md:h-full flex flex-col md:flex-row md:items-center gap-10 px-6 md:px-14 py-20 md:py-[14vh]"
     >
       <Spotlight x={78} y={22} size={65} color="rgba(140, 115, 75, 0.18)" />
       {/* Photo frame */}
