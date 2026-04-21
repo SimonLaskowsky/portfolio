@@ -6,20 +6,6 @@ export default function Exit() {
       data-plate="exit"
       className="relative flex-none w-screen md:w-[min(80vw,52rem)] min-h-screen md:h-full flex flex-col justify-center px-6 md:px-14 py-20 md:py-[14vh] bg-ink overflow-hidden"
     >
-      {/* Giant oversized END typography as an architectural element */}
-      <div
-        className="absolute -right-[6%] bottom-[4%] font-display leading-none pointer-events-none select-none"
-        style={{
-          fontSize: "clamp(12rem, 34vw, 40rem)",
-          fontWeight: 900,
-          letterSpacing: "-0.06em",
-          color: "#ffffff",
-          opacity: 0.035,
-        }}
-      >
-        END.
-      </div>
-
       <div className="relative z-10">
         <div className="font-mono text-[10px] uppercase tracking-brutal text-bone/60 mb-4">
           08 — Let&apos;s build

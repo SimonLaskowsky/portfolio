@@ -12,14 +12,16 @@ export default function SerifSpine({ activeId }: Props) {
 
   return (
     <div
-      className="pointer-events-none absolute inset-x-0 -bottom-[6vw] z-0 overflow-hidden"
+      className="pointer-events-none absolute inset-x-0 bottom-0 h-[36vh] z-0 overflow-hidden"
       aria-hidden
     >
+      {/* Text is pushed below its container so only the TOP slice of the
+          letterforms shows — a strip of caps peeking up from the floor. */}
       <div
         key={current.id}
-        className="spine-fade font-display whitespace-nowrap leading-none text-center"
+        className="spine-fade font-display whitespace-nowrap leading-[0.8] text-center absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-[62%]"
         style={{
-          fontSize: "clamp(12rem, 36vw, 34rem)",
+          fontSize: "clamp(10rem, 26vw, 24rem)",
           fontWeight: 900,
           letterSpacing: "-0.06em",
           color: "#ffffff",
