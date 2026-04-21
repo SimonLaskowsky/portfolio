@@ -1,67 +1,126 @@
 "use client";
 
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { ContactShadows, Environment } from "@react-three/drei";
-import { Suspense, useRef } from "react";
+import { ContactShadows, Environment, useGLTF } from "@react-three/drei";
+import { Component, Suspense, useEffect, useRef, type ReactNode } from "react";
 import * as THREE from "three";
 
-// Abstract classical bust in white marble. Plinth + torso + neck + head
-// composed from primitives so no external .glb is needed. The form
-// reads as "museum sculpture" at a glance; the real magic is the
-// cursor-reactive rim light that throws a moving highlight across the
-// marble as you move the mouse.
+// Loads /models/david.glb if present and wraps it in the same marble
+// material + cursor-reactive light rig. If the file is missing or
+// fails to decode, the error boundary falls back to a primitives-
+// built bust so the Canvas never breaks the page.
 
+const DAVID_URL = "/models/david.glb";
 const MARBLE_COLOR = "#ece7dc";
 
-function MarbleMaterial() {
-  return (
-    <meshPhysicalMaterial
-      color={MARBLE_COLOR}
-      roughness={0.32}
-      metalness={0.0}
-      clearcoat={0.35}
-      clearcoatRoughness={0.45}
-      sheen={0.1}
-      sheenColor={"#fff8ea"}
-      envMapIntensity={0.9}
-    />
-  );
+function marbleMaterial(): THREE.MeshPhysicalMaterial {
+  return new THREE.MeshPhysicalMaterial({
+    color: new THREE.Color(MARBLE_COLOR),
+    roughness: 0.32,
+    metalness: 0,
+    clearcoat: 0.35,
+    clearcoatRoughness: 0.45,
+    sheen: 0.1,
+    sheenColor: new THREE.Color("#fff8ea"),
+    envMapIntensity: 0.9,
+  });
 }
 
-function Bust() {
+function SculptureMotion({
+  children,
+  headTiltRef,
+}: {
+  children: ReactNode;
+  headTiltRef?: React.RefObject<THREE.Object3D | null>;
+}) {
   const groupRef = useRef<THREE.Group>(null);
-  const headRef = useRef<THREE.Mesh>(null);
 
   useFrame(({ clock, pointer }) => {
     const g = groupRef.current;
     if (!g) return;
     const scrollY =
       typeof window !== "undefined" ? window.scrollY : 0;
-    const idle = clock.elapsedTime * 0.12;
+    const idle = clock.elapsedTime * 0.1;
     g.rotation.y = idle + scrollY * 0.0008;
-    // Slight head lift/tilt responding to cursor — makes the bust feel
-    // alive, like it's watching.
-    if (headRef.current) {
-      headRef.current.rotation.y = pointer.x * 0.25;
-      headRef.current.rotation.x = -pointer.y * 0.12;
+
+    if (headTiltRef?.current) {
+      headTiltRef.current.rotation.y = pointer.x * 0.22;
+      headTiltRef.current.rotation.x = -pointer.y * 0.1;
     }
   });
 
   return (
     <group ref={groupRef} position={[0, -0.15, 0]}>
-      {/* Plinth */}
+      {children}
+    </group>
+  );
+}
+
+function DavidModel() {
+  const { scene } = useGLTF(DAVID_URL);
+
+  useEffect(() => {
+    // Normalize: rescale + recenter so any scanned model lands in a
+    // predictable pose, then coat every mesh in white marble.
+    const box = new THREE.Box3().setFromObject(scene);
+    const size = new THREE.Vector3();
+    const center = new THREE.Vector3();
+    box.getSize(size);
+    box.getCenter(center);
+
+    const targetHeight = 2.4;
+    const scale = targetHeight / Math.max(size.y, 0.0001);
+    scene.scale.setScalar(scale);
+    scene.position.set(
+      -center.x * scale,
+      -center.y * scale + 0.1,
+      -center.z * scale,
+    );
+
+    scene.traverse((obj) => {
+      if ((obj as THREE.Mesh).isMesh) {
+        const mesh = obj as THREE.Mesh;
+        mesh.material = marbleMaterial();
+        mesh.castShadow = true;
+        mesh.receiveShadow = true;
+      }
+    });
+  }, [scene]);
+
+  return (
+    <SculptureMotion>
+      <primitive object={scene} />
+    </SculptureMotion>
+  );
+}
+
+// Primitives fallback — the bust we had before, used when no glb is
+// present. Looks deliberate rather than "loading failed."
+function PrimitivesBust() {
+  const headRef = useRef<THREE.Mesh>(null);
+  const mat = (
+    <meshPhysicalMaterial
+      color={MARBLE_COLOR}
+      roughness={0.32}
+      metalness={0}
+      clearcoat={0.35}
+      clearcoatRoughness={0.45}
+      sheen={0.1}
+      sheenColor={new THREE.Color("#fff8ea")}
+      envMapIntensity={0.9}
+    />
+  );
+
+  return (
+    <SculptureMotion headTiltRef={headRef}>
       <mesh position={[0, -1.6, 0]} castShadow receiveShadow>
         <boxGeometry args={[0.95, 1.4, 0.95]} />
-        <MarbleMaterial />
+        {mat}
       </mesh>
-
-      {/* Plinth top cap — thin slab */}
       <mesh position={[0, -0.88, 0]} castShadow receiveShadow>
         <boxGeometry args={[1.1, 0.08, 1.1]} />
-        <MarbleMaterial />
+        {mat}
       </mesh>
-
-      {/* Torso / shoulders — lathed ellipsoid via scaled sphere */}
       <mesh
         position={[0, -0.25, 0]}
         scale={[1.15, 0.85, 0.7]}
@@ -69,38 +128,59 @@ function Bust() {
         receiveShadow
       >
         <sphereGeometry args={[0.6, 64, 48]} />
-        <MarbleMaterial />
+        {mat}
       </mesh>
-
-      {/* Neck */}
       <mesh position={[0, 0.38, 0.02]} castShadow receiveShadow>
         <cylinderGeometry args={[0.15, 0.19, 0.3, 32]} />
-        <MarbleMaterial />
+        {mat}
       </mesh>
-
-      {/* Head — slight ellipsoid */}
-      <group position={[0, 0.78, 0]}>
-        <mesh ref={headRef} scale={[0.82, 1, 0.95]} castShadow receiveShadow>
-          <sphereGeometry args={[0.38, 64, 48]} />
-          <MarbleMaterial />
-        </mesh>
-      </group>
-    </group>
+      <mesh
+        ref={headRef}
+        position={[0, 0.78, 0]}
+        scale={[0.82, 1, 0.95]}
+        castShadow
+        receiveShadow
+      >
+        <sphereGeometry args={[0.38, 64, 48]} />
+        {mat}
+      </mesh>
+    </SculptureMotion>
   );
+}
+
+// Error boundary — catches load/decode failures of the GLB and swaps
+// in the primitives bust. Required because R3F doesn't recover from
+// Suspense throws caused by failed fetches.
+class ModelErrorBoundary extends Component<
+  { fallback: ReactNode; children: ReactNode },
+  { errored: boolean }
+> {
+  state = { errored: false };
+  static getDerivedStateFromError() {
+    return { errored: true };
+  }
+  componentDidCatch() {
+    // Swallowed intentionally — fall back silently.
+  }
+  render() {
+    return this.state.errored ? this.props.fallback : this.props.children;
+  }
 }
 
 function CursorLight() {
   const lightRef = useRef<THREE.PointLight>(null);
   const { viewport } = useThree();
+  const target = useRef(new THREE.Vector3());
 
   useFrame(({ pointer }) => {
     const l = lightRef.current;
     if (!l) return;
-    // Map normalized pointer (-1..1) into world space, hold light in
-    // front of the sculpture so it casts toward the camera.
-    const x = pointer.x * viewport.width * 0.5;
-    const y = pointer.y * viewport.height * 0.5;
-    l.position.lerp(new THREE.Vector3(x, y, 2.2), 0.12);
+    target.current.set(
+      pointer.x * viewport.width * 0.5,
+      pointer.y * viewport.height * 0.5,
+      2.2,
+    );
+    l.position.lerp(target.current, 0.12);
   });
 
   return (
@@ -123,7 +203,6 @@ export default function EntranceSculpture() {
       gl={{ antialias: true, alpha: true }}
       style={{ pointerEvents: "none" }}
     >
-      {/* Museum key light from upper-right, warm */}
       <directionalLight
         position={[4, 6, 3]}
         intensity={1.15}
@@ -135,19 +214,21 @@ export default function EntranceSculpture() {
         shadow-camera-top={4}
         shadow-camera-bottom={-3}
       />
-      {/* Cool fill from the left, quieter */}
       <directionalLight
         position={[-4, 1, -1]}
         intensity={0.28}
         color={"#b5c4d6"}
       />
-      {/* Base ambient so the unlit faces still read */}
       <ambientLight intensity={0.25} />
 
       <Suspense fallback={null}>
         <Environment preset="studio" />
         <CursorLight />
-        <Bust />
+        <ModelErrorBoundary fallback={<PrimitivesBust />}>
+          <Suspense fallback={<PrimitivesBust />}>
+            <DavidModel />
+          </Suspense>
+        </ModelErrorBoundary>
         <ContactShadows
           position={[0, -2.35, 0]}
           opacity={0.55}
@@ -158,4 +239,14 @@ export default function EntranceSculpture() {
       </Suspense>
     </Canvas>
   );
+}
+
+// Preload so the first render doesn't stall. Silently fails if the file
+// doesn't exist — the error boundary handles the render path.
+if (typeof window !== "undefined") {
+  try {
+    useGLTF.preload(DAVID_URL);
+  } catch {
+    /* no-op */
+  }
 }
