@@ -22,11 +22,14 @@ const DESKTOP_MIN_WIDTH = 900;
 export default function WorkshopFloor() {
   const sectionRef = useRef<HTMLElement>(null);
   const stripRef = useRef<HTMLDivElement>(null);
-  const [sectionHeight, setSectionHeight] = useState(0);
+  // Raw measured strip height. Derived sectionHeight is isDesktop ? measured : 0.
+  const [measuredHeight, setMeasuredHeight] = useState(0);
   const [offset, setOffset] = useState(0);
   const [progress, setProgress] = useState(0);
   const [activeId, setActiveId] = useState<SectionId>("entrance");
   const [isDesktop, setIsDesktop] = useState(true);
+
+  const sectionHeight = isDesktop ? measuredHeight : 0;
 
   useEffect(() => {
     const mq = window.matchMedia(`(min-width: ${DESKTOP_MIN_WIDTH}px)`);
@@ -37,10 +40,7 @@ export default function WorkshopFloor() {
   }, []);
 
   useLayoutEffect(() => {
-    if (!isDesktop) {
-      setSectionHeight(0);
-      return;
-    }
+    if (!isDesktop) return;
     const measure = () => {
       const strip = stripRef.current;
       if (!strip) return;
@@ -48,7 +48,7 @@ export default function WorkshopFloor() {
       const vh = window.innerHeight;
       const stripWidth = strip.scrollWidth;
       const horizontalDistance = Math.max(0, stripWidth - vw);
-      setSectionHeight(vh + horizontalDistance);
+      setMeasuredHeight(vh + horizontalDistance);
     };
     measure();
     window.addEventListener("resize", measure);
@@ -226,7 +226,7 @@ export default function WorkshopFloor() {
             {/* Trailing spacer — extends the strip so Exit can scroll past
                 the 33% focus point. Sized so Exit lands roughly centered
                 at max scroll; too much and Exit bleeds off the left edge. */}
-            <div aria-hidden className="flex-none w-[18vw]" />
+            <div aria-hidden className="flex-none w-[40vw]" />
           </div>
         </div>
 

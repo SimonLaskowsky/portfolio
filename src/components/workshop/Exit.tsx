@@ -67,10 +67,12 @@ export default function Exit() {
             </a>
           </div>
         </div>
+      </div>
 
-        <div className="absolute bottom-0 left-0 font-mono text-[10px] uppercase tracking-brutal text-bone/25 mt-16">
-          End of floor · © 2026 Laskowski.studio
-        </div>
+      {/* Colophon pinned to the plate bottom, not the inner content wrapper,
+          so it never stacks on top of the social links. */}
+      <div className="absolute bottom-6 left-6 md:bottom-10 md:left-14 font-mono text-[10px] uppercase tracking-brutal text-bone/25">
+        End of floor · © 2026 Laskowski.studio
       </div>
     </div>
   );
