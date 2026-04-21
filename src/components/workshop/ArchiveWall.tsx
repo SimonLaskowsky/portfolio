@@ -8,7 +8,6 @@ export default function ArchiveWall() {
     <div
       data-plate="archive"
       className="concrete-wash plate-seam ruling-grid relative flex-none w-screen md:w-[min(120vw,80rem)] md:h-full flex flex-col justify-center px-6 md:px-14 py-20 md:py-[14vh] bg-ink"
-      style={{ background: "var(--tint-cool)" }}
     >
       <div className="mb-8">
         <div className="font-mono text-[10px] uppercase tracking-brutal text-bone/60 mb-4 flex items-center gap-3">

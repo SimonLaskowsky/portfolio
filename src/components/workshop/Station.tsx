@@ -9,21 +9,13 @@ type Props = {
   project: HeroProject;
   number: string;
   total: string;
-  index: number;
 };
 
-// Subtle per-station tint — cycles cool / warm / olive so each station
-// reads as its own room when you scroll in from the next.
-const TINTS = ["var(--tint-cool)", "var(--tint-warm)", "var(--tint-olive)"];
-
-export default function Station({ project, number, total, index }: Props) {
-  const tint = TINTS[index % TINTS.length];
-
+export default function Station({ project, number, total }: Props) {
   return (
     <div
       data-plate={project.id}
-      className="concrete-wash plate-seam ruling-grid relative flex-none w-screen h-auto min-h-screen py-20 md:py-0 md:h-full md:flex md:items-center md:w-[min(140vw,90rem)]"
-      style={{ background: tint }}
+      className="concrete-wash plate-seam ruling-grid relative flex-none w-screen h-auto min-h-screen py-20 md:py-0 md:h-full md:flex md:items-center md:w-[min(140vw,90rem)] bg-ink"
     >
       <div className="relative z-[1] w-full md:h-full flex flex-col md:flex-row gap-6 px-6 md:px-10 md:py-[9vh]">
         {/* Wall */}
