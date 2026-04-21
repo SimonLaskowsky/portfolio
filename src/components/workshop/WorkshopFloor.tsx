@@ -207,7 +207,7 @@ export default function WorkshopFloor() {
         <div className="absolute inset-0">
           <div
             ref={stripRef}
-            className="h-full flex items-stretch will-change-transform"
+            className="h-full flex items-stretch pr-[30vw] will-change-transform"
             style={{ transform: `translate3d(${-offset}px, 0, 0)` }}
           >
             <Entrance onEnter={() => jumpTo("coprzeszlo")} />
