@@ -224,9 +224,9 @@ export default function WorkshopFloor() {
             <Desk />
             <Exit />
             {/* Trailing spacer — extends the strip so Exit can scroll past
-                the 33% focus point. Without this the HUD hangs on the
-                previous section and Exit only half-enters the viewport. */}
-            <div aria-hidden className="flex-none w-[55vw]" />
+                the 33% focus point. Sized so Exit lands roughly centered
+                at max scroll; too much and Exit bleeds off the left edge. */}
+            <div aria-hidden className="flex-none w-[18vw]" />
           </div>
         </div>
 
