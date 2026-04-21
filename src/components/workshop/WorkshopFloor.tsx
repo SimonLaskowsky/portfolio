@@ -207,7 +207,7 @@ export default function WorkshopFloor() {
         <div className="absolute inset-0">
           <div
             ref={stripRef}
-            className="h-full flex items-stretch pr-[30vw] will-change-transform"
+            className="h-full flex items-stretch will-change-transform"
             style={{ transform: `translate3d(${-offset}px, 0, 0)` }}
           >
             <Entrance onEnter={() => jumpTo("coprzeszlo")} />
@@ -223,6 +223,10 @@ export default function WorkshopFloor() {
             <Shelf />
             <Desk />
             <Exit />
+            {/* Trailing spacer — extends the strip so Exit can scroll past
+                the 33% focus point. Without this the HUD hangs on the
+                previous section and Exit only half-enters the viewport. */}
+            <div aria-hidden className="flex-none w-[55vw]" />
           </div>
         </div>
 
