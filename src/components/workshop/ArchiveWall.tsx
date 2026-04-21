@@ -7,12 +7,15 @@ export default function ArchiveWall() {
   return (
     <div
       data-plate="archive"
-      className="concrete-wash relative flex-none w-screen md:w-[min(120vw,80rem)] md:h-full flex flex-col justify-center px-6 md:px-14 py-20 md:py-[14vh] bg-ink"
+      className="concrete-wash plate-seam ruling-grid relative flex-none w-screen md:w-[min(120vw,80rem)] md:h-full flex flex-col justify-center px-6 md:px-14 py-20 md:py-[14vh] bg-ink"
       style={{ background: "var(--tint-cool)" }}
     >
       <div className="mb-8">
-        <div className="font-mono text-[10px] uppercase tracking-brutal text-bone/60 mb-4">
-          05 — Archive
+        <div className="font-mono text-[10px] uppercase tracking-brutal text-bone/60 mb-4 flex items-center gap-3">
+          <span className="h-px w-6 bg-bone/30" />
+          <span>PLT.05 / ARC</span>
+          <span className="text-bone/30">·</span>
+          <span className="text-bone/55">Archive</span>
         </div>
         <h2
           className="font-display leading-[0.88]"

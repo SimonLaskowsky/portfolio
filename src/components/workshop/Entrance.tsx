@@ -8,11 +8,14 @@ export default function Entrance({ onEnter }: Props) {
   return (
     <div
       data-plate="entrance"
-      className="concrete-wash relative flex-none min-h-screen md:h-full w-screen flex flex-col justify-center py-24 md:py-28 pl-6 pr-[8vw] md:pl-14 bg-ink overflow-hidden"
+      className="concrete-wash plate-seam ruling-grid relative flex-none min-h-screen md:h-full w-screen flex flex-col justify-center py-24 md:py-28 pl-6 pr-[8vw] md:pl-14 bg-ink overflow-hidden"
     >
       <div className="relative max-w-[50rem] z-10">
-        <div className="font-mono text-[10px] uppercase tracking-brutal text-bone/60 mb-6">
-          01 — Enter the workshop
+        <div className="font-mono text-[10px] uppercase tracking-brutal text-bone/60 mb-6 flex items-center gap-3">
+          <span className="h-px w-6 bg-bone/30" />
+          <span>PLT.01 / ENT</span>
+          <span className="text-bone/30">·</span>
+          <span className="text-bone/55">Enter the workshop</span>
         </div>
         <h1
           className="font-display leading-[0.88]"

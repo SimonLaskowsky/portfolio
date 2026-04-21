@@ -4,11 +4,14 @@ export default function Exit() {
   return (
     <div
       data-plate="exit"
-      className="concrete-wash relative flex-none w-screen md:w-[min(80vw,52rem)] min-h-screen md:h-full flex flex-col justify-center px-6 md:px-14 py-20 md:py-[14vh] bg-ink overflow-hidden"
+      className="concrete-wash plate-seam ruling-grid relative flex-none w-screen md:w-[min(80vw,52rem)] min-h-screen md:h-full flex flex-col justify-center px-6 md:px-14 py-20 md:py-[14vh] bg-ink overflow-hidden"
     >
       <div className="relative z-10">
-        <div className="font-mono text-[10px] uppercase tracking-brutal text-bone/60 mb-4">
-          08 — Let&apos;s build
+        <div className="font-mono text-[10px] uppercase tracking-brutal text-bone/60 mb-4 flex items-center gap-3">
+          <span className="h-px w-6 bg-bone/30" />
+          <span>PLT.08 / OUT</span>
+          <span className="text-bone/30">·</span>
+          <span className="text-bone/55">Let&apos;s build</span>
         </div>
         <h2
           className="font-display leading-[0.88]"

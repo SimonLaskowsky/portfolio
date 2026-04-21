@@ -22,7 +22,7 @@ export default function Station({ project, number, total, index }: Props) {
   return (
     <div
       data-plate={project.id}
-      className="concrete-wash relative flex-none w-screen h-auto min-h-screen py-20 md:py-0 md:h-full md:flex md:items-center md:w-[min(140vw,90rem)]"
+      className="concrete-wash plate-seam ruling-grid relative flex-none w-screen h-auto min-h-screen py-20 md:py-0 md:h-full md:flex md:items-center md:w-[min(140vw,90rem)]"
       style={{ background: tint }}
     >
       <div className="relative z-[1] w-full md:h-full flex flex-col md:flex-row gap-6 px-6 md:px-10 md:py-[9vh]">
