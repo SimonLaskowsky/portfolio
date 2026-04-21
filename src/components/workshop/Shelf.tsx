@@ -1,6 +1,6 @@
 "use client";
 
-import { experiments } from "@/data/projects";
+import { experiments } from "@/content";
 
 export default function Shelf() {
   return (

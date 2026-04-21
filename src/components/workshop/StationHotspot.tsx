@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import type { StationHotspot as HotspotData } from "@/data/projects";
+import type { StationHotspot as HotspotData } from "@/content";
 
 type Props = {
   data: HotspotData;

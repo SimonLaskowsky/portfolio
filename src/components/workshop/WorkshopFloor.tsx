@@ -7,7 +7,7 @@ import {
   useRef,
   useState,
 } from "react";
-import { sections, type SectionId, heroProjects } from "@/data/projects";
+import { sections, type SectionId, heroProjects } from "@/content";
 import Entrance from "./Entrance";
 import Station from "./Station";
 import ArchiveWall from "./ArchiveWall";

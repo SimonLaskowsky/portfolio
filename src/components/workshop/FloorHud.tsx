@@ -1,6 +1,6 @@
 "use client";
 
-import type { SectionId } from "@/data/projects";
+import type { SectionId } from "@/content";
 
 type Props = {
   activeId: SectionId;

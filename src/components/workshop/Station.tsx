@@ -1,6 +1,6 @@
 "use client";
 
-import type { HeroProject } from "@/data/projects";
+import type { HeroProject } from "@/content";
 import StationHotspot from "./StationHotspot";
 import Monitor from "./Monitor";
 

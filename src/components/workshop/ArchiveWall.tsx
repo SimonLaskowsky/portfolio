@@ -1,6 +1,6 @@
 "use client";
 
-import { archive } from "@/data/projects";
+import { archive } from "@/content";
 
 export default function ArchiveWall() {
   return (

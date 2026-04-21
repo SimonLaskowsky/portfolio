@@ -1,6 +1,6 @@
 "use client";
 
-import { about } from "@/data/projects";
+import { about } from "@/content";
 import DeskItem from "./DeskItem";
 
 export default function Desk() {

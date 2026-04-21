@@ -1,6 +1,6 @@
 "use client";
 
-import type { Monitor as MonitorData } from "@/data/projects";
+import type { Monitor as MonitorData } from "@/content";
 
 type Props = {
   monitor: MonitorData;
