@@ -2,15 +2,18 @@
 
 import { about } from "@/content";
 import DeskItem from "./DeskItem";
+import RegistrationMarks from "./RegistrationMarks";
 
 export default function Desk() {
   return (
     <div
       data-plate="desk"
-      className="relative flex-none w-screen md:w-[min(120vw,80rem)] md:h-full flex flex-col md:flex-row md:items-center gap-10 px-6 md:px-14 py-20 md:py-[14vh] bg-ink"
+      className="concrete-wash relative flex-none w-screen md:w-[min(120vw,80rem)] md:h-full flex flex-col md:flex-row md:items-center gap-10 px-6 md:px-14 py-20 md:py-[14vh]"
+      style={{ background: "var(--tint-olive)" }}
     >
       {/* Photo frame */}
       <div className="relative w-full md:w-[22rem] md:max-w-[30vw] aspect-[4/5] overflow-hidden border border-bone/15 bg-graphite shrink-0">
+        <RegistrationMarks />
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={about.photo}

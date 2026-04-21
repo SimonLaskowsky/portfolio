@@ -4,7 +4,7 @@ export default function Exit() {
   return (
     <div
       data-plate="exit"
-      className="relative flex-none w-screen md:w-[min(80vw,52rem)] min-h-screen md:h-full flex flex-col justify-center px-6 md:px-14 py-20 md:py-[14vh] bg-ink overflow-hidden"
+      className="concrete-wash relative flex-none w-screen md:w-[min(80vw,52rem)] min-h-screen md:h-full flex flex-col justify-center px-6 md:px-14 py-20 md:py-[14vh] bg-ink overflow-hidden"
     >
       <div className="relative z-10">
         <div className="font-mono text-[10px] uppercase tracking-brutal text-bone/60 mb-4">

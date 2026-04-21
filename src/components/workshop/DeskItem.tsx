@@ -33,6 +33,8 @@ export default function DeskItem({ data, index }: Props) {
     };
   }, [open]);
 
+  const num = String(index + 1).padStart(2, "0");
+
   return (
     <div
       ref={rootRef}
@@ -45,27 +47,44 @@ export default function DeskItem({ data, index }: Props) {
         data-cursor="hover"
         className="hotspot-chip hotspot-pulse"
       >
-        <span className="tabular-nums">
-          {String(index + 1).padStart(2, "0")}
-        </span>
+        <span className="tabular-nums">{num}</span>
         <span className="ml-2 opacity-60">+</span>
       </button>
       {open && (
-        <div className="fade-in glass-strong absolute left-[calc(100%+12px)] top-1/2 -translate-y-1/2 w-60 z-20 p-4 text-bone">
-          <div className="font-mono text-[10px] uppercase tracking-brutal text-bone/55 mb-2">
-            On the desk · {String(index + 1).padStart(2, "0")}
+        <div
+          className="drawer-in absolute left-[calc(100%+10px)] top-1/2 -translate-y-1/2 w-60 z-20"
+          style={{
+            background: "var(--char)",
+            border: "1px solid rgba(242, 239, 232, 0.3)",
+            boxShadow: "0 24px 60px rgba(0, 0, 0, 0.55)",
+          }}
+        >
+          <div
+            aria-hidden
+            className="absolute top-0 bottom-0 left-0 w-[2px]"
+            style={{ background: "var(--bone)" }}
+          />
+          <div className="p-4 pl-5 text-bone">
+            <div className="flex items-baseline justify-between mb-2">
+              <div className="font-mono text-[10px] uppercase tracking-brutal text-bone/55">
+                On the desk
+              </div>
+              <div className="font-mono text-[10px] uppercase tracking-brutal text-bone/35 tabular-nums">
+                {num}
+              </div>
+            </div>
+            <div className="text-[15px] leading-tight mb-2">{data.title}</div>
+            <p className="text-xs text-bone/65 leading-relaxed font-body">
+              {data.detail}
+            </p>
+            <button
+              onClick={() => setOpen(false)}
+              data-cursor="hover"
+              className="mt-4 font-mono text-[10px] uppercase tracking-brutal text-bone/50 hover:text-bone"
+            >
+              Close
+            </button>
           </div>
-          <div className="text-[15px] leading-tight mb-2">{data.title}</div>
-          <p className="text-xs text-bone/65 leading-relaxed font-body">
-            {data.detail}
-          </p>
-          <button
-            onClick={() => setOpen(false)}
-            data-cursor="hover"
-            className="mt-4 font-mono text-[10px] uppercase tracking-brutal text-bone/50 hover:text-bone"
-          >
-            Close
-          </button>
         </div>
       )}
     </div>

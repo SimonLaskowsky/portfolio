@@ -3,22 +3,32 @@
 import type { HeroProject } from "@/content";
 import StationHotspot from "./StationHotspot";
 import Monitor from "./Monitor";
+import RegistrationMarks from "./RegistrationMarks";
 
 type Props = {
   project: HeroProject;
   number: string;
   total: string;
+  index: number;
 };
 
-export default function Station({ project, number, total }: Props) {
+// Subtle per-station tint — cycles cool / warm / olive so each station
+// reads as its own room when you scroll in from the next.
+const TINTS = ["var(--tint-cool)", "var(--tint-warm)", "var(--tint-olive)"];
+
+export default function Station({ project, number, total, index }: Props) {
+  const tint = TINTS[index % TINTS.length];
+
   return (
     <div
       data-plate={project.id}
-      className="relative flex-none w-screen h-auto min-h-screen py-20 md:py-0 md:h-full md:flex md:items-center md:w-[min(140vw,90rem)]"
+      className="concrete-wash relative flex-none w-screen h-auto min-h-screen py-20 md:py-0 md:h-full md:flex md:items-center md:w-[min(140vw,90rem)]"
+      style={{ background: tint }}
     >
-      <div className="relative w-full md:h-full flex flex-col md:flex-row gap-6 px-6 md:px-10 md:py-[9vh]">
+      <div className="relative z-[1] w-full md:h-full flex flex-col md:flex-row gap-6 px-6 md:px-10 md:py-[9vh]">
         {/* Wall */}
         <div className="relative flex-1 md:h-full min-h-[60vh] md:min-h-0 aspect-[4/3] md:aspect-auto overflow-hidden bg-graphite">
+          <RegistrationMarks />
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={project.wall.src}
@@ -29,7 +39,6 @@ export default function Station({ project, number, total }: Props) {
           />
           <div className="absolute inset-x-0 bottom-0 h-[65%] bg-gradient-to-t from-ink/95 via-ink/40 to-transparent pointer-events-none" />
 
-          {/* Huge watermark station number — top-right, mix-blend difference */}
           <div
             className="absolute -top-[0.18em] right-[2%] font-display leading-none pointer-events-none select-none"
             style={{
@@ -44,7 +53,6 @@ export default function Station({ project, number, total }: Props) {
             {number}
           </div>
 
-          {/* Wall-mounted title */}
           <div className="absolute left-6 right-6 bottom-7 md:bottom-10">
             <div className="font-mono text-[10px] uppercase tracking-brutal text-bone/70 mb-3">
               {project.year} · {project.role}
@@ -77,8 +85,12 @@ export default function Station({ project, number, total }: Props) {
 
         {/* Right column: monitor + glass pinboard */}
         <div className="w-full md:w-[32rem] md:max-w-[38vw] md:h-full flex flex-col gap-6">
-          <Monitor monitor={project.monitor} label={project.link.label} />
-          <div className="md:flex-1 md:min-h-0 glass p-5 flex flex-col gap-4 overflow-hidden">
+          <div className="relative">
+            <RegistrationMarks />
+            <Monitor monitor={project.monitor} label={project.link.label} />
+          </div>
+          <div className="relative md:flex-1 md:min-h-0 glass p-5 flex flex-col gap-4 overflow-hidden">
+            <RegistrationMarks />
             <div className="flex items-baseline justify-between">
               <div className="font-mono text-[10px] uppercase tracking-brutal text-bone/70">
                 Pinboard

@@ -1,12 +1,14 @@
 "use client";
 
 import { archive } from "@/content";
+import RegistrationMarks from "./RegistrationMarks";
 
 export default function ArchiveWall() {
   return (
     <div
       data-plate="archive"
-      className="relative flex-none w-screen md:w-[min(120vw,80rem)] md:h-full flex flex-col justify-center px-6 md:px-14 py-20 md:py-[14vh] bg-ink"
+      className="concrete-wash relative flex-none w-screen md:w-[min(120vw,80rem)] md:h-full flex flex-col justify-center px-6 md:px-14 py-20 md:py-[14vh] bg-ink"
+      style={{ background: "var(--tint-cool)" }}
     >
       <div className="mb-8">
         <div className="font-mono text-[10px] uppercase tracking-brutal text-bone/60 mb-4">
@@ -40,6 +42,7 @@ export default function ArchiveWall() {
             data-cursor="hover"
             className="group relative bg-char border border-bone/8 hover:border-bone/40 transition-colors overflow-hidden flex flex-col"
           >
+            <RegistrationMarks />
             <div className="relative md:flex-1 md:min-h-0 overflow-hidden bg-ink aspect-[16/10] md:aspect-auto">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img

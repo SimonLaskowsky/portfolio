@@ -6,7 +6,8 @@ export default function Shelf() {
   return (
     <div
       data-plate="shelf"
-      className="relative flex-none w-screen md:w-[min(90vw,60rem)] md:h-full flex flex-col justify-center px-6 md:px-14 py-20 md:py-[14vh] bg-ink"
+      className="concrete-wash relative flex-none w-screen md:w-[min(90vw,60rem)] md:h-full flex flex-col justify-center px-6 md:px-14 py-20 md:py-[14vh]"
+      style={{ background: "var(--tint-warm)" }}
     >
       <div className="mb-8">
         <div className="font-mono text-[10px] uppercase tracking-brutal text-bone/60 mb-4">

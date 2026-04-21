@@ -149,6 +149,7 @@ export default function WorkshopFloor() {
               project={p}
               number={String(i + 1).padStart(2, "0")}
               total={String(heroProjects.length).padStart(2, "0")}
+              index={i}
             />
           ))}
           <ArchiveWall />
@@ -217,6 +218,7 @@ export default function WorkshopFloor() {
                 project={p}
                 number={String(i + 1).padStart(2, "0")}
                 total={String(heroProjects.length).padStart(2, "0")}
+                index={i}
               />
             ))}
             <ArchiveWall />
