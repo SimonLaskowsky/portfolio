@@ -1,9 +1,6 @@
 "use client";
 
 import type { HeroProject } from "@/content";
-import StationHotspot from "./StationHotspot";
-import Monitor from "./Monitor";
-import RegistrationMarks from "./RegistrationMarks";
 
 type Props = {
   project: HeroProject;
@@ -15,90 +12,55 @@ export default function Station({ project, number, total }: Props) {
   return (
     <div
       data-plate={project.id}
-      className="concrete-wash plate-seam ruling-grid relative flex-none w-screen h-auto min-h-screen py-20 md:py-0 md:h-full md:flex md:items-center md:w-[min(140vw,90rem)] bg-ink"
+      className="relative flex-none w-screen md:w-[min(100vw,80rem)] h-auto min-h-screen md:h-full bg-ink overflow-hidden"
     >
-      <div className="relative z-[1] w-full md:h-full flex flex-col md:flex-row gap-6 px-6 md:px-10 md:py-[9vh]">
-        {/* Wall */}
-        <div className="relative flex-1 md:h-full min-h-[60vh] md:min-h-0 aspect-[4/3] md:aspect-auto overflow-hidden bg-graphite">
-          <RegistrationMarks />
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={project.wall.src}
-            alt={project.wall.alt}
-            loading="lazy"
-            className="absolute inset-0 w-full h-full object-cover"
-            style={{ objectPosition: project.wall.objectPosition ?? "50% 50%" }}
-          />
-          <div className="absolute inset-x-0 bottom-0 h-[65%] bg-gradient-to-t from-ink/95 via-ink/40 to-transparent pointer-events-none" />
+      {/* Full-bleed image */}
+      <div className="absolute inset-0">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={project.wall.src}
+          alt={project.wall.alt}
+          loading="lazy"
+          className="w-full h-full object-cover"
+          style={{ objectPosition: project.wall.objectPosition ?? "50% 50%" }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/60 to-ink/20" />
+        <div className="absolute inset-0 bg-gradient-to-r from-ink/30 to-transparent" />
+      </div>
 
-          <div
-            className="absolute -top-[0.18em] right-[2%] font-display leading-none pointer-events-none select-none"
-            style={{
-              fontSize: "clamp(12rem, 28vw, 26rem)",
-              fontWeight: 900,
-              letterSpacing: "-0.06em",
-              color: "#ffffff",
-              mixBlendMode: "difference",
-              opacity: 0.95,
-            }}
-          >
-            {number}
-          </div>
-
-          <div className="absolute left-6 right-6 bottom-7 md:bottom-10">
-            <div className="font-mono text-[10px] uppercase tracking-brutal text-bone/70 mb-3">
-              {project.year} · {project.role}
-            </div>
-            <h2
-              className="font-display leading-[0.9]"
-              style={{
-                fontSize: "clamp(2.5rem, 5vw, 4.5rem)",
-                fontWeight: 800,
-                letterSpacing: "-0.04em",
-                color: "#fff",
-                textShadow:
-                  "0 2px 28px rgba(0,0,0,0.9), 0 1px 2px rgba(0,0,0,0.95)",
-              }}
-            >
-              {project.name}
-            </h2>
-            <div
-              className="font-body font-light text-bone mt-4 max-w-lg text-[clamp(0.95rem,1.2vw,1.1rem)] leading-relaxed"
-              style={{ textShadow: "0 2px 12px rgba(0,0,0,0.85)" }}
-            >
-              {project.tagline}
-            </div>
-          </div>
-
-          {project.hotspots?.map((h, i) => (
-            <StationHotspot key={i} data={h} index={i} />
-          ))}
+      {/* Content — top clears nav bar, bottom clears FloorHud */}
+      <div className="relative h-full flex flex-col justify-between px-10 md:px-16 pt-24 pb-16 md:pt-20 md:pb-[12vh]">
+        {/* Top row */}
+        <div className="flex items-start justify-between">
+          <span className="font-mono text-[9px] tracking-brutal text-bone/40">
+            {number} / {total}
+          </span>
+          <span className="font-mono text-[9px] uppercase tracking-brutal text-bone/30">
+            {project.year}
+          </span>
         </div>
 
-        {/* Right column: monitor + glass pinboard */}
-        <div className="w-full md:w-[32rem] md:max-w-[38vw] md:h-full flex flex-col gap-6">
-          <div className="relative">
-            <RegistrationMarks />
-            <Monitor monitor={project.monitor} label={project.link.label} />
+        {/* Main content */}
+        <div className="max-w-2xl">
+          <div className="font-mono text-[9px] uppercase tracking-brutal text-bone/45 mb-5">
+            {project.role}
           </div>
-          <div className="relative md:flex-1 md:min-h-0 glass p-5 flex flex-col gap-4 overflow-hidden">
-            <RegistrationMarks />
-            <div className="flex items-baseline justify-between">
-              <div className="font-mono text-[10px] uppercase tracking-brutal text-bone/70">
-                Pinboard
-              </div>
-              <div className="font-mono text-[10px] tracking-brutal text-bone/40 tabular-nums">
-                {number} / {total}
-              </div>
-            </div>
-            <p className="font-body text-sm text-bone/85 leading-relaxed">
-              {project.summary}
-            </p>
-            <div className="flex flex-wrap gap-2 md:mt-auto">
+          <h2
+            className="font-sans leading-[0.9] tracking-[-0.04em] text-bone"
+            style={{ fontSize: "clamp(3rem, 7vw, 6rem)", fontWeight: 600 }}
+          >
+            {project.name}
+          </h2>
+          <p className="mt-5 max-w-lg text-[1rem] text-bone/60 leading-relaxed">
+            {project.summary}
+          </p>
+
+          <div className="mt-8 flex items-center justify-between gap-6">
+            <div className="flex flex-wrap gap-x-4 gap-y-1">
               {project.tech.map((t) => (
                 <span
                   key={t}
-                  className="font-mono text-[10px] uppercase tracking-brutal border border-bone/15 px-2 py-1 text-bone/70"
+                  className="font-mono text-[9px] uppercase tracking-brutal text-bone/35"
                 >
                   {t}
                 </span>
@@ -108,11 +70,9 @@ export default function Station({ project, number, total }: Props) {
               href={project.link.href}
               target="_blank"
               rel="noopener noreferrer"
-              data-cursor="hover"
-              className="flex items-center justify-between border border-bone/25 hover:border-bone hover:bg-white/5 px-4 py-3 font-mono text-[10px] uppercase tracking-brutal text-bone transition-colors"
+              className="shrink-0 font-mono text-[10px] uppercase tracking-brutal text-bone/60 hover:text-bone transition-colors"
             >
-              <span>Visit {project.link.label}</span>
-              <span>↗</span>
+              {project.link.label} ↗
             </a>
           </div>
         </div>

@@ -8,7 +8,7 @@ export const about: AboutDesk = {
     "Primarily React, Next.js, TypeScript, GSAP. Comfortable with Vue, Node, and design in Figma when the project calls for it.",
     "Based in Poland. Currently open to new work.",
   ],
-  photo: "/img/me.jpg",
+  photo: "/img/photo.jpg",
   items: [
     {
       id: "notebook",

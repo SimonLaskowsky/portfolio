@@ -1,64 +1,120 @@
 "use client";
 
+import { heroProjects, archive } from "@/content";
+import type { SectionId } from "@/content";
+import TypedLine from "@/components/TypedLine";
+import LocalTime from "@/components/LocalTime";
+
 type Props = {
-  onEnter: () => void;
+  onJump: (id: SectionId) => void;
 };
 
-export default function Entrance({ onEnter }: Props) {
+export default function Entrance({ onJump }: Props) {
   return (
     <div
       data-plate="entrance"
-      className="concrete-wash plate-seam ruling-grid relative flex-none min-h-screen md:h-full w-screen flex flex-col justify-center py-24 md:py-28 pl-6 pr-[8vw] md:pl-14 bg-ink overflow-hidden"
+      className="relative flex-none w-screen min-h-screen md:h-full flex flex-col md:flex-row bg-ink"
     >
-      <div className="relative max-w-[65rem] z-10">
-        <div className="font-mono text-[10px] uppercase tracking-brutal text-bone/60 mb-6 flex items-center gap-3">
-          <span className="h-px w-6 bg-bone/30" />
-          <span>PLT.01 / ENT</span>
-          <span className="text-bone/30">·</span>
-          <span className="text-bone/55">Enter the workshop</span>
-        </div>
+      {/* ── Left: intro ── */}
+      <div className="flex-1 flex flex-col justify-center px-10 md:px-16 pt-28 pb-16 md:py-20 border-b md:border-b-0 md:border-r border-bone/8">
+        <p className="font-mono text-[9px] uppercase tracking-brutal text-bone/30 mb-10">
+          Laskowski.studio · 2026
+        </p>
+
         <h1
-          className="font-display leading-[0.88]"
-          style={{
-            fontSize: "clamp(3rem, 9vw, 8rem)",
-            fontWeight: 800,
-            letterSpacing: "-0.045em",
-          }}
+          className="font-sans leading-[0.9] tracking-[-0.04em] text-bone"
+          style={{ fontSize: "clamp(2.8rem, 5.5vw, 5.5rem)", fontWeight: 600 }}
         >
           A studio
           <br />
           of one.
-          <br />
-          <span className="font-light text-bone/60">Walk the floor.</span>
         </h1>
-        <p className="font-body font-light text-bone/70 mt-10 max-w-xl text-[clamp(0.95rem,1.3vw,1.15rem)] leading-relaxed">
-          Laskowski.studio is Szymon Laskowski, building web experiences that
-          treat the page as a space. Scroll down — the floor unfolds to the
-          right. Each workstation is a project; each chip is a detail worth
-          clicking.
-        </p>
-        <div className="mt-10 flex items-center gap-5 font-mono text-[10px] uppercase tracking-brutal">
-          <button
-            onClick={onEnter}
-            data-cursor="hover"
-            className="border border-bone/30 hover:border-bone hover:bg-white/5 px-5 py-3 text-bone transition-colors"
-          >
-            Walk the floor →
-          </button>
-          <a
-            href="mailto:hello@laskowski.studio"
-            data-cursor="hover"
-            className="text-bone/55 hover:text-bone transition-colors"
-          >
-            or write directly
-          </a>
+
+        <div className="mt-5">
+          <TypedLine />
         </div>
+
+        <p className="mt-6 max-w-xs text-[0.93rem] text-bone/45 leading-relaxed">
+          Szymon Laskowski — building web experiences for people who care about
+          the details.
+        </p>
+
+        {/* Status strip */}
+        <div className="mt-9 flex flex-col gap-2 font-mono text-[9px] uppercase tracking-brutal">
+          <div className="flex items-center gap-2">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0" />
+            <span className="text-bone/50">Available for work</span>
+          </div>
+          <span className="text-bone/22 pl-3.5"><LocalTime /></span>
+        </div>
+
+        <a
+          href="mailto:hello@laskowski.studio"
+          className="mt-10 w-fit font-mono text-[9px] uppercase tracking-brutal text-bone/40 hover:text-bone transition-colors border-b border-bone/12 hover:border-bone pb-px"
+        >
+          hello@laskowski.studio
+        </a>
       </div>
 
-      <div className="absolute bottom-8 left-6 md:left-14 flex items-center gap-3 font-mono text-[10px] uppercase tracking-brutal text-bone/40 z-10">
-        <span>Scroll down</span>
-        <div className="h-[1px] w-10 bg-bone/30" />
-        <span>Travel right</span>
+      {/* ── Right: project index ── */}
+      <div className="flex-1 flex flex-col justify-center px-10 md:px-14 pb-20 pt-10 md:py-20">
+        <p className="font-mono text-[9px] uppercase tracking-brutal text-bone/25 mb-1">
+          Selected work
+        </p>
+        <ul>
+          {heroProjects.map((p, i) => (
+            <li key={p.id} className="border-b border-bone/8 last:border-b-0">
+              <button
+                onClick={() => onJump(p.id)}
+                className="group w-full flex items-baseline gap-4 py-4 text-left"
+              >
+                <span className="font-mono text-[8px] text-bone/22 shrink-0 w-4 tabular-nums">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <span className="flex-1 font-sans text-[0.95rem] font-medium tracking-tight text-bone/65 group-hover:text-bone transition-colors">
+                  {p.name}
+                </span>
+                <span className="font-mono text-[8px] text-bone/25 shrink-0">
+                  {p.year}
+                </span>
+                <span className="font-mono text-[9px] text-bone/18 group-hover:text-bone/60 transition-colors shrink-0">
+                  ↗
+                </span>
+              </button>
+            </li>
+          ))}
+        </ul>
+
+        <p className="font-mono text-[9px] uppercase tracking-brutal text-bone/18 mt-8 mb-1">
+          Archive
+        </p>
+        <ul>
+          {archive.map((item) => (
+            <li key={item.id} className="border-b border-bone/6 last:border-b-0">
+              <a
+                href={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-baseline gap-4 py-3.5"
+              >
+                <span className="flex-1 font-sans text-[0.88rem] font-medium tracking-tight text-bone/35 group-hover:text-bone/65 transition-colors">
+                  {item.name}
+                </span>
+                <span className="font-mono text-[8px] text-bone/18 group-hover:text-bone/40 transition-colors shrink-0">
+                  ↗
+                </span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      {/* Scroll cue — sits above the FloorHud bar */}
+      <div className="absolute bottom-14 left-10 md:left-16 flex items-center gap-3">
+        <div className="w-px h-5 bg-bone/25" />
+        <span className="font-mono text-[9px] uppercase tracking-brutal text-bone/35">
+          Scroll to explore
+        </span>
       </div>
     </div>
   );

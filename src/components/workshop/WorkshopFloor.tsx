@@ -15,14 +15,12 @@ import Shelf from "./Shelf";
 import Desk from "./Desk";
 import Exit from "./Exit";
 import FloorHud from "./FloorHud";
-import SerifSpine from "./SerifSpine";
 
 const DESKTOP_MIN_WIDTH = 900;
 
 export default function WorkshopFloor() {
   const sectionRef = useRef<HTMLElement>(null);
   const stripRef = useRef<HTMLDivElement>(null);
-  // Raw measured strip height. Derived sectionHeight is isDesktop ? measured : 0.
   const [measuredHeight, setMeasuredHeight] = useState(0);
   const [offset, setOffset] = useState(0);
   const [progress, setProgress] = useState(0);
@@ -130,19 +128,19 @@ export default function WorkshopFloor() {
   if (!isDesktop) {
     return (
       <>
-        <header className="sticky top-0 z-40 flex items-center justify-between px-5 py-3 bg-ink/85 backdrop-blur-md border-b border-concrete/10">
-          <div className="tracking-brutal text-[10px] uppercase text-moss-glow">
+        <header className="sticky top-0 z-40 flex items-center justify-between px-8 py-4 bg-ink/90 backdrop-blur-sm border-b border-bone/8">
+          <div className="font-mono tracking-brutal text-[10px] uppercase text-bone/60">
             Laskowski.studio
           </div>
           <a
             href="mailto:hello@laskowski.studio"
-            className="tracking-brutal text-[10px] uppercase text-concrete/80 hover:text-moss-glow"
+            className="font-mono tracking-brutal text-[10px] uppercase text-bone/40 hover:text-bone/70 transition-colors"
           >
             Contact
           </a>
         </header>
         <main className="flex flex-col">
-          <Entrance onEnter={() => jumpTo("coprzeszlo")} />
+          <Entrance onJump={jumpTo} />
           {heroProjects.map((p, i) => (
             <Station
               key={p.id}
@@ -168,41 +166,32 @@ export default function WorkshopFloor() {
       style={{ height: sectionHeight ? `${sectionHeight}px` : "100vh" }}
     >
       <div className="sticky top-0 h-screen w-full overflow-hidden">
-        <div
-          className="absolute top-6 left-6 md:top-8 md:left-10 z-30 tracking-brutal text-[11px] uppercase text-concrete/80"
-          style={{ mixBlendMode: "difference", color: "#fff" }}
-        >
-          Laskowski.studio
-          <br />
-          <span className="text-concrete/60">Portfolio · 2026</span>
+        {/* Nav */}
+        <div className="absolute top-0 left-0 right-0 z-30 flex items-center justify-between px-10 md:px-16 py-6 border-b border-bone/8">
+          <div className="font-mono tracking-brutal text-[10px] uppercase text-bone/50">
+            Laskowski.studio
+          </div>
+          <nav className="flex gap-6 font-mono tracking-brutal text-[10px] uppercase">
+            <button
+              onClick={() => jumpTo("coprzeszlo")}
+              className="text-bone/40 hover:text-bone transition-colors"
+            >
+              Work
+            </button>
+            <button
+              onClick={() => jumpTo("desk")}
+              className="text-bone/40 hover:text-bone transition-colors"
+            >
+              About
+            </button>
+            <a
+              href="mailto:hello@laskowski.studio"
+              className="text-bone/40 hover:text-bone transition-colors"
+            >
+              Contact
+            </a>
+          </nav>
         </div>
-
-        <nav
-          className="absolute top-6 right-6 md:top-8 md:right-10 z-30 flex gap-5 tracking-brutal text-[11px] uppercase"
-          style={{ mixBlendMode: "difference", color: "#fff" }}
-        >
-          <button
-            data-cursor="hover"
-            onClick={() => jumpTo("coprzeszlo")}
-            className="hover:text-moss-glow transition-colors"
-          >
-            Work
-          </button>
-          <button
-            data-cursor="hover"
-            onClick={() => jumpTo("desk")}
-            className="hover:text-moss-glow transition-colors"
-          >
-            About
-          </button>
-          <a
-            data-cursor="hover"
-            href="mailto:hello@laskowski.studio"
-            className="hover:text-moss-glow transition-colors"
-          >
-            Contact
-          </a>
-        </nav>
 
         <div className="absolute inset-0">
           <div
@@ -210,7 +199,7 @@ export default function WorkshopFloor() {
             className="h-full flex items-stretch will-change-transform"
             style={{ transform: `translate3d(${-offset}px, 0, 0)` }}
           >
-            <Entrance onEnter={() => jumpTo("coprzeszlo")} />
+            <Entrance onJump={jumpTo} />
             {heroProjects.map((p, i) => (
               <Station
                 key={p.id}
@@ -223,14 +212,10 @@ export default function WorkshopFloor() {
             <Shelf />
             <Desk />
             <Exit />
-            {/* Trailing spacer — extends the strip so Exit can scroll past
-                the 33% focus point. Sized so Exit lands roughly centered
-                at max scroll; too much and Exit bleeds off the left edge. */}
             <div aria-hidden className="flex-none w-[40vw]" />
           </div>
         </div>
 
-        <SerifSpine activeId={activeId} />
         <FloorHud
           activeId={activeId}
           progress={progress}

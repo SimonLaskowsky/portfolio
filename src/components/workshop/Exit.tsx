@@ -1,81 +1,79 @@
 "use client";
 
+const MAILTO =
+  "mailto:hello@laskowski.studio" +
+  "?subject=Let%27s%20work%20together" +
+  "&body=Hi%20Szymon%2C%0A%0AI%27d%20like%20to%20talk%20about%20a%20project.%0A%0A";
+
 export default function Exit() {
   return (
     <div
       data-plate="exit"
-      className="concrete-wash plate-seam ruling-grid relative flex-none w-screen md:w-[min(80vw,52rem)] min-h-screen md:h-full flex flex-col justify-center px-6 md:px-14 py-20 md:py-[14vh] bg-ink overflow-hidden"
+      className="relative flex-none w-screen md:w-[min(70vw,52rem)] min-h-screen md:h-full flex flex-col justify-center px-10 md:px-16 pt-20 pb-20 md:pt-[12vh] md:pb-[14vh] bg-ink overflow-hidden"
     >
-      <div className="relative z-10">
-        <div className="font-mono text-[10px] uppercase tracking-brutal text-bone/60 mb-4 flex items-center gap-3">
-          <span className="h-px w-6 bg-bone/30" />
-          <span>PLT.08 / OUT</span>
-          <span className="text-bone/30">·</span>
-          <span className="text-bone/55">Let&apos;s build</span>
-        </div>
+      <div>
+        <p className="font-mono text-[10px] uppercase tracking-brutal text-bone/35 mb-8">
+          Contact
+        </p>
         <h2
-          className="font-display leading-[0.88]"
-          style={{
-            fontSize: "clamp(3rem, 7vw, 6.5rem)",
-            fontWeight: 800,
-            letterSpacing: "-0.045em",
-          }}
+          className="font-sans leading-[1] tracking-[-0.04em] text-bone"
+          style={{ fontSize: "clamp(2.5rem, 6vw, 5.5rem)", fontWeight: 600 }}
         >
           Have something
           <br />
-          <span className="font-light text-bone/55">worth making?</span>
+          <span className="text-bone/30 font-light">worth making?</span>
         </h2>
-        <p className="font-body font-light text-bone/75 mt-6 max-w-lg text-lg leading-relaxed">
-          I take on a handful of projects a year. If yours needs weight,
-          shadow, and restraint — let&apos;s talk.
+        <p className="mt-6 max-w-sm text-[0.95rem] text-bone/45 leading-relaxed">
+          I take on a handful of projects a year. If yours needs weight, shadow,
+          and restraint — let&apos;s talk.
         </p>
 
-        <div className="mt-12 flex flex-col gap-5 font-mono text-[10px] uppercase tracking-brutal">
-          <a
-            href="mailto:hello@laskowski.studio"
-            data-cursor="hover"
-            className="group flex items-center justify-between glass hover:bg-white/10 px-5 py-4 text-bone transition-colors w-[22rem] max-w-full"
-          >
-            <span>hello@laskowski.studio</span>
-            <span className="text-bone/50 group-hover:text-bone">→</span>
-          </a>
-
-          <div className="flex gap-6 text-bone/60">
-            <a
-              href="https://github.com/SimonLaskowsky"
-              target="_blank"
-              rel="noopener noreferrer"
-              data-cursor="hover"
-              className="hover:text-bone transition-colors"
-            >
-              GitHub
-            </a>
-            <a
-              href="https://www.linkedin.com/in/szymon-laskowski-5b866920a/"
-              target="_blank"
-              rel="noopener noreferrer"
-              data-cursor="hover"
-              className="hover:text-bone transition-colors"
-            >
-              LinkedIn
-            </a>
-            <a
-              href="https://github.com/SimonLaskowsky/interiors"
-              target="_blank"
-              rel="noopener noreferrer"
-              data-cursor="hover"
-              className="hover:text-bone transition-colors"
-            >
-              Latest work
-            </a>
+        {/* Prepared email card */}
+        <a
+          href={MAILTO}
+          className="group mt-10 flex flex-col gap-3 border border-bone/12 hover:border-bone/30 px-5 py-4 transition-colors max-w-sm"
+        >
+          <div className="flex items-center justify-between">
+            <span className="font-mono text-[9px] uppercase tracking-brutal text-bone/35 group-hover:text-bone/60 transition-colors">
+              To: hello@laskowski.studio
+            </span>
+            <span className="font-mono text-[9px] text-bone/25 group-hover:text-bone/50 transition-colors">
+              ↗
+            </span>
           </div>
+          <div className="font-mono text-[9px] uppercase tracking-brutal text-bone/25">
+            Subject: Let&apos;s work together
+          </div>
+          <div className="border-t border-bone/8 pt-3 text-[0.82rem] text-bone/35 leading-relaxed group-hover:text-bone/50 transition-colors">
+            Hi Szymon, I&apos;d like to talk about a project...
+          </div>
+          <div className="mt-1 font-mono text-[9px] uppercase tracking-brutal text-bone/22 group-hover:text-bone/45 transition-colors">
+            Click to open in mail →
+          </div>
+        </a>
+
+        <div className="flex gap-5 mt-7 font-mono text-[9px] uppercase tracking-brutal text-bone/25">
+          <a
+            href="https://github.com/SimonLaskowsky"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-bone/55 transition-colors"
+          >
+            GitHub
+          </a>
+          <a
+            href="https://www.linkedin.com/in/szymon-laskowski-5b866920a/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-bone/55 transition-colors"
+          >
+            LinkedIn
+          </a>
         </div>
       </div>
 
-      {/* Colophon pinned to the plate bottom, not the inner content wrapper,
-          so it never stacks on top of the social links. */}
-      <div className="absolute bottom-6 left-6 md:bottom-10 md:left-14 font-mono text-[10px] uppercase tracking-brutal text-bone/25">
-        End of floor · © 2026 Laskowski.studio
+      <div className="absolute bottom-14 left-10 md:left-16 font-mono text-[9px] uppercase tracking-brutal text-bone/15">
+        © 2026 Laskowski.studio
       </div>
     </div>
   );
