@@ -22,7 +22,7 @@ export default function ArchiveWall() {
         </h2>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {archive.map((item) => (
           <a
             key={item.id}
@@ -42,11 +42,18 @@ export default function ArchiveWall() {
             </div>
             <div className="pt-3 flex items-start justify-between gap-4">
               <div>
-                <div className="font-sans font-semibold text-sm tracking-tight text-bone">
+                <div className="font-mono text-[10px] uppercase tracking-brutal text-bone">
                   {item.name}
                 </div>
-                <div className="text-xs text-bone/40 mt-0.5 leading-relaxed line-clamp-1">
+                <div className="font-mono text-[9px] text-bone/40 mt-1 leading-relaxed line-clamp-1 tracking-wide">
                   {item.summary}
+                </div>
+                <div className="flex flex-wrap gap-x-3 mt-2">
+                  {item.tech.map((t) => (
+                    <span key={t} className="font-mono text-[8px] uppercase tracking-brutal text-bone/30">
+                      {t}
+                    </span>
+                  ))}
                 </div>
               </div>
               <span className="text-bone/25 group-hover:text-bone transition-colors font-mono text-sm shrink-0">
