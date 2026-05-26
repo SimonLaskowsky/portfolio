@@ -35,7 +35,7 @@ export default function Station({ project, number, total }: Props) {
           <span className="font-mono text-[9px] tracking-brutal text-bone/40">
             {number} / {total}
           </span>
-          <span className="font-mono text-[9px] uppercase tracking-brutal text-bone/30">
+          <span className="font-mono text-[9px] uppercase tracking-brutal text-bone/45">
             {project.year}
           </span>
         </div>

@@ -4,7 +4,7 @@ const ilezostanie: HeroProject = {
   id: "ilezostanie",
   name: "Ile Zostanie",
   tagline: "What's actually left after taxes?",
-  year: "2025",
+  year: "JAN 2026",
   role: "Design · Engineering",
   wall: {
     src: "/img/ile-zostanie.png",

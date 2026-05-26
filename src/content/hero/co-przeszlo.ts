@@ -4,7 +4,7 @@ const coprzeszlo: HeroProject = {
   id: "coprzeszlo",
   name: "Co Przeszło",
   tagline: "Polish legislation, in plain language.",
-  year: "2026",
+  year: "APR 2025",
   role: "Design · Engineering",
   wall: {
     src: "/img/co-sie-dzieje.png",
