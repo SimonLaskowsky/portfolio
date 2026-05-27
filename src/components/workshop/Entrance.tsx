@@ -18,7 +18,7 @@ export default function Entrance({ onJump }: Props) {
       {/* ── Left: intro ── */}
       <div className="flex-1 flex flex-col justify-center px-10 md:px-16 pt-28 pb-16 md:py-20 border-b md:border-b-0 md:border-r border-bone/8">
         <p className="font-mono text-[9px] uppercase tracking-brutal text-bone/30 mb-10">
-          Laskowski.studio · 2026
+          szymonlaskowski.pl · 2026
         </p>
 
         <h1
@@ -49,10 +49,10 @@ export default function Entrance({ onJump }: Props) {
         </div>
 
         <a
-          href="mailto:hello@laskowski.studio"
+          href="mailto:hello@szymonlaskowski.pl"
           className="mt-10 w-fit font-mono text-[9px] uppercase tracking-brutal text-bone/40 hover:text-bone transition-colors border-b border-bone/12 hover:border-bone pb-px"
         >
-          hello@laskowski.studio
+          hello@szymonlaskowski.pl
         </a>
       </div>
 

@@ -15,6 +15,7 @@ import Shelf from "./Shelf";
 import Desk from "./Desk";
 import Exit from "./Exit";
 import FloorHud from "./FloorHud";
+import Link from "next/link";
 
 const DESKTOP_MIN_WIDTH = 900;
 
@@ -129,11 +130,11 @@ export default function WorkshopFloor() {
     return (
       <>
         <header className="sticky top-0 z-40 flex items-center justify-between px-8 py-4 bg-ink/90 backdrop-blur-sm border-b border-bone/8">
-          <div className="font-mono tracking-brutal text-[10px] uppercase text-bone/60">
-            Laskowski.studio
-          </div>
+          <Link href="/" className="font-mono tracking-brutal text-[10px] uppercase text-bone/60 hover:text-bone/90 transition-colors">
+            szymonlaskowski.pl
+          </Link>
           <a
-            href="mailto:hello@laskowski.studio"
+            href="mailto:hello@szymonlaskowski.pl"
             className="font-mono tracking-brutal text-[10px] uppercase text-bone/40 hover:text-bone/70 transition-colors"
           >
             Contact
@@ -168,9 +169,9 @@ export default function WorkshopFloor() {
       <div className="sticky top-0 h-screen w-full overflow-hidden">
         {/* Nav */}
         <div className="absolute top-0 left-0 right-0 z-30 flex items-center justify-between px-10 md:px-16 py-6 border-b border-bone/8">
-          <div className="font-mono tracking-brutal text-[10px] uppercase text-bone/50">
-            Laskowski.studio
-          </div>
+          <Link href="/" className="font-mono tracking-brutal text-[10px] uppercase text-bone/50 hover:text-bone/90 transition-colors">
+            szymonlaskowski.pl
+          </Link>
           <nav className="flex gap-6 font-mono tracking-brutal text-[10px] uppercase">
             <button
               onClick={() => jumpTo("coprzeszlo")}
@@ -185,7 +186,7 @@ export default function WorkshopFloor() {
               About
             </button>
             <a
-              href="mailto:hello@laskowski.studio"
+              href="mailto:hello@szymonlaskowski.pl"
               className="uppercase text-bone/40 hover:text-bone transition-colors"
             >
               Contact

@@ -69,7 +69,7 @@ export default function BootSequence() {
         className="absolute top-6 left-6 font-mono text-[10px] uppercase tracking-brutal text-bone/55"
         style={{ animation: "boot-dropin 0.5s 0.1s ease-out both" }}
       >
-        Laskowski.studio
+        szymonlaskowski.pl
         <br />
         Floor Plan · 01:12
       </div>

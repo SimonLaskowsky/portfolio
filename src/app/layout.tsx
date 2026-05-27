@@ -20,32 +20,32 @@ const bodoniModa = Bodoni_Moda({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://laskowski.studio"),
+  metadataBase: new URL("https://szymonlaskowski.pl"),
   title: {
-    default: "Laskowski.studio — Szymon Laskowski",
-    template: "%s · Laskowski.studio",
+    default: "szymonlaskowski.pl — Szymon Laskowski",
+    template: "%s · szymonlaskowski.pl",
   },
   description:
     "Studio by Szymon Laskowski. Editorial web, quiet detail. Walk the floor.",
   openGraph: {
-    title: "Laskowski.studio — Szymon Laskowski",
+    title: "szymonlaskowski.pl — Szymon Laskowski",
     description:
       "Studio by Szymon Laskowski. Editorial web, quiet detail. Walk the floor.",
-    url: "https://laskowski.studio",
-    siteName: "Laskowski.studio",
+    url: "https://szymonlaskowski.pl",
+    siteName: "szymonlaskowski.pl",
     locale: "en_US",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Laskowski.studio — Szymon Laskowski",
+    title: "szymonlaskowski.pl — Szymon Laskowski",
     description:
       "Editorial web, quiet detail. A studio of one, run by Szymon Laskowski.",
   },
   keywords: [
     "Szymon Laskowski",
     "Simon Laskowski",
-    "Laskowski.studio",
+    "szymonlaskowski.pl",
     "front-end developer",
     "web design Poland",
     "Next.js developer",
