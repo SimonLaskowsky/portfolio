@@ -175,13 +175,13 @@ export default function WorkshopFloor() {
           <nav className="flex gap-6 font-mono tracking-brutal text-[10px] uppercase">
             <button
               onClick={() => jumpTo("coprzeszlo")}
-              className="uppercase text-bone/40 hover:text-bone transition-colors"
+              className="uppercase text-bone/40 hover:text-bone transition-colors cursor-pointer"
             >
               Work
             </button>
             <button
               onClick={() => jumpTo("desk")}
-              className="uppercase text-bone/40 hover:text-bone transition-colors"
+              className="uppercase text-bone/40 hover:text-bone transition-colors cursor-pointer"
             >
               About
             </button>
