@@ -1,5 +1,4 @@
 import coprzeszlo from "./co-przeszlo";
-import ilezostanie from "./ile-zostanie";
 import rynkoradar from "./rynkoradar";
 
 // Order here controls the order of hero stations on the workshop floor.
@@ -7,6 +6,5 @@ import rynkoradar from "./rynkoradar";
 // array.
 export const heroProjects = [
   coprzeszlo,
-  ilezostanie,
   rynkoradar,
 ];

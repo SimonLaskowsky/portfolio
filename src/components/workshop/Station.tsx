@@ -24,8 +24,8 @@ export default function Station({ project, number, total }: Props) {
           className="w-full h-full object-cover"
           style={{ objectPosition: project.wall.objectPosition ?? "50% 50%" }}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/60 to-ink/20" />
-        <div className="absolute inset-0 bg-gradient-to-r from-ink/30 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/75 to-ink/35" />
+        <div className="absolute inset-0 bg-gradient-to-r from-ink/50 to-transparent" />
       </div>
 
       {/* Content — top clears nav bar, bottom clears FloorHud */}
@@ -42,7 +42,7 @@ export default function Station({ project, number, total }: Props) {
 
         {/* Main content */}
         <div className="max-w-2xl">
-          <div className="font-mono text-[9px] uppercase tracking-brutal text-bone/45 mb-5">
+          <div className="font-mono text-[9px] uppercase tracking-brutal text-bone/55 mb-5">
             {project.role}
           </div>
           <h2
@@ -51,7 +51,7 @@ export default function Station({ project, number, total }: Props) {
           >
             {project.name}
           </h2>
-          <p className="mt-5 max-w-lg text-[1rem] text-bone/60 leading-relaxed">
+          <p className="mt-5 max-w-lg text-[1rem] text-bone/75 leading-relaxed">
             {project.summary}
           </p>
 
