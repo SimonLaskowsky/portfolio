@@ -17,11 +17,11 @@ export default function Exit() {
         </p>
         <h2
           className="font-sans leading-[1] tracking-[-0.04em] text-bone"
-          style={{ fontSize: "clamp(2.5rem, 6vw, 5.5rem)", fontWeight: 600 }}
+          style={{ fontSize: "clamp(2.5rem, 6vw, 5.5rem)", fontWeight: 700 }}
         >
           Have something
           <br />
-          <span className="text-bone/30 font-light">worth making?</span>
+          <span className="text-bone/35 font-normal">worth making?</span>
         </h2>
         <p className="mt-6 max-w-sm text-[0.95rem] text-bone/45 leading-relaxed">
           I take on a handful of projects a year. If yours needs weight, shadow,
@@ -31,7 +31,7 @@ export default function Exit() {
         {/* Prepared email card */}
         <a
           href={MAILTO}
-          className="group mt-10 flex flex-col gap-3 border border-bone/12 hover:border-bone/30 px-5 py-4 transition-colors max-w-sm"
+          className="surface surface-hover group mt-10 flex flex-col gap-3 px-5 py-4 max-w-sm"
         >
           <div className="flex items-center justify-between">
             <span className="font-mono text-[9px] uppercase tracking-brutal text-bone/35 group-hover:text-bone/60 transition-colors">
@@ -52,12 +52,12 @@ export default function Exit() {
           </div>
         </a>
 
-        <div className="flex gap-5 mt-7 font-mono text-[9px] uppercase tracking-brutal text-bone/25">
+        <div className="flex flex-wrap gap-3 mt-7">
           <a
             href="https://github.com/SimonLaskowsky"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-bone/55 transition-colors"
+            className="btn btn-ghost !py-1.5 !px-3.5 !text-[10px] tracking-brutal uppercase font-mono"
           >
             GitHub
           </a>
@@ -65,7 +65,7 @@ export default function Exit() {
             href="https://www.linkedin.com/in/szymon-laskowski-5b866920a/"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-bone/55 transition-colors"
+            className="btn btn-ghost !py-1.5 !px-3.5 !text-[10px] tracking-brutal uppercase font-mono"
           >
             LinkedIn
           </a>

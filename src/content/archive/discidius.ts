@@ -3,6 +3,7 @@ import type { ArchiveItem } from "../types";
 const discidius: ArchiveItem = {
   id: "discidius",
   name: "Discidius",
+  at: "Software Things",
   summary:
     "Telecommunication analytics platform. Data viz for network performance monitoring.",
   tech: ["Next.js"],

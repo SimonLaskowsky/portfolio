@@ -168,11 +168,14 @@ export default function WorkshopFloor() {
     >
       <div className="sticky top-0 h-screen w-full overflow-hidden">
         {/* Nav */}
-        <div className="absolute top-0 left-0 right-0 z-30 flex items-center justify-between px-10 md:px-16 py-6 border-b border-bone/8">
-          <Link href="/" className="font-mono tracking-brutal text-[10px] uppercase text-bone/50 hover:text-bone/90 transition-colors">
+        <div className="absolute top-0 left-0 right-0 z-30 flex items-center justify-between px-10 md:px-16 py-5">
+          <Link
+            href="/"
+            className="font-mono tracking-brutal text-[10px] uppercase text-bone/50 hover:text-bone/90 transition-colors"
+          >
             szymonlaskowski.pl
           </Link>
-          <nav className="flex gap-6 font-mono tracking-brutal text-[10px] uppercase">
+          <nav className="flex items-center gap-6 font-mono tracking-brutal text-[10px] uppercase">
             <button
               onClick={() => jumpTo("coprzeszlo")}
               className="uppercase text-bone/40 hover:text-bone transition-colors cursor-pointer"
@@ -187,7 +190,7 @@ export default function WorkshopFloor() {
             </button>
             <a
               href="mailto:hello@szymonlaskowski.pl"
-              className="uppercase text-bone/40 hover:text-bone transition-colors"
+              className="btn btn-ghost !py-1.5 !px-3.5 !text-[10px] tracking-brutal uppercase font-mono"
             >
               Contact
             </a>

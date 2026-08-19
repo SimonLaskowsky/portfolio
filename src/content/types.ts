@@ -17,6 +17,9 @@ export type HeroProject = {
   year: string;
   role: string;
   wall: { src: string; alt: string; objectPosition?: string };
+  /* Ambient glow behind the station. Any CSS colour; pulled from the
+     project's own palette. Falls back to a neutral wash. */
+  accent?: string;
   monitor: Monitor;
   hotspots?: StationHotspot[];
   summary: string;
@@ -27,6 +30,9 @@ export type HeroProject = {
 export type ArchiveItem = {
   id: string;
   name: string;
+  /* Employer the work was done for. Marks the item as client work
+     rather than a personal product. */
+  at: string;
   summary: string;
   tech: string[];
   thumbnail: string;

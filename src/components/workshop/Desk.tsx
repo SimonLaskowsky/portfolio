@@ -9,7 +9,7 @@ export default function Desk() {
       className="relative flex-none w-screen md:w-[min(110vw,72rem)] md:h-full flex flex-col md:flex-row md:items-center gap-12 px-10 md:px-16 pt-20 pb-20 md:pt-[12vh] md:pb-[14vh] bg-ink overflow-hidden"
     >
       {/* Photo */}
-      <div className="relative w-40 md:w-48 aspect-[3/4] overflow-hidden shrink-0 bg-graphite">
+      <div className="relative w-40 md:w-56 aspect-[3/4] rounded-2xl overflow-hidden shrink-0 bg-graphite border border-bone/10 shadow-[0_40px_90px_-30px_rgba(0,0,0,0.9)]">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={about.photo}
@@ -25,8 +25,8 @@ export default function Desk() {
           About
         </p>
         <h2
-          className="font-sans leading-[1] tracking-[-0.03em] text-bone"
-          style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)", fontWeight: 600 }}
+          className="font-sans leading-[1] tracking-[-0.04em] text-bone"
+          style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)", fontWeight: 700 }}
         >
           {about.name}
         </h2>
@@ -45,7 +45,7 @@ export default function Desk() {
               href={l.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-bone/45 hover:text-bone transition-colors border-b border-bone/15 hover:border-bone pb-px"
+              className="btn btn-ghost !py-1.5 !px-3.5 !text-[10px] tracking-brutal uppercase font-mono"
             >
               {l.label}
             </a>

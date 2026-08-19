@@ -7,14 +7,15 @@ const coprzeszlo: HeroProject = {
   year: "APR 2025",
   role: "Design · Engineering",
   wall: {
-    src: "/img/co-sie-dzieje.png",
-    alt: "Co Przeszło — Polish legal acts platform",
-    objectPosition: "50% 20%",
+    src: "/img/co-przeszlo.png",
+    alt: "Co Przeszło, Polish legal acts platform",
+    objectPosition: "50% 0%",
   },
-  monitor: { kind: "image", src: "/img/co-sie-dzieje.png" },
+  accent: "#7a2b24",
+  monitor: { kind: "image", src: "/img/co-przeszlo.png" },
   summary:
     "AI-assisted reader for Polish legal acts. Transforms dense statutes into understandable briefings, tracks parliamentary voting, and surfaces the politics behind the text.",
-  tech: ["Next.js", "TypeScript", "AI/LLM", "Tailwind"],
+  tech: ["Next.js", "TypeScript", "Python", "Prisma", "Anthropic API"],
   link: { label: "coprzeszlo.pl", href: "https://coprzeszlo.pl/" },
   hotspots: [
     {
@@ -22,7 +23,7 @@ const coprzeszlo: HeroProject = {
       y: 0.42,
       title: "AI briefing",
       detail:
-        "Every legal act is summarized by an LLM tuned on Polish legal language.",
+        "A Python pipeline pulls each act, splits it with LangChain and summarizes it through the Anthropic API in Polish legal language.",
     },
     {
       x: 0.72,

@@ -66,3 +66,100 @@ body {
 .tracking-brutal {
   letter-spacing: 0.12em;
 }
+
+/* ── Surfaces ─────────────────────────────────────────────
+   One card look, one chip look, one button look. Reused by
+   every section so the floor reads as a single system. */
+
+.surface {
+  border: 1px solid rgba(242, 239, 232, 0.09);
+  border-radius: 1rem;
+  background: linear-gradient(
+    180deg,
+    rgba(242, 239, 232, 0.055) 0%,
+    rgba(242, 239, 232, 0.015) 100%
+  );
+  transition:
+    border-color 0.35s ease,
+    transform 0.35s ease,
+    background 0.35s ease;
+}
+
+.surface-hover:hover {
+  border-color: rgba(242, 239, 232, 0.22);
+  transform: translateY(-3px);
+  background: linear-gradient(
+    180deg,
+    rgba(242, 239, 232, 0.09) 0%,
+    rgba(242, 239, 232, 0.025) 100%
+  );
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 9999px;
+  border: 1px solid rgba(242, 239, 232, 0.12);
+  background: rgba(242, 239, 232, 0.045);
+  padding: 0.2rem 0.6rem;
+  font-size: 0.6875rem;
+  line-height: 1.4;
+  letter-spacing: 0.005em;
+  color: rgba(242, 239, 232, 0.62);
+  white-space: nowrap;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 9999px;
+  padding: 0.6rem 1.15rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.btn-solid {
+  background: var(--bone);
+  color: var(--ink);
+}
+.btn-solid:hover {
+  background: var(--white);
+  transform: translateY(-1px);
+}
+
+.btn-ghost {
+  border: 1px solid rgba(242, 239, 232, 0.16);
+  color: rgba(242, 239, 232, 0.72);
+}
+.btn-ghost:hover {
+  border-color: rgba(242, 239, 232, 0.4);
+  color: var(--bone);
+  transform: translateY(-1px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .surface-hover:hover,
+  .btn:hover {
+    transform: none;
+  }
+}
+
+/* Chip variants that say who the work was for. */
+.chip-own {
+  border-color: rgba(52, 211, 153, 0.28);
+  background: rgba(52, 211, 153, 0.1);
+  color: rgba(167, 243, 208, 0.85);
+}
+
+.chip-client {
+  border-color: rgba(242, 239, 232, 0.22);
+  background: rgba(242, 239, 232, 0.1);
+  color: rgba(242, 239, 232, 0.8);
+}

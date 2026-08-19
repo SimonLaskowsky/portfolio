@@ -3,6 +3,7 @@ import type { ArchiveItem } from "../types";
 const mateuszSocha: ArchiveItem = {
   id: "mateuszsocha",
   name: "Mateusz Socha",
+  at: "Software Things",
   summary:
     "Official site for a Polish stand-up comedian. Ticket sales, video archive, newsletter — editorial brutalist aesthetic.",
   tech: ["WordPress"],
