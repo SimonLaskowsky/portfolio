@@ -56,8 +56,8 @@ export default function Entrance({ onJump }: Props) {
         </p>
 
         <div className="mt-10 flex flex-wrap items-center gap-3">
-          <a href="mailto:hello@szymonlaskowski.pl" className="btn btn-solid">
-            hello@szymonlaskowski.pl
+          <a href="mailto:szymlas61@gmail.com" className="btn btn-solid">
+            szymlas61@gmail.com
           </a>
           <button
             onClick={() => onJump("coprzeszlo")}

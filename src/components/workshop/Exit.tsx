@@ -1,7 +1,7 @@
 "use client";
 
 const MAILTO =
-  "mailto:hello@szymonlaskowski.pl" +
+  "mailto:szymlas61@gmail.com" +
   "?subject=Let%27s%20work%20together" +
   "&body=Hi%20Szymon%2C%0A%0AI%27d%20like%20to%20talk%20about%20a%20project.%0A%0A";
 
@@ -35,7 +35,7 @@ export default function Exit() {
         >
           <div className="flex items-center justify-between">
             <span className="font-mono text-[9px] uppercase tracking-brutal text-bone/35 group-hover:text-bone/60 transition-colors">
-              To: hello@szymonlaskowski.pl
+              To: szymlas61@gmail.com
             </span>
             <span className="font-mono text-[9px] text-bone/25 group-hover:text-bone/50 transition-colors">
               ↗

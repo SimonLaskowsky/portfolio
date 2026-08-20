@@ -134,7 +134,7 @@ export default function WorkshopFloor() {
             szymonlaskowski.pl
           </Link>
           <a
-            href="mailto:hello@szymonlaskowski.pl"
+            href="mailto:szymlas61@gmail.com"
             className="font-mono tracking-brutal text-[10px] uppercase text-bone/40 hover:text-bone/70 transition-colors"
           >
             Contact
@@ -189,7 +189,7 @@ export default function WorkshopFloor() {
               About
             </button>
             <a
-              href="mailto:hello@szymonlaskowski.pl"
+              href="mailto:szymlas61@gmail.com"
               className="btn btn-ghost !py-1.5 !px-3.5 !text-[10px] tracking-brutal uppercase font-mono"
             >
               Contact
